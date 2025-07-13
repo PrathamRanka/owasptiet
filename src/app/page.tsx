@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { useLenis } from "@/lib/useLenis";
 import { SplineSceneBasic } from "@/components/demo";
 import { GooeyTextDemo } from "@/components/incoming-loader";
-import { FluidBackground } from "@/backgrounds/fluids"; 
 import { Analytics } from "@vercel/analytics/next";
 
 export default function HomePage() { 
