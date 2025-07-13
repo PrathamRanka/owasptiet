@@ -1,13 +1,14 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import { useLenis } from '@/lib/useLenis'
-import { SplineSceneBasic } from '@/components/demo'
-import { GooeyTextDemo } from '@/components/incoming-loader'
+import React, { useState } from "react";
+import { useLenis } from "@/lib/useLenis";
+import { SplineSceneBasic } from "@/components/demo";
+import { GooeyTextDemo } from "@/components/incoming-loader";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function HomePage() {
-  useLenis()
-  const [loaded, setLoaded] = useState(false)
+  useLenis();
+  const [loaded, setLoaded] = useState(false);
 
   return (
     <>
@@ -17,6 +18,7 @@ export default function HomePage() {
           <SplineSceneBasic />
         </div>
       )}
+      <Analytics />{" "}
     </>
-  )
+  );
 }
