@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Search,
   Code,
   Shield,
   Users,
@@ -50,7 +49,7 @@ const timelineData = [
     category: "Mission",
     icon: Shield,
     relatedIds: [1, 3],
-    status: "in-progress" as const,
+    status: "pending" as const,
     energy: 90,
   },
   {
@@ -62,7 +61,7 @@ const timelineData = [
     category: "Mission",
     icon: Code,
     relatedIds: [2, 4],
-    status: "in-progress" as const,
+    status: "pending" as const,
     energy: 85,
   },
   {
@@ -146,6 +145,4 @@ export function RadialOrbitalTimelineDemo() {
   );
 }
 
-export default {
-  RadialOrbitalTimelineDemo,
-};
+export default RadialOrbitalTimelineDemo;
