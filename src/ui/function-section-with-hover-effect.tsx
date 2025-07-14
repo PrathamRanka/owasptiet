@@ -70,7 +70,7 @@ export function FeaturesSectionWithHoverEffects() {
             ENTER THE ARENA
           </h2>
           <p className="mt-6 text-lg text-neutral-300 max-w-3xl mx-auto leading-relaxed">
-            OWASP Thapar is not just about security it is a playground for hackers, a launchpad for devs, and a haven for the curious. Here's a taste of what we do.
+            OWASP Thapar is not just about security it is a playground for hackers, a launchpad for devs, and a haven for the curious. Here is a taste of what we do.
           </p>
         </div>
 
