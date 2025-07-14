@@ -73,6 +73,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
         <motion.div
           initial="initial"
           animate="animate"
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           variants={floatingAnimation as any}
           className={cn(
             "flex flex-row gap-2 p-3 sm:p-2 rounded-2xl",
