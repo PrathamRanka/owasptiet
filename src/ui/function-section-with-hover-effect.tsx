@@ -63,14 +63,14 @@ export function FeaturesSectionWithHoverEffects() {
   ];
 
   return (
-    <div className="min-h-screen w-screen flex flex-col justify-center -mt-24 pb-24 sm:pb-32"> {/* ⬅ shift upward */}
-      <div className="relative z-10 py-20 px-8 sm:px-16 lg:px-24 max-w-7xl mx-auto w-full">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.3)] font-['Orbitron'] uppercase">
-            ENTER THE ARENA
+    <section className="w-full min-h-screen py-24 px-6 sm:px-10 md:px-16 lg:px-24 overflow-x-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight font-['Orbitron'] uppercase">
+            Enter The Arena
           </h2>
-          <p className="mt-6 text-lg text-neutral-300 max-w-3xl mx-auto leading-relaxed">
-            OWASP Thapar is not just about security it is a playground for hackers, a launchpad for devs, and a haven for the curious. Here is a taste of what we do.
+          <p className="mt-6 text-base sm:text-lg text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+            OWASP Thapar is not just about security—it’s a playground for hackers, a launchpad for devs, and a haven for the curious. Here’s a taste of what we do.
           </p>
         </div>
 
@@ -80,10 +80,9 @@ export function FeaturesSectionWithHoverEffects() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
-
 
 const Feature = ({
   title,
@@ -110,16 +109,16 @@ const Feature = ({
       {index >= 4 && (
         <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100/5 dark:from-neutral-800 to-transparent pointer-events-none" />
       )}
-      <div className="mb-4 relative z-10 px-10 text-blue-400 group-hover/feature:text-white transition-colors duration-200">
+      <div className="mb-4 relative z-10 px-6 sm:px-8 text-blue-400 group-hover/feature:text-white transition-colors duration-200 text-2xl">
         {icon}
       </div>
-      <div className="text-xl font-semibold mb-3 relative z-10 px-10">
+      <div className="text-lg sm:text-xl font-semibold mb-3 relative z-10 px-6 sm:px-8">
         <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-blue-700 group-hover/feature:bg-cyan-400 transition-all duration-200 origin-center" />
         <span className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-white">
           {title}
         </span>
       </div>
-      <p className="text-sm text-neutral-300 max-w-xs relative z-10 px-10 leading-relaxed">
+      <p className="text-sm sm:text-base text-neutral-300 max-w-xs relative z-10 px-6 sm:px-8 leading-relaxed">
         {description}
       </p>
     </div>

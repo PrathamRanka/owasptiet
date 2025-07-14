@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import FeaturesSectionWithHoverEffectsDemo  from "@/components/feature-section";
 import ComponentDemo from "@/components/scroll-section";
 import { ScopedBodyStyle } from "@/components/ScopedBodyStyle"; 
+import { ThreeDPhotoCarouselDemo } from "@/components/company-carousel";
 
 export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
@@ -20,6 +21,7 @@ export default function HomePage() {
             <ComponentDemo />
           </ScopedBodyStyle>
           <FeaturesSectionWithHoverEffectsDemo />
+          <ThreeDPhotoCarouselDemo />
         </div>
       )}
       <Analytics />
