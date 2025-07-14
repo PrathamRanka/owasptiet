@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { SplineSceneBasic } from "@/components/demo";
 import { GooeyTextDemo } from "@/components/incoming-loader";
 import { Analytics } from "@vercel/analytics/next";
-import { RadialOrbitalTimelineDemo } from "@/components/timeline";
+import FeaturesSectionWithHoverEffectsDemo  from "@/components/feature-section";
 import ComponentDemo from "@/components/scroll-section";
-import { ScopedBodyStyle } from "@/components/ScopedBodyStyle"; // <- import the wrapper
+import { ScopedBodyStyle } from "@/components/ScopedBodyStyle"; 
 
 export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
@@ -16,10 +16,10 @@ export default function HomePage() {
       {loaded && (
         <div className="relative min-h-screen w-full">
           <SplineSceneBasic />
-          <RadialOrbitalTimelineDemo />
           <ScopedBodyStyle>
             <ComponentDemo />
           </ScopedBodyStyle>
+          <FeaturesSectionWithHoverEffectsDemo />
         </div>
       )}
       <Analytics />
