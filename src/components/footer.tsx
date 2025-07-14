@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <main className="text-foreground">
       {/* Main Content */}
-      <div className="h-screen flex items-center justify-center px-4">
+      <div className="h-screen flex items-center justify-center px-4 -mt-48 md:-mt-20">
         <div className="text-center">
           <h2 className="text-white font-serif font-extrabold tracking-tight text-[9vw] md:text-[5vw] leading-tight mb-4">
             “Talk is cheap. Show me the code.”
