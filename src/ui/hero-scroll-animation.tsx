@@ -1,21 +1,21 @@
-"use client";
+"use client"
 
-import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
-import React, { useRef } from "react";
-import { useMediaQuery } from "usehooks-ts";
-import { StarsBackground } from "@/ui/stars-background";
-import { ShootingStars } from "@/ui/shooting-stars";
-import { Feature } from "@/ui/feature-section-with-bento-grid";
-import { Globe } from "@/ui/globe";
+import { useScroll, useTransform, motion, MotionValue } from "framer-motion"
+import React, { useRef } from "react"
+import { useSafeMediaQuery } from "@/hooks/useSafeMediaQuery" // 👈 update path as needed
+import { StarsBackground } from "@/ui/stars-background"
+import { ShootingStars } from "@/ui/shooting-stars"
+import { Feature } from "@/ui/feature-section-with-bento-grid"
+import { Globe } from "@/ui/globe"
 
 interface SectionProps {
-  scrollYProgress: MotionValue<number>;
-  isMobile: boolean;
+  scrollYProgress: MotionValue<number>
+  isMobile: boolean
 }
 
 const Section1: React.FC<SectionProps> = ({ scrollYProgress, isMobile }) => {
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8])
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, -5])
 
   return (
     <motion.section
@@ -36,8 +36,7 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress, isMobile }) => {
           </h1>
 
           <p className="text-sm sm:text-lg md:text-xl text-slate-300 font-['Rubik_Burned']">
-            From one secure node to another, OWASP is spinning across the globe—
-            protecting, building, evolving.
+            From one secure node to another, OWASP is spinning across the globe—protecting, building, evolving.
           </p>
 
           <div className="pt-2 sm:pt-4">
@@ -53,12 +52,12 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress, isMobile }) => {
         </div>
       </div>
     </motion.section>
-  );
-};
+  )
+}
 
 const Section2: React.FC<SectionProps> = ({ scrollYProgress, isMobile }) => {
-  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [5, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1])
+  const rotate = useTransform(scrollYProgress, [0, 1], [5, 0])
 
   return (
     <motion.section
@@ -69,16 +68,16 @@ const Section2: React.FC<SectionProps> = ({ scrollYProgress, isMobile }) => {
         <Feature />
       </article>
     </motion.section>
-  );
-};
+  )
+}
 
 const Component: React.FC = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)");
-  const container = useRef<HTMLDivElement>(null);
+  const isMobile = useSafeMediaQuery("(max-width: 768px)")
+  const container = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
-  });
+  })
 
   return (
     <>
@@ -95,7 +94,7 @@ const Component: React.FC = () => {
         <Section2 scrollYProgress={scrollYProgress} isMobile={isMobile} />
       </main>
     </>
-  );
-};
+  )
+}
 
-export default Component;
+export default Component
