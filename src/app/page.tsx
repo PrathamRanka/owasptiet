@@ -7,6 +7,7 @@ import FeaturesSectionWithHoverEffectsDemo  from "@/components/feature-section";
 import ComponentDemo from "@/components/scroll-section";
 import { ScopedBodyStyle } from "@/components/ScopedBodyStyle"; 
 import { ThreeDPhotoCarouselDemo } from "@/components/company-carousel";
+import { Footer } from "@/components/footer";
 
 export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
@@ -22,6 +23,7 @@ export default function HomePage() {
           </ScopedBodyStyle>
           <FeaturesSectionWithHoverEffectsDemo />
           <ThreeDPhotoCarouselDemo />
+          <Footer />
         </div>
       )}
       <Analytics />
