@@ -4,17 +4,10 @@ import createGlobe, { COBEOptions } from "cobe"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 
-type GlobeState = {
-  phi: number
-  width: number
-  height: number
-  [key: string]: number
-}
-
 const GLOBE_CONFIG: COBEOptions = {
-  width: 1, // temporary, overridden in runtime
+  width: 1,
   height: 1,
-  onRender: () => {},
+  onRender: () => {}, // will be replaced dynamically
 
   devicePixelRatio: 2,
   phi: 0,
@@ -27,7 +20,7 @@ const GLOBE_CONFIG: COBEOptions = {
   markerColor: [251 / 255, 100 / 255, 21 / 255],
   glowColor: [1, 1, 1],
   markers: [
-    { location: [30.3400, 76.3800], size: 0.06 },
+    { location: [30.34, 76.38], size: 0.06 },
     { location: [28.6139, 77.2090], size: 0.08 },
     { location: [19.0760, 72.8777], size: 0.10 },
     { location: [13.0827, 80.2707], size: 0.09 },
@@ -38,7 +31,7 @@ const GLOBE_CONFIG: COBEOptions = {
     { location: [40.7128, -74.0060], size: 0.10 },
     { location: [51.5074, -0.1278], size: 0.08 },
     { location: [48.8566, 2.3522], size: 0.08 },
-    { location: [52.5200, 13.4050], size: 0.08 },
+    { location: [52.52, 13.4050], size: 0.08 },
     { location: [35.6895, 139.6917], size: 0.08 },
     { location: [1.3521, 103.8198], size: 0.08 },
     { location: [43.6532, -79.3832], size: 0.08 },
@@ -57,46 +50,45 @@ export function Globe({
   config?: COBEOptions
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const pointerInteracting = useRef<number | null>(null)
-  const pointerInteractionMovement = useRef(0)
-  const [r, setR] = useState(0)
-  const [width, setWidth] = useState(0)
   const phiRef = useRef(0)
+  const pointerStart = useRef<number | null>(null)
+  const pointerDelta = useRef(0)
 
-  const updatePointerInteraction = (value: number | null) => {
-    pointerInteracting.current = value
+  const [rotationOffset, setRotationOffset] = useState(0)
+  const [size, setSize] = useState(0)
+
+  const updatePointerStart = (value: number | null) => {
+    pointerStart.current = value
     if (canvasRef.current) {
       canvasRef.current.style.cursor = value !== null ? "grabbing" : "grab"
     }
   }
 
-  const updateMovement = (clientX: number) => {
-    if (pointerInteracting.current !== null) {
-      const delta = clientX - pointerInteracting.current
-      pointerInteractionMovement.current = delta
-      setR(delta / 200)
+  const handlePointerMove = (clientX: number) => {
+    if (pointerStart.current !== null) {
+      const delta = clientX - pointerStart.current
+      pointerDelta.current = delta
+      setRotationOffset(delta / 200)
     }
   }
 
   const onResize = () => {
     if (canvasRef.current) {
-      setWidth(canvasRef.current.offsetWidth)
+      setSize(canvasRef.current.offsetWidth)
     }
   }
 
   const onRender = useCallback(
-  (state: Record<string, any>) => {
-    const typedState = state as GlobeState;
-    if (pointerInteracting.current === null) {
-      phiRef.current += 0.005;
-    }
-    typedState.phi = phiRef.current + r;
-    typedState.width = width * 2;
-    typedState.height = width * 2;
-  },
-  [r, width]
-);
-
+    (state: Record<string, number>) => {
+      if (pointerStart.current === null) {
+        phiRef.current += 0.005
+      }
+      state.phi = phiRef.current + rotationOffset
+      state.width = size * 2
+      state.height = size * 2
+    },
+    [rotationOffset, size]
+  )
 
   useEffect(() => {
     onResize()
@@ -104,24 +96,22 @@ export function Globe({
 
     const globe = createGlobe(canvasRef.current!, {
       ...config,
-      width: width * 2,
-      height: width * 2,
+      width: size * 2,
+      height: size * 2,
       onRender,
     })
 
     const canvas = canvasRef.current
     if (canvas) {
       canvas.style.opacity = "0"
-      setTimeout(() => {
-        if (canvas) canvas.style.opacity = "1"
-      }, 300)
+      setTimeout(() => (canvas.style.opacity = "1"), 300)
     }
 
     return () => {
       window.removeEventListener("resize", onResize)
       globe.destroy()
     }
-  }, [config, onRender, width])
+  }, [config, onRender, size])
 
   return (
     <div
@@ -139,15 +129,13 @@ export function Globe({
           "bg-transparent"
         )}
         onPointerDown={(e) =>
-          updatePointerInteraction(
-            e.clientX - pointerInteractionMovement.current
-          )
+          updatePointerStart(e.clientX - pointerDelta.current)
         }
-        onPointerUp={() => updatePointerInteraction(null)}
-        onPointerOut={() => updatePointerInteraction(null)}
-        onMouseMove={(e) => updateMovement(e.clientX)}
+        onPointerUp={() => updatePointerStart(null)}
+        onPointerOut={() => updatePointerStart(null)}
+        onMouseMove={(e) => handlePointerMove(e.clientX)}
         onTouchMove={(e) =>
-          e.touches[0] && updateMovement(e.touches[0].clientX)
+          e.touches[0] && handlePointerMove(e.touches[0].clientX)
         }
       />
     </div>

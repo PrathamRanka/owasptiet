@@ -32,7 +32,7 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress, isMobile }) => {
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white font-['Tilt_Neon'] leading-tight">
             Not Just Here.
             <br />
-            We're Operating Worldwide.
+           Operating Worldwide.
           </h1>
 
           <p className="text-sm sm:text-lg md:text-xl text-slate-300 font-['Rubik_Burned']">
