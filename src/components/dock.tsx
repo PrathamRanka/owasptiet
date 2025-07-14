@@ -1,8 +1,10 @@
 import React from "react"
 import { Home, Globe, Target, Users, Award, CornerDownLeft } from "lucide-react"
 import { Dock } from "@/ui/dock-two"
+import { useRouter } from "next/navigation"
 
 function DockDemo() {
+  const router = useRouter()
   const handleAnchorClick = (id: string) => {
     const el = document.getElementById(id)
     if (el) {
@@ -14,7 +16,7 @@ function DockDemo() {
     { icon: Home, label: "About", onClick: () => handleAnchorClick("about") },
     { icon: Globe, label: "Worldwide Reach", onClick: () => handleAnchorClick("worldwide-reach") },
     { icon: Target, label: "Core Mission", onClick: () => handleAnchorClick("core-mission") },
-    { icon: Users, label: "Team", onClick: () => alert("Add your Team page routing here") }, // placeholder
+    { icon: Users, label: "Team", onClick: () => router.push("/team")  }, // placeholder
     { icon: Award, label: "Sponsors", onClick: () => handleAnchorClick("sponsors") },
     { icon: CornerDownLeft, label: "Footer", onClick: () => handleAnchorClick("footer") },
   ]
