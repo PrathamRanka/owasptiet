@@ -4,10 +4,17 @@ import createGlobe, { COBEOptions } from "cobe"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 
+type GlobeState = {
+  phi: number
+  width: number
+  height: number
+  [key: string]: number
+}
+
 const GLOBE_CONFIG: COBEOptions = {
-    width: 1, // temporary, will be overridden
-  height: 1, // temporary, will be overridden
-  onRender: () => {}, // temporary, will be replaced by actual render callback
+  width: 1, // temporary, overridden in runtime
+  height: 1,
+  onRender: () => {},
 
   devicePixelRatio: 2,
   phi: 0,
@@ -20,29 +27,25 @@ const GLOBE_CONFIG: COBEOptions = {
   markerColor: [251 / 255, 100 / 255, 21 / 255],
   glowColor: [1, 1, 1],
   markers: [
-   { location: [30.3400, 76.3800], size: 0.06 }, // Patiala, Punjab
-    { location: [28.6139, 77.2090], size: 0.08 }, // New Delhi / Noida
-    { location: [19.0760, 72.8777], size: 0.10 }, // Mumbai
-    { location: [13.0827, 80.2707], size: 0.09 }, // Chennai
-
-    // 🌎 Global Chapters (existing)
-    { location: [47.6062, -122.3321], size: 0.10 }, // Seattle
-    { location: [23.8103, 90.4125], size: 0.05 },  // Dhaka
-    { location: [30.0444, 31.2357], size: 0.07 },  // Cairo
-    { location: [-23.5505, -46.6333], size: 0.10 }, // São Paulo
-    { location: [40.7128, -74.0060], size: 0.10 },  // New York
-
-    // 🌍 +10 additional global OWASP chapters
-    { location: [51.5074, -0.1278], size: 0.08 },   // London
-    { location: [48.8566, 2.3522], size: 0.08 },    // Paris
-    { location: [52.5200, 13.4050], size: 0.08 },   // Berlin
-    { location: [35.6895, 139.6917], size: 0.08 },  // Tokyo
-    { location: [1.3521, 103.8198], size: 0.08 },   // Singapore
-    { location: [43.6532, -79.3832], size: 0.08 },  // Toronto
-    { location: [-33.8688, 151.2093], size: 0.08 }, // Sydney
-    { location: [55.7558, 37.6173], size: 0.08 },   // Moscow
-    { location: [41.0082, 28.9784], size: 0.08 },   // Istanbul
-    { location: [-26.2041, 28.0473], size: 0.08 },  // Johannesburg
+    { location: [30.3400, 76.3800], size: 0.06 },
+    { location: [28.6139, 77.2090], size: 0.08 },
+    { location: [19.0760, 72.8777], size: 0.10 },
+    { location: [13.0827, 80.2707], size: 0.09 },
+    { location: [47.6062, -122.3321], size: 0.10 },
+    { location: [23.8103, 90.4125], size: 0.05 },
+    { location: [30.0444, 31.2357], size: 0.07 },
+    { location: [-23.5505, -46.6333], size: 0.10 },
+    { location: [40.7128, -74.0060], size: 0.10 },
+    { location: [51.5074, -0.1278], size: 0.08 },
+    { location: [48.8566, 2.3522], size: 0.08 },
+    { location: [52.5200, 13.4050], size: 0.08 },
+    { location: [35.6895, 139.6917], size: 0.08 },
+    { location: [1.3521, 103.8198], size: 0.08 },
+    { location: [43.6532, -79.3832], size: 0.08 },
+    { location: [-33.8688, 151.2093], size: 0.08 },
+    { location: [55.7558, 37.6173], size: 0.08 },
+    { location: [41.0082, 28.9784], size: 0.08 },
+    { location: [-26.2041, 28.0473], size: 0.08 },
   ],
 }
 
@@ -58,7 +61,7 @@ export function Globe({
   const pointerInteractionMovement = useRef(0)
   const [r, setR] = useState(0)
   const [width, setWidth] = useState(0)
-  let phi = 0
+  const phiRef = useRef(0)
 
   const updatePointerInteraction = (value: number | null) => {
     pointerInteracting.current = value
@@ -82,14 +85,18 @@ export function Globe({
   }
 
   const onRender = useCallback(
-    (state: Record<string, any>) => {
-      if (!pointerInteracting.current) phi += 0.005
-      state.phi = phi + r
-      state.width = width * 2
-      state.height = width * 2
-    },
-    [r, width]
-  )
+  (state: Record<string, any>) => {
+    const typedState = state as GlobeState;
+    if (pointerInteracting.current === null) {
+      phiRef.current += 0.005;
+    }
+    typedState.phi = phiRef.current + r;
+    typedState.width = width * 2;
+    typedState.height = width * 2;
+  },
+  [r, width]
+);
+
 
   useEffect(() => {
     onResize()
@@ -102,9 +109,13 @@ export function Globe({
       onRender,
     })
 
-    setTimeout(() => {
-      if (canvasRef.current) canvasRef.current.style.opacity = "1"
-    }, 300)
+    const canvas = canvasRef.current
+    if (canvas) {
+      canvas.style.opacity = "0"
+      setTimeout(() => {
+        if (canvas) canvas.style.opacity = "1"
+      }, 300)
+    }
 
     return () => {
       window.removeEventListener("resize", onResize)
@@ -116,7 +127,7 @@ export function Globe({
     <div
       className={cn(
         "absolute inset-0 mx-auto aspect-square w-full max-w-[600px]",
-        "bg-transparent", // make sure this is transparent
+        "bg-transparent",
         className
       )}
     >
@@ -125,7 +136,7 @@ export function Globe({
         className={cn(
           "size-full opacity-0 transition-opacity duration-500",
           "[contain:layout_paint_size]",
-          "bg-transparent" // ensures canvas has no fill
+          "bg-transparent"
         )}
         onPointerDown={(e) =>
           updatePointerInteraction(
