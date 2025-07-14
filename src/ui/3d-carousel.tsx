@@ -55,6 +55,7 @@ const Carousel = memo(({ cards }: { cards: string[] }) => {
   const radius = cylinderWidth / (2 * Math.PI);
   const rotation = useMotionValue(0);
   const transform = useTransform(rotation, (v) => `rotate3d(0, 1, 0, ${v}deg)`);
+  Carousel.displayName = "Carousel";
 
   // ✅ Auto-rotate using requestAnimationFrame
   useAnimationFrame((t, delta) => {
