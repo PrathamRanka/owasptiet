@@ -10,7 +10,7 @@ export function GooeyTextDemo({ onComplete }: { onComplete?: () => void }) {
   React.useEffect(() => {
     const timeout = setTimeout(() => {
       setIsVisible(false) // triggers fade out
-    }, 4000) // total loader time
+    }, 4900) // total loader time
 
     return () => clearTimeout(timeout)
   }, [])
@@ -27,7 +27,7 @@ export function GooeyTextDemo({ onComplete }: { onComplete?: () => void }) {
           className="min-h-screen flex items-center justify-center fixed inset-0 z-[1000]"
         >
           <GooeyText
-            texts={['OWASP', 'Society', 'Is', 'Awesome']}
+            texts={['OWASP', 'Society', 'Presents', 'To', 'You']}
             morphTime={1}
             cooldownTime={0.25}
             className="font-bold text-white text-4xl"

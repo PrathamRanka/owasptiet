@@ -36,11 +36,14 @@ export function SplineSceneBasic() {
       return;
     }
 
-    timeout = setTimeout(() => {
-      const nextIndex = isDeleting ? charIndex - 1 : charIndex + 1;
-      setCharIndex(nextIndex);
-      setText(currentPhrase.slice(0, nextIndex));
-    }, isDeleting ? 25 : 70);
+    timeout = setTimeout(
+      () => {
+        const nextIndex = isDeleting ? charIndex - 1 : charIndex + 1;
+        setCharIndex(nextIndex);
+        setText(currentPhrase.slice(0, nextIndex));
+      },
+      isDeleting ? 25 : 70
+    );
 
     return () => clearTimeout(timeout);
   }, [charIndex, isDeleting, phraseIndex]);
@@ -50,14 +53,31 @@ export function SplineSceneBasic() {
       {/* ✨ Backgrounds */}
       <StarsBackground />
       <ShootingStars />
-      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
+      <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      />
 
       {/* 🪪 OWASP Logo */}
-      <img
-        src="/owasp-logo.png"
-        alt="OWASP Logo"
-        className="absolute top-3 left-27 w-40 h-40 object-contain z-30"
-      />
+<div className="absolute top-4 w-full flex justify-center md:justify-start px-4 z-30 pointer-events-none">
+  <img
+    src="/owasp-logo.png"
+    alt="OWASP Logo"
+    className="
+      h-12 
+      sm:h-14 
+      md:h-16 
+      lg:h-20 
+      xl:h-24 
+      object-contain
+    "
+  />
+</div>
+
+
+
+
+
 
       <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 h-full py-20 z-10">
         {/* 🧠 Textual Content */}

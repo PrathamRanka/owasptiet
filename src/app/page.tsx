@@ -5,7 +5,6 @@ import { SplineSceneBasic } from "@/components/demo";
 import { GooeyTextDemo } from "@/components/incoming-loader";
 import { Analytics } from "@vercel/analytics/next";
 import {RadialOrbitalTimelineDemo} from "@/components/timeline";
-
 export default function HomePage() { 
   const [loaded, setLoaded] = useState(false);
 

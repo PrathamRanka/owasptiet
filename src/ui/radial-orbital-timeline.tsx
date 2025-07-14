@@ -158,7 +158,15 @@ export default function RadialOrbitalTimeline({
       ref={containerRef}
       onClick={handleContainerClick}
     >
-       <div className="transform scale-[1.45] origin-center">
+       <div
+  className="
+    origin-center
+    scale-[0.9]
+    sm:scale-[1]
+    md:scale-[1.2]
+    lg:scale-[1.4]"
+>
+
       <div className="relative w-full max-w-4xl h-full flex items-center justify-center">
         <div
           className="absolute w-full h-full flex items-center justify-center"
