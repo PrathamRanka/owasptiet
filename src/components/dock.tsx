@@ -17,7 +17,7 @@ function DockDemo() {
   }
 
   const handleTeamClick = () => {
-    router.push("/team")
+    router.push("/team") 
   }
 
   const items = [
