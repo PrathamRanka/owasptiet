@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import { cn } from "@/lib/utils"
 import { Github, Linkedin } from "lucide-react"
+import Image from "next/image" // ✅ Next.js optimized image
 
 type Card = {
   title: string
@@ -70,16 +71,20 @@ const CardComponent = React.memo(
     setHovered: React.Dispatch<React.SetStateAction<number | null>>
   }) => (
     <div
+      id={card.title.toLowerCase().replace(/\s+/g, "-")} // ✅ ID added
       onMouseEnter={() => setHovered(index)}
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "relative overflow-hidden rounded-xl h-72 md:h-96 width-full transition-all duration-300 ease-out shadow-xl ",
+        "relative overflow-hidden rounded-xl h-72 md:h-96 w-full transition-all duration-300 ease-out shadow-xl",
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
       )}
     >
-      <img
+      <Image
         src={card.src}
         alt={card.title}
+        fill
+        sizes="(max-width: 768px) 100vw, 33vw"
+        priority={false}
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
 

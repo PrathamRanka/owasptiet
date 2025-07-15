@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import { cn } from "@/lib/utils"
 import { Github, Linkedin } from "lucide-react"
+import Image from "next/image" // ✅ Import Next.js Image component
 
 type Card = {
   title: string
@@ -77,9 +78,13 @@ const CardComponent = React.memo(
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
       )}
     >
-      <img
+      {/* ✅ Lazy-loaded and optimized image */}
+      <Image
         src={card.src}
         alt={card.title}
+        fill
+        sizes="(max-width: 768px) 100vw, 33vw"
+        priority={false} // Keep false for lazy
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
 
@@ -129,13 +134,17 @@ export default function CoreCards() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto px-4 w-full">
       {coreTeamCards.map((card, index) => (
-        <CardComponent
+        <div
+          id={card.title.toLowerCase().replace(/\s+/g, "-")}
           key={card.title}
-          card={card}
-          index={index}
-          hovered={hovered}
-          setHovered={setHovered}
-        />
+        >
+          <CardComponent
+            card={card}
+            index={index}
+            hovered={hovered}
+            setHovered={setHovered}
+          />
+        </div>
       ))}
     </div>
   )
