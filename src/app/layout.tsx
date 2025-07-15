@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "OWASP Society",
   description: "OWASP Society is a community-driven platform for security enthusiasts.",
+  icons: {
+    icon: "/owasp-logo.png",
+  },
 };
 
 
