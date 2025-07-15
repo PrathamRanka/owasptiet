@@ -9,9 +9,10 @@ import { ScopedBodyStyle } from "@/components/ScopedBodyStyle";
 import { ThreeDPhotoCarouselDemo } from "@/components/company-carousel";
 import { Footer } from "@/components/footer";
 import { DockDemo } from "@/components/dock";
-
+import { useLenis } from "@/lib/useLenis";
 export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
+useLenis();
 
   return (
     <>
