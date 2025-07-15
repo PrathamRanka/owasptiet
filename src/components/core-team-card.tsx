@@ -49,11 +49,11 @@ const coreTeamCards: Card[] = [
     github: "https://github.com/sanil",
   },
   {
-    title: "Khushi Gupta",
+    title: "Sanchit Thareja",
     designation: "Core",
-    src: "/khushi.jpeg",
-    linkedin: "https://linkedin.com/in/khushi",
-    github: "https://github.com/khushi",
+    src: "/sanchit.jpeg",
+    linkedin: "https://linkedin.com/in",
+    github: "https://github.com",
   },
 ]
 
