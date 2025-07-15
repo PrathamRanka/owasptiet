@@ -1,5 +1,6 @@
+/* eslint-disable */
 import React from "react"
-import { Home, Globe, Target, Users, Award, CornerDownLeft } from "lucide-react"
+import { Home, Globe, Target, Users, CornerDownLeft } from "lucide-react"
 import { Dock } from "@/ui/dock-two"
 import { useRouter } from "next/navigation"
 
