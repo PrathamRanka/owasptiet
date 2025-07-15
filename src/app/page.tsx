@@ -15,27 +15,7 @@ export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
   useLenis();
 
-  // 🛡️ Disable right-click and some devtools shortcuts
-  useEffect(() => {
-    const disableContextMenu = (e: MouseEvent) => e.preventDefault();
-    const disableShortcuts = (e: KeyboardEvent) => {
-      if (
-        e.key === "F12" ||
-        (e.ctrlKey && e.shiftKey && ["I", "C", "J"].includes(e.key)) ||
-        (e.ctrlKey && e.key === "U")
-      ) {
-        e.preventDefault();
-      }
-    };
 
-    document.addEventListener("contextmenu", disableContextMenu);
-    document.addEventListener("keydown", disableShortcuts);
-
-    return () => {
-      document.removeEventListener("contextmenu", disableContextMenu);
-      document.removeEventListener("keydown", disableShortcuts);
-    };
-  }, []);
 
   return (
     <>
