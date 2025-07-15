@@ -6,7 +6,7 @@ import { Home, Globe, Target, Users, CornerDownLeft } from "lucide-react"
 import { Dock } from "@/ui/dock-two"
 import { useRouter } from "next/navigation"
 
-function DockDemo() {
+export default function DockDemo() {
   const router = useRouter()
 
   const handleAnchorClick = (id: string) => {
@@ -31,4 +31,3 @@ function DockDemo() {
   return <Dock items={items} />
 }
 
-export { DockDemo }

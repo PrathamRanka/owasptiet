@@ -15,7 +15,7 @@ const phrases = [
   "Security is a Feature, Not a Patch",
 ];
 
-export function SplineSceneBasic() {
+export default function SplineSceneBasic() {
   const [text, setText] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);

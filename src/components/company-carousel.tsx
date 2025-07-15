@@ -1,6 +1,6 @@
 import { ThreeDPhotoCarousel } from "@/ui/3d-carousel"
 
-export function ThreeDPhotoCarouselDemo() {
+export default function ThreeDPhotoCarouselDemo() {
   return (
     <div className="w-full min-h-screen flex flex-col items-center px-4">
       {/* Manually shift everything down */}

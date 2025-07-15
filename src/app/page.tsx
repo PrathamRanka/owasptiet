@@ -1,15 +1,17 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React, { useState, useEffect } from "react";
-import { SplineSceneBasic } from "@/components/demo";
+import React, { useState} from "react";
 import { GooeyTextDemo } from "@/components/incoming-loader";
 import { Analytics } from "@vercel/analytics/next";
-import FeaturesSectionWithHoverEffectsDemo from "@/components/feature-section";
-import ComponentDemo from "@/components/scroll-section";
-import { ScopedBodyStyle } from "@/components/ScopedBodyStyle";
-import { ThreeDPhotoCarouselDemo } from "@/components/company-carousel";
-import { Footer } from "@/components/footer";
-import { DockDemo } from "@/components/dock";
+import dynamic from "next/dynamic";
 import { useLenis } from "@/lib/useLenis";
+const SplineSceneBasic = dynamic(() => import("@/components/demo"), { ssr: false });
+const FeaturesSectionWithHoverEffectsDemo = dynamic(() => import("@/components/feature-section"), { ssr: false });
+const ComponentDemo = dynamic(() => import("@/components/scroll-section"), { ssr: false });
+const ScopedBodyStyle = dynamic(() => import("@/components/ScopedBodyStyle"), { ssr: false });
+const ThreeDPhotoCarouselDemo = dynamic(() => import("@/components/company-carousel"), { ssr: false });
+const Footer = dynamic(() => import("@/components/footer"), { ssr: false });
+const DockDemo = dynamic(() => import("@/components/dock"), { ssr: false });
 
 export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
@@ -32,7 +34,7 @@ export default function HomePage() {
               <SplineSceneBasic />
             </div>
 
-            {/* Don't add id to ScopedBodyStyle wrapper */}
+          
             <ScopedBodyStyle>
               <div id="worldwide-reach">
                 <ComponentDemo />

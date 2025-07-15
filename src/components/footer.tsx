@@ -1,6 +1,6 @@
 import StickyFooter from "@/ui/footer-ui";
 
-const Footer = () => {
+export default function Footer() {
   return (
     <main className="text-foreground">
       {/* Main Content */}
