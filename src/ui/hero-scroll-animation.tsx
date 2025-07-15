@@ -34,9 +34,10 @@ const Section1: React.FC = () => {
         </div>
 
         {/* GLOBE SECTION */}
-        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md relative z-10 mt-4 md:mt-0">
-          <Globe />
-        </div>
+        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md relative z-10 mt-4 md:mt-0 pointer-events-none">
+  <Globe />
+</div>
+
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SplineSceneBasic } from "@/components/demo";
 import { GooeyTextDemo } from "@/components/incoming-loader";
 import { Analytics } from "@vercel/analytics/next";
@@ -10,9 +10,32 @@ import { ThreeDPhotoCarouselDemo } from "@/components/company-carousel";
 import { Footer } from "@/components/footer";
 import { DockDemo } from "@/components/dock";
 import { useLenis } from "@/lib/useLenis";
+
 export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
-useLenis();
+  useLenis();
+
+  // 🛡️ Disable right-click and some devtools shortcuts
+  useEffect(() => {
+    const disableContextMenu = (e: MouseEvent) => e.preventDefault();
+    const disableShortcuts = (e: KeyboardEvent) => {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I", "C", "J"].includes(e.key)) ||
+        (e.ctrlKey && e.key === "U")
+      ) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener("contextmenu", disableContextMenu);
+    document.addEventListener("keydown", disableShortcuts);
+
+    return () => {
+      document.removeEventListener("contextmenu", disableContextMenu);
+      document.removeEventListener("keydown", disableShortcuts);
+    };
+  }, []);
 
   return (
     <>
