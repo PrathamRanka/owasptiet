@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Button } from "@/ui/button";
 import {
   ShieldCheck,
@@ -14,19 +15,21 @@ function Feature() {
       <div className="container mx-auto">
         <div className="flex flex-col gap-10">
           {/* Header */}
-          <div className="flex gap-4 flex-col items-start">
+          <div className="flex flex-col gap-4 items-center text-center">
             <div>
-              <Badge className="bg-white/10 text-white border border-white/20 backdrop-blur-md">
+              <Badge className="bg-transparent shadow-none backdrop-blur-0 border-none p-0 text-xs sm:text-sm tracking-widest uppercase text-blue-400 font-semibold font-mono">
                 OWASP Workshops
               </Badge>
+
             </div>
-            <div className="flex gap-2 flex-col">
-              <h2 className="text-3xl md:text-5xl tracking-tight font-extrabold text-white drop-shadow">
+            <div className="flex flex-col gap-2">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase font-['Orbitron'] text-white tracking-wide">
                 Explore. Hack. Secure. Learn.
               </h2>
-              <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed text-white/70">
-                Dive deep into security with hands-on workshops—from beginner bugs to secure DevOps pipelines.
-              </p>
+             <p className="text-lg max-w-xl lg:max-w-2xl mx-auto text-center leading-relaxed text-white/70">
+              Workshops that don’t just teach they challenge, break & build.
+            </p>
+
             </div>
           </div>
 
@@ -44,7 +47,7 @@ function Feature() {
                 </p>
                 <Button
                   variant="ghost"
-                  className="text-white w-fit gap-2 p-0 hover:underline hover:text-white/80"
+                  className="text-white w-fit gap-2 p-0 hover:underline hover:text-black"
                 >
                   Register Now <ArrowRight className="w-4 h-4" />
                 </Button>
@@ -63,7 +66,7 @@ function Feature() {
                 </p>
                 <Button
                   variant="ghost"
-                  className="text-white w-fit gap-2 p-0 hover:underline hover:text-white/80"
+                  className="text-white w-fit gap-2 p-0 hover:underline hover:text-black"
                 >
                   Register Now <ArrowRight className="w-4 h-4" />
                 </Button>
@@ -82,7 +85,7 @@ function Feature() {
                 </p>
                 <Button
                   variant="ghost"
-                  className="text-white w-fit gap-2 p-0 hover:underline hover:text-white/80"
+                  className="text-white w-fit gap-2 p-0 hover:text-black hover:underline"
                 >
                   Register Now <ArrowRight className="w-4 h-4" />
                 </Button>
@@ -101,7 +104,7 @@ function Feature() {
                 </p>
                 <Button
                   variant="ghost"
-                  className="text-white w-fit gap-2 p-0 hover:underline hover:text-white/80"
+                  className="text-white w-fit gap-2 p-0 hover:text-black hover:underline"
                 >
                   Register Now <ArrowRight className="w-4 h-4" />
                 </Button>

@@ -17,7 +17,6 @@ function DockDemo() {
     { icon: Globe, label: "Worldwide Reach", onClick: () => handleAnchorClick("worldwide-reach") },
     { icon: Target, label: "Core Mission", onClick: () => handleAnchorClick("core-mission") },
     { icon: Users, label: "Team", onClick: () => router.push("/team")  }, // placeholder
-    { icon: Award, label: "Sponsors", onClick: () => handleAnchorClick("sponsors") },
     { icon: CornerDownLeft, label: "Footer", onClick: () => handleAnchorClick("footer") },
   ]
 

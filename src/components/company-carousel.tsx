@@ -11,7 +11,7 @@ export function ThreeDPhotoCarouselDemo() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase font-['Orbitron'] text-white tracking-wide">
             The Best Are Already Here
           </h1>
-          <p className="mt-6 text-lg sm:text-xl text-neutral-400 font-medium font-mono tracking-tight">
+          <p className="mt-8 text-lg sm:text-xl text-neutral-400 font-medium font-mono tracking-tight">
             Join the cult.
           </p>
         </div>
