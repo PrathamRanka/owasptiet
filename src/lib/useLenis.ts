@@ -1,35 +1,35 @@
-"use client"
+"use client";
 
-import { useEffect } from "react"
-import Lenis from "@studio-freight/lenis"
+import { useEffect } from "react";
+import Lenis from "@studio-freight/lenis";
 
 export const useLenis = () => {
   useEffect(() => {
-    // Check if window is available (for SSR safety)
-    if (typeof window === "undefined") return
+    if (typeof window === "undefined") return;
 
-    // Detect mobile screen
-    const isMobile = window.innerWidth < 768
+    const isMobile = window.innerWidth < 768;
 
-    // Optional: skip Lenis entirely on mobile if needed
-    // if (isMobile) return
+    // Skip Lenis on mobile for better performance
+    if (isMobile) return;
 
     const lenis = new Lenis({
-      duration: isMobile ? 0.7 : 1.2,          // Faster scroll on mobile
-                   // Ensures better mobile behavior
-      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Snappy easing
-    })
+      duration: 1.5, // ⬅️ Slower duration for buttery smoothness
+      easing: (t: number) =>
+        1 - Math.pow(1 - t, 3), // ⬅️ EaseOutCubic: smoother deceleration
+      gestureOrientation: "vertical",
+      smoothWheel: true, // ⬅️ Enables smooth mouse wheels
+      lerp: 0.05, // ⬅️ Lower = smoother interpolation (between 0 and 1)
+    });
 
-    // Scroll animation frame loop
     const raf = (time: number) => {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
 
-    requestAnimationFrame(raf)
+    requestAnimationFrame(raf);
 
     return () => {
-      lenis.destroy()
-    }
-  }, [])
-}
+      lenis.destroy();
+    };
+  }, []);
+};
