@@ -31,7 +31,7 @@ export default function TeamPage() {
       {/* Toggle Switch */}
       <div className="flex justify-center mb-20">
         <div className="relative bg-white/10 backdrop-blur-lg rounded-full px-2 py-1 flex items-center w-[360px]">
-          {["executive", "core"].map((type, i) => {
+          {["executive", "core"].map((type) => {
             const isActive = selected === type
             return (
               <button
