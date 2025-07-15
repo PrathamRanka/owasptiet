@@ -1,4 +1,4 @@
-// pages/feature-demo.tsx or any component
+
 import React from "react";
 import { FeaturesSectionWithHoverEffects } from "@/ui/function-section-with-hover-effect";
 
