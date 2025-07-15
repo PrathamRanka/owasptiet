@@ -73,7 +73,7 @@ const CardComponent = React.memo(
       onMouseEnter={() => setHovered(index)}
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "relative overflow-hidden rounded-xl h-72 md:h-96 w-full transition-all duration-300 ease-out shadow-xl ",
+        "relative overflow-hidden rounded-xl h-72 md:h-96 width-full transition-all duration-300 ease-out shadow-xl ",
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
       )}
     >

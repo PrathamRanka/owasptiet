@@ -1,19 +1,18 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
-import { TeamCards } from "@/components/eb-team-card"
-import CoreCards from "@/components/core-team-card"
-import { motion } from "framer-motion"
-import { ArrowLeft } from "lucide-react"
-import Link from "next/link"
-import { Footer } from "@/components/footer"
+import React, { useState } from "react";
+import { TeamCards } from "@/components/eb-team-card";
+import CoreCards from "@/components/core-team-card";
+import { motion } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import { Footer } from "@/components/footer";
 
 export default function TeamPage() {
-  const [selected, setSelected] = useState<"executive" | "core">("executive")
+  const [selected, setSelected] = useState<"executive" | "core">("executive");
 
   return (
-    <div className="relative h-screen w-full overflow-x-hidden text-white px-6 py-12">
-      {/* Back Button */}
+    <div className="relative min-h-screen w-full overflow-x-hidden text-white px-6 py-12">
       <Link
         href="https://owasptiet.vercel.app"
         className="absolute top-6 left-6 z-50 cursor-pointer hover:opacity-80 transition-opacity duration-200"
@@ -21,18 +20,15 @@ export default function TeamPage() {
         <ArrowLeft className="h-6 w-6 text-white hover:scale-110 transition-transform duration-200" />
       </Link>
 
-      {/* Heading */}
-      <h1 className="text-center text-4xl md:text-7xl font-anton tracking-widest leading-[1.1] mb-20 uppercase">
-          Meet the Team
-        </h1>
+      <h1 className="text-center text-4xl md:text-6xl font-serif font-bold tracking-widest uppercase mb-20">
+  Meet the Team
+</h1>
 
 
-
-      {/* Toggle Switch */}
       <div className="flex justify-center mb-20">
         <div className="relative bg-white/10 backdrop-blur-lg rounded-full px-2 py-1 flex items-center w-[360px]">
           {["executive", "core"].map((type) => {
-            const isActive = selected === type
+            const isActive = selected === type;
             return (
               <button
                 key={type}
@@ -45,10 +41,9 @@ export default function TeamPage() {
               >
                 {type === "executive" ? "Executive Board" : "Core Members"}
               </button>
-            )
+            );
           })}
 
-          {/* Animated Pill */}
           <motion.div
             layout
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -59,7 +54,6 @@ export default function TeamPage() {
         </div>
       </div>
 
-      {/* Team Cards */}
       <div className="container mx-auto px-4">
         {selected === "executive" ? <TeamCards /> : <CoreCards />}
       </div>
@@ -67,5 +61,5 @@ export default function TeamPage() {
       <div className="mt-24" />
       <Footer />
     </div>
-  )
+  );
 }
