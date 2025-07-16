@@ -5,7 +5,6 @@ import { GooeyTextDemo } from "@/components/incoming-loader";
 import { Analytics } from "@vercel/analytics/next";
 import dynamic from "next/dynamic";
 import { LazyWrapper } from "@/components/LazyWrapper";
-import { useLenis } from "@/lib/useLenis";
 const SplineSceneBasic = dynamic(() => import("@/components/demo"), { ssr: false });
 const FeaturesSectionWithHoverEffectsDemo = dynamic(() => import("@/components/feature-section"), { ssr: false });
 const ComponentDemo = dynamic(() => import("@/components/scroll-section"), { ssr: false });
@@ -16,7 +15,7 @@ const DockDemo = dynamic(() => import("@/components/dock"), { ssr: false });
 
 export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
-  useLenis();
+ 
 
 
 
