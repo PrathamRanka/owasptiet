@@ -57,6 +57,13 @@ const coreTeamCards: Card[] = [
     github: "https://github.com",
   },
   {
+    title: "Deepesh Kakkar",
+    designation: "Core",
+    src: "/deepesh.jpg",
+    linkedin: "https://linkedin.com/in",
+    github: "https://github.com",
+  },
+  {
     title: "Akshat",
     designation: "Core",
     src: "/akshat.png",
