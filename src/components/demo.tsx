@@ -7,6 +7,7 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { StarsBackground } from "@/components/ui/stars-background";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import Card from "@/components/ui/card";
+import Image from "next/image";
 
 const phrases = [
   "Open Worldwide Application Security Project",
@@ -53,31 +54,19 @@ export default function SplineSceneBasic() {
       {/* ✨ Backgrounds */}
       <StarsBackground />
       <ShootingStars />
-      <Spotlight
-        className="-top-40 left-0 md:left-60 md:-top-20"
-        fill="white"
-      />
+      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
 
       {/* 🪪 OWASP Logo */}
-<div className="absolute top-4 w-full flex justify-center md:justify-start px-4 z-30 pointer-events-none">
-  <img
-    src="/owasp-logo.png"
-    alt="OWASP Logo"
-    className="
-      h-12 
-      sm:h-14 
-      md:h-16 
-      lg:h-20 
-      xl:h-24 
-      object-contain
-    "
-  />
-</div>
-
-
-
-
-
+      <div className="absolute top-4 w-full flex justify-center md:justify-start px-4 z-30 pointer-events-none">
+        <Image
+          src="/owasp-logo.png"
+          alt="OWASP Logo"
+          width={96}
+          height={96}
+          className="h-12 sm:h-14 md:h-16 lg:h-20 xl:h-24 object-contain w-auto"
+          priority
+        />
+      </div>
 
       <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 h-full py-20 z-10">
         {/* 🧠 Textual Content */}
