@@ -6,12 +6,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-
-  // ✨ Disable legacy browser support for smaller bundles
-  experimental: {
-    legacyBrowsers: false,
-  },
 
   // Optional: You can also enable future Rust-based image handling or turbopack
   // images: {

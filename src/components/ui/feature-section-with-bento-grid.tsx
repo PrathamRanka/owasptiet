@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Button } from "@/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   ShieldCheck,
   BugPlay,
@@ -7,7 +7,7 @@ import {
   Users,
   ArrowRight,
 } from "lucide-react";
-import { Badge } from "@/ui/bento-badge";
+import { Badge } from "@/components/ui/bento-badge";
 
 function Feature() {
   return (

@@ -10,9 +10,9 @@ import {
   User,
 } from "lucide-react";
 
-import RadialOrbitalTimeline from "@/ui/radial-orbital-timeline";
-import { StarsBackground } from "@/ui/stars-background";
-import { ShootingStars } from "@/ui/shooting-stars";
+import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+import { StarsBackground } from "@/components/ui/stars-background";
+import { ShootingStars } from "@/components/ui/shooting-stars";
 import { motion } from "framer-motion";
 
 const timelineData = [

@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { SplineScene } from "@/ui/splite";
-import { Spotlight } from "@/ui/spotlight";
-import { StarsBackground } from "@/ui/stars-background";
-import { ShootingStars } from "@/ui/shooting-stars";
-import Card from "@/ui/card";
+import { SplineScene } from "@/components/ui/splite";
+import { Spotlight } from "@/components/ui/spotlight";
+import { StarsBackground } from "@/components/ui/stars-background";
+import { ShootingStars } from "@/components/ui/shooting-stars";
+import Card from "@/components/ui/card";
 
 const phrases = [
   "Open Worldwide Application Security Project",

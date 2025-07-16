@@ -1,4 +1,4 @@
-import StickyFooter from "@/ui/footer-ui";
+import StickyFooter from "@/components/ui/footer-ui";
 
 export default function Footer() {
   return (
