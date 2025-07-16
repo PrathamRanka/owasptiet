@@ -3,8 +3,8 @@
 import React from "react";
 import { StarsBackground } from "@/components/ui/stars-background";
 import { ShootingStars } from "@/components/ui/shooting-stars";
-import { Feature } from "@/components/ui/feature-section-with-bento-grid";
 import { Globe } from "@/components/ui/globe";
+import { BentoGrid } from "../bento-grid";
 
 const Section1: React.FC = () => {
   return (
@@ -46,9 +46,9 @@ const Section1: React.FC = () => {
 const Section2: React.FC = () => {
   return (
     <section className="relative min-h-screen z-10 bg-transparent">
-      <article className="container mx-auto relative z-10 px-4 py-16">
-        <Feature />
-      </article>
+      <article className="container mx-auto relative z-10 px-4 py-60">
+        <BentoGrid />
+        </article>
     </section>
   );
 };
