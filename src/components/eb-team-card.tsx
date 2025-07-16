@@ -55,8 +55,65 @@ const teamCards: Card[] = [
     src: "/parth.jpeg",
     linkedin: "https://linkedin.com/in/",
     github: "https://github.com/",
-  }
+  },
+  {
+    title: "Ojas",
+    designation: "TECHNICAL SECRETARY",
+    src: "/ojas.jpg",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com/",
+  },
+  {
+    title: "Prashant Kumar",
+    designation: "TECHNICAL SECRETARY",
+    src: "/parshant.png",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com/",
+  },
+  {
+    title: "Ishpuneet Singh",
+    designation: "TECHNICAL SECRETARY",
+    src: "/ishpuneet.jpg",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com/",
+  },
+  {
+    title: "Daanish Mittal",
+    designation: "MANAGEMENT SECRETARY",
+    src: "/Daanish.jpg",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com/",
+  },
+  {
+    title: "Arooshi Sharma",
+    designation: "MANAGEMENT SECRETARY",
+    src: "/arooshi.jpg",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com/",
+  },
+  {
+    title: "Eshitva Goel",
+    designation: "MARKETING SECRETARY",
+    src: "/eshitva.jpg",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com/",
+  },
+  {
+    title: "Pragun",
+    designation: "MEDIA SECRETARY",
+    src: "/pragun.jpg",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com/",
+  },
+  {
+    title: "Paridhi Tayal",
+    designation: "MEDIA SECRETARY",
+    src: "/paridhi.png",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com/",
+  },
 ]
+
 
 const CardComponent = React.memo(
   ({
