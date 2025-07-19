@@ -6,7 +6,7 @@ import CoreCards from "@/components/core-team-card";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { Footer } from "@/components/footer";
+import  Footer  from "@/components/footer";
 
 export default function TeamPage() {
   const [selected, setSelected] = useState<"executive" | "core">("executive");
