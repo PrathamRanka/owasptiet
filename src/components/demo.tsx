@@ -102,7 +102,7 @@ export default function SplineSceneBasic() {
         </div>
 
         {/* 🎥 Spline Scene */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.8, duration: 0.8 }}
@@ -112,7 +112,7 @@ export default function SplineSceneBasic() {
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="w-full h-full"
           />
-        </motion.div>
+        </motion.div>  */}
       </div>
     </Card>
   );
