@@ -10,9 +10,9 @@ import { BentoGrid } from "../bento-grid";
 const Section1: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-transparent">
-      <div className="relative flex flex-col md:flex-row w-full max-w-7xl items-center justify-between px-4 sm:px-6 md:px-16 lg:px-20 py-8 sm:py-12 gap-y-8">
+      <div className="relative flex flex-col md:flex-row w-full max-w-7xl items-center justify-between px-2 sm:px-4 md:px-16 lg:px-20 py-4 sm:py-8 gap-y-6">
         {/* TEXT SECTION */}
-        <div className="flex flex-col text-left z-10 max-w-xl space-y-4 sm:space-y-6">
+        <div className="flex flex-col text-left z-10 max-w-xl space-y-3 sm:space-y-6">
           <span className="text-xs sm:text-sm tracking-widest uppercase text-blue-400 font-semibold font-mono">
             OWASP Global Reach
           </span>
@@ -27,18 +27,17 @@ const Section1: React.FC = () => {
             From one secure node to another, OWASP is spinning across the globe—protecting, building, evolving.
           </p>
 
-          <div className="pt-2 sm:pt-4">
-            <button className="px-5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition font-semibold backdrop-blur">
+          <div className="pt-1 sm:pt-3">
+            <button className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition font-semibold backdrop-blur">
               Explore Our Chapters →
             </button>
           </div>
         </div>
 
         {/* GLOBE SECTION */}
-        {/* <div className="w-full max-w-xs sm:max-w-sm md:max-w-md relative z-10 mt-4 md:mt-0 pointer-events-none">
-  <Globe />
-</div> */}
-
+        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md relative z-10 mt-2 md:mt-0 pointer-events-none">
+          <Globe />
+        </div>
       </div>
     </section>
   );
@@ -47,9 +46,9 @@ const Section1: React.FC = () => {
 const Section2: React.FC = () => {
   return (
     <section className="relative min-h-screen z-10 bg-transparent">
-      <article className="container mx-auto relative z-10 px-4 py-60">
+      <article className="container mx-auto relative z-10 px-2 sm:px-4 py-20 sm:py-40">
         <BentoGrid />
-        </article>
+      </article>
     </section>
   );
 };

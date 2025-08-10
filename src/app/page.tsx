@@ -29,12 +29,12 @@ export default function HomePage() {
             <DockDemo />
           </div>
 
-          <div className="relative min-h-screen w-full">
+          
             <div id="about">
               <LazyWrapper>
                 <SplineSceneBasic />
               </LazyWrapper>
-            </div>
+            
 
             <ScopedBodyStyle>
               <div id="worldwide-reach">

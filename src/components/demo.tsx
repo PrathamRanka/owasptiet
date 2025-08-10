@@ -9,56 +9,35 @@ import { StarsBackground } from "@/components/ui/stars-background";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import Card from "@/components/ui/card";
 import Image from "next/image";
+import { useTypewriter, Cursor } from "react-simple-typewriter";
 
-const phrases = [
-  "Open Worldwide Application Security Project",
-  "Defending the Web, One Line at a Time",
-  "Built by Hackers, Loved by Developers",
-  "Security is a Feature, Not a Patch",
-];
 
 export default function SplineSceneBasic() {
-  const [text, setText] = useState("");
-  const [phraseIndex, setPhraseIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [text] = useTypewriter({
+    words: [
+      "Open Worldwide Application Security Project",
+      "Defending the Web, One Line at a Time",
+      "Built by Hackers, Loved by Developers",
+      "Security is a Feature, Not a Patch",
+    ],
+    loop: 0, // 0 = infinite
+    typeSpeed: 70,
+    deleteSpeed: 25,
+    delaySpeed: 1000,
+  });
 
-  useEffect(() => {
-    const currentPhrase = phrases[phraseIndex];
-    let timeout: ReturnType<typeof setTimeout>;
-
-    if (!isDeleting && charIndex === currentPhrase.length) {
-      timeout = setTimeout(() => setIsDeleting(true), 1000);
-      return () => clearTimeout(timeout);
-    }
-
-    if (isDeleting && charIndex === 0) {
-      setIsDeleting(false);
-      setPhraseIndex((prev) => (prev + 1) % phrases.length);
-      return;
-    }
-
-    timeout = setTimeout(
-      () => {
-        const nextIndex = isDeleting ? charIndex - 1 : charIndex + 1;
-        setCharIndex(nextIndex);
-        setText(currentPhrase.slice(0, nextIndex));
-      },
-      isDeleting ? 25 : 70
-    );
-
-    return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, phraseIndex]);
 
   return (
-    <Card className="w-full min-h-screen bg-black relative overflow-hidden flex items-center justify-center px-4">
+    <Card
+      className="w-full bg-black relative overflow-hidden flex flex-col md:flex-row items-center md:items-center justify-center md:justify-center px-4 pt-60 md:min-h-screen"
+    >
       {/* ✨ Backgrounds */}
       <StarsBackground />
       <ShootingStars />
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
 
       {/* 🪪 OWASP Logo */}
-      <div className="absolute top-4 w-full flex justify-center md:justify-start px-4 z-30 pointer-events-none">
+      <div className="absolute top-2 sm:top-4 w-full flex justify-center md:justify-start px-4 z-30 pointer-events-none">
         <Image
           src="/owasp-logo.png"
           alt="OWASP Logo"
@@ -69,23 +48,23 @@ export default function SplineSceneBasic() {
         />
       </div>
 
-      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 h-full py-20 z-10">
+      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 h-full py-10 sm:py-20 z-10">
         {/* 🧠 Textual Content */}
-        <div className="flex-1 flex flex-col justify-center space-y-8">
+        <div className="flex-1 flex flex-col justify-center space-y-6 sm:space-y-8">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-[Orbitron] font-extrabold uppercase text-white tracking-tight leading-[1.1]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-[Orbitron] font-extrabold uppercase text-white tracking-tight leading-[1.1]"
           >
-            OWASP Society
+            OWASP TIET
           </motion.h1>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-lg sm:text-xl md:text-2xl font-[Unbounded] h-8 text-white tracking-wide"
+            className="text-base sm:text-lg md:text-xl font-[Unbounded] h-7 sm:h-8 text-white tracking-wide"
           >
             {text}
             <span className="animate-pulse">|</span>
@@ -95,7 +74,7 @@ export default function SplineSceneBasic() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-white text-base md:text-lg max-w-xl leading-relaxed tracking-wide font-light text-opacity-80"
+            className="text-white text-sm sm:text-base md:text-lg max-w-xl leading-relaxed tracking-wide font-light text-opacity-80"
           >
             Welcome to OWASP Thapar — a guild for builders, breakers, and
             defenders of the digital realm. Explore. Learn. Lead.
@@ -107,13 +86,13 @@ export default function SplineSceneBasic() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="flex-1 w-full h-[320px] sm:h-[400px] md:h-[500px] lg:h-[600px]"
+          className="flex-1 w-full h-[240px] sm:h-[320px] md:h-[400px] lg:h-[500px] xl:h-[600px]"
         >
           <SplineScene
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="w-full h-full"
           />
-        </motion.div>  */}
+        </motion.div> */}
       </div>
     </Card>
   );
