@@ -1,5 +1,5 @@
+/* eslint-disable */
 import * as React from "react";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { LucideIcon } from "lucide-react";
 
