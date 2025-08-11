@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import { GooeyTextDemo } from "@/components/incoming-loader";
 import { Analytics } from "@vercel/analytics/next";
 import dynamic from "next/dynamic";
 import { LazyWrapper } from "@/components/LazyWrapper";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 const SplineSceneBasic = dynamic(() => import("@/components/demo"), { ssr: false });
 const FeaturesSectionWithHoverEffectsDemo = dynamic(() => import("@/components/feature-section"), { ssr: false });
 const ComponentDemo = dynamic(() => import("@/components/scroll-section"), { ssr: false });
@@ -16,25 +17,47 @@ const DockDemo = dynamic(() => import("@/components/dock"), { ssr: false });
 
 export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
- 
+  const [showLoader, setShowLoader] = useState(false);
 
+  useEffect(() => {
+    const today = new Date().toDateString();
+    const lastSeen = localStorage.getItem("gooeyLastSeen");
+    const sessionSeen = sessionStorage.getItem("gooeySeenThisSession");
 
+    // If already seen in this session → skip instantly
+    if (sessionSeen) {
+      setLoaded(true);
+      return;
+    }
 
- return (
+    // If never seen today → show loader
+    if (!lastSeen || lastSeen !== today) {
+      setShowLoader(true);
+    } else {
+      setLoaded(true);
+    }
+  }, []);
+
+  const handleLoaderComplete = () => {
+    const today = new Date().toDateString();
+    localStorage.setItem("gooeyLastSeen", today); // Remember for the day
+    sessionStorage.setItem("gooeySeenThisSession", "true"); // Skip on refresh
+    setLoaded(true);
+  };
+
+  return (
     <>
-      {!loaded && <GooeyTextDemo onComplete={() => setLoaded(true)} />}
+      {showLoader && !loaded && <GooeyTextDemo onComplete={handleLoaderComplete} />}
       {loaded && (
         <>
           <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
             <DockDemo />
           </div>
 
-          
-            <div id="about">
-              <LazyWrapper>
-                <SplineSceneBasic />
-              </LazyWrapper>
-            
+          <div id="about">
+            <LazyWrapper>
+              <SplineSceneBasic />
+            </LazyWrapper>
 
             <ScopedBodyStyle>
               <div id="worldwide-reach">
