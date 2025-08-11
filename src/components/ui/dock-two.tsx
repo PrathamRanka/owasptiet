@@ -1,22 +1,22 @@
-import * as React from "react"
-import { motion } from "framer-motion"
-import { cn } from "@/lib/utils"
-import { LucideIcon } from "lucide-react"
+import * as React from "react";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { LucideIcon } from "lucide-react";
 
 interface DockProps {
-  className?: string
+  className?: string;
   items: {
-    icon: LucideIcon
-    label: string
-    onClick?: () => void
-  }[]
+    icon: LucideIcon;
+    label: string;
+    onClick?: () => void;
+  }[];
 }
 
 interface DockIconButtonProps {
-  icon: LucideIcon
-  label: string
-  onClick?: () => void
-  className?: string
+  icon: LucideIcon;
+  label: string;
+  onClick?: () => void;
+  className?: string;
 }
 
 const floatingAnimation = {
@@ -29,7 +29,7 @@ const floatingAnimation = {
       ease: [0.42, 0, 0.58, 1],
     },
   },
-} as const
+} as const;
 
 const DockIconButton = React.forwardRef<HTMLButtonElement, DockIconButtonProps>(
   ({ icon: Icon, label, onClick, className }, ref) => {
@@ -45,7 +45,7 @@ const DockIconButton = React.forwardRef<HTMLButtonElement, DockIconButtonProps>(
           className
         )}
       >
-        <Icon className="w-6 h-6 sm:w-5 sm:h-5 text-white" />
+        <Icon className="w-6 h-6 sm:w-5 sm:h-5 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]" />
         <span
           className={cn(
             "absolute -top-8 left-1/2 -translate-x-1/2",
@@ -58,10 +58,10 @@ const DockIconButton = React.forwardRef<HTMLButtonElement, DockIconButtonProps>(
           {label}
         </span>
       </motion.button>
-    )
+    );
   }
-)
-DockIconButton.displayName = "DockIconButton"
+);
+DockIconButton.displayName = "DockIconButton";
 
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
   ({ items, className }, ref) => {
@@ -76,10 +76,13 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           variants={floatingAnimation as any}
           className={cn(
-            "flex flex-row gap-2 p-3 sm:p-2 rounded-2xl",
-            "border border-white/10 shadow-lg",
-            "bg-transparent",
-            "hover:shadow-xl transition-all duration-300",
+            "flex flex-row gap-2 p-3 sm:p-2 rounded-2xl relative",
+            // Black glassmorphism effect
+            "bg-black/30 backdrop-blur-xl",
+            "border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.8)]",
+            // Depth glow
+            "before:absolute before:inset-0 before:rounded-2xl before:border before:border-white/5 before:pointer-events-none",
+            "hover:shadow-[0_8px_40px_rgba(0,0,0,0.5)] transition-all duration-300",
             "w-fit"
           )}
         >
@@ -88,9 +91,9 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
           ))}
         </motion.div>
       </div>
-    )
+    );
   }
-)
-Dock.displayName = "Dock"
+);
+Dock.displayName = "Dock";
 
-export { Dock }
+export { Dock };
