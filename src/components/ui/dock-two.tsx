@@ -40,7 +40,7 @@ const DockIconButton = React.forwardRef<HTMLButtonElement, DockIconButtonProps>(
         whileTap={{ scale: 0.95 }}
         onClick={onClick}
         className={cn(
-          "relative group p-3 sm:p-2 rounded-lg",
+          "relative group p-3 sm:p-2 rounded-lg cursor-none",  // <-- added cursor-none here
           "hover:bg-white/10 transition-colors duration-300",
           className
         )}
@@ -68,7 +68,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     return (
       <div
         ref={ref}
-        className={cn("w-full flex items-center justify-center p-2", className)}
+        className={cn("w-full flex items-center justify-center p-2 cursor-none", className)} // <-- added cursor-none here
       >
         <motion.div
           initial="initial"
@@ -76,7 +76,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           variants={floatingAnimation as any}
           className={cn(
-            "flex flex-row gap-2 p-3 sm:p-2 rounded-2xl relative",
+            "flex flex-row gap-2 p-3 sm:p-2 rounded-2xl relative cursor-none", // <-- added cursor-none here
             // Black glassmorphism effect
             "bg-black/30 backdrop-blur-xl",
             "border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.8)]",

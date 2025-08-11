@@ -52,7 +52,6 @@ const socialVariants = {
   },
 };
 
-
 const footerData = {
   sections: [
     {
@@ -82,7 +81,6 @@ const footerData = {
   copyright: "©2025 OWASP TIET",
 };
 
-
 const NavSection = ({
   title,
   links,
@@ -99,7 +97,7 @@ const NavSection = ({
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
-      className="mb-2 uppercase text-xs font-semibold tracking-wider border-b border-border pb-1 text-white"
+      className="mb-2 uppercase text-xs font-semibold tracking-wider border-b border-border pb-1 text-white cursor-none"
     >
       {title}
     </motion.h3>
@@ -113,9 +111,9 @@ const NavSection = ({
           x: 8,
           transition: { type: "spring", stiffness: 300, damping: 20 },
         }}
-        className="text-white hover:text-gray-300 transition-colors duration-300 font-sans text-xs md:text-sm group relative"
+        className="text-white hover:text-gray-300 transition-colors duration-300 font-sans text-xs md:text-sm group relative cursor-none"
       >
-        <span className="relative">
+        <span className="relative cursor-none">
           {link}
           <motion.span
             className="absolute bottom-0 left-0 h-0.5 bg-primary"
@@ -134,8 +132,7 @@ const SocialLink = ({
   label,
   icon,
   index,
-  className="",
-  
+  className = "",
 }: {
   href: string;
   label: string;
@@ -153,11 +150,11 @@ const SocialLink = ({
       transition: { type: "spring", stiffness: 300, damping: 15 },
     }}
     whileTap={{ scale: 0.9 }}
-    className={`w-6 h-6 md:w-8 md:h-8 rounded-full bg-muted hover:bg-gradient-to-r hover:from-primary hover:to-secondary flex items-center justify-center transition-colors duration-300 group ${className}`}
+    className={`w-6 h-6 md:w-8 md:h-8 rounded-full bg-muted hover:bg-gradient-to-r hover:from-primary hover:to-secondary flex items-center justify-center transition-colors duration-300 group cursor-none ${className}`}
     aria-label={label}
   >
     <motion.span
-      className="text-xs md:text-sm font-bold text-muted-foreground group-hover:text-primary-foreground"
+      className="text-xs md:text-sm font-bold text-muted-foreground group-hover:text-primary-foreground cursor-none"
       whileHover={{ scale: 1.1 }}
     >
       {icon}
@@ -167,34 +164,34 @@ const SocialLink = ({
 
 export default function StickyFooter() {
   return (
-    <div className="relative h-[70vh] overflow-hidden">
+    <div className="relative h-[70vh] overflow-hidden cursor-none">
       {/* ⭐ Background Stars and Shooting Effects */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
+      <div className="absolute inset-0 -z-10 pointer-events-none cursor-none">
         <StarsBackground />
         <ShootingStars />
         {/* Dark overlay for contrast */}
       </div>
 
       {/* ⬇️ Sticky Footer Content */}
-      <div className="relative h-[calc(100vh+70vh)] -top-[100vh]">
-        <div className="h-[70vh] sticky top-[calc(100vh-70vh)]">
+      <div className="relative h-[calc(100vh+70vh)] -top-[100vh] cursor-none">
+        <div className="h-[70vh] sticky top-[calc(100vh-70vh)] cursor-none">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="py-6 md:py-12 px-4 md:px-12 h-full w-full flex flex-col justify-between relative overflow-hidden"
+            className="py-6 md:py-12 px-4 md:px-12 h-full w-full flex flex-col justify-between relative overflow-hidden cursor-none"
           >
-            <div className="absolute top-0 left-0 w-full h-[3px] bg-[radial-gradient(circle,_white_1px,_transparent_1px)] bg-[length:6px_3px]" />
+            <div className="absolute top-0 left-0 w-full h-[3px] bg-[radial-gradient(circle,_white_1px,_transparent_1px)] bg-[length:6px_3px] cursor-none" />
             {/* Footer Links Section */}
-            <motion.div variants={containerVariants} className="relative z-10">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 lg:gap-20">
+            <motion.div variants={containerVariants} className="relative z-10 cursor-none">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 lg:gap-20 cursor-none">
                 {footerData.sections.map((section, index) => (
                   <NavSection
                     key={section.title}
                     title={section.title}
                     links={section.links}
                     index={index}
-                    className="text-white hover:text-gray-300 transition-colors duration-300"
+                    className="text-white hover:text-gray-300 transition-colors duration-300 cursor-none"
                   />
                 ))}
               </div>
@@ -205,9 +202,9 @@ export default function StickyFooter() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8, ease: easeOut }}
-              className="flex flex-col md:flex-row justify-between items-start md:items-end relative z-10 gap-4 md:gap-6 mt-6"
+              className="flex flex-col md:flex-row justify-between items-start md:items-end relative z-10 gap-4 md:gap-6 mt-6 cursor-none"
             >
-              <div className="flex-1">
+              <div className="flex-1 cursor-none">
                 <motion.h1
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -216,7 +213,7 @@ export default function StickyFooter() {
                     scale: 1.02,
                     transition: { type: "spring", stiffness: 300, damping: 20 },
                   }}
-                  className="text-white text-[12vw] md:text-[10vw] lg:text-[8vw] xl:text-[6vw] leading-[0.8] font-serif cursor-default"
+                  className="text-white text-[12vw] md:text-[10vw] lg:text-[8vw] xl:text-[6vw] leading-[0.8] font-serif cursor-default cursor-none"
                 >
                   {footerData.title}
                 </motion.h1>
@@ -225,10 +222,10 @@ export default function StickyFooter() {
                   initial={{ opacity: 0, width: 0 }}
                   animate={{ opacity: 1, width: "auto" }}
                   transition={{ delay: 1.2, duration: 0.6 }}
-                  className="flex items-center gap-3 md:gap-4 mt-3 md:mt-4"
+                  className="flex items-center gap-3 md:gap-4 mt-3 md:mt-4 cursor-none"
                 >
                   <motion.div
-                    className="w-8 md:w-12 h-0.5 bg-gradient-to-r from-primary to-secondary"
+                    className="w-8 md:w-12 h-0.5 bg-gradient-to-r from-primary to-secondary cursor-none"
                     animate={{ scaleX: [1, 1.2, 1] }}
                     transition={{ duration: 2, repeat: Infinity, ease: easeInOut }}
                   />
@@ -236,7 +233,7 @@ export default function StickyFooter() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.4, duration: 0.5 }}
-                    className="text-white text-xs md:text-sm font-sans hover:text-gray-300 transition-colors duration-300"
+                    className="text-white text-xs md:text-sm font-sans hover:text-gray-300 transition-colors duration-300 cursor-none"
                   >
                     {footerData.subtitle}
                   </motion.p>
@@ -247,13 +244,13 @@ export default function StickyFooter() {
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.6, duration: 0.6 }}
-                className="text-left md:text-right"
+                className="text-left md:text-right cursor-none"
               >
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.8, duration: 0.5 }}
-                  className="text-white text-xs md:text-sm mb-2 md:mb-3 hover:text-gray-300 transition-colors duration-300"
+                  className="text-white text-xs md:text-sm mb-2 md:mb-3 hover:text-gray-300 transition-colors duration-300 cursor-none"
                 >
                   {footerData.copyright}
                 </motion.p>
@@ -263,7 +260,7 @@ export default function StickyFooter() {
                   initial="hidden"
                   animate="visible"
                   transition={{ delay: 2, staggerChildren: 0.1 }}
-                  className="flex gap-2 md:gap-3"
+                  className="flex gap-2 md:gap-3 cursor-none"
                 >
                   {footerData.social.map((social, index) => (
                     <SocialLink
@@ -272,7 +269,7 @@ export default function StickyFooter() {
                       label={social.label}
                       icon={social.icon}
                       index={index}
-                      className="text-white hover:text-gray-300 transition-colors duration-300"
+                      className="text-white hover:text-gray-300 transition-colors duration-300 cursor-none"
                     />
                   ))}
                 </motion.div>

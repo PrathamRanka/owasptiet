@@ -69,10 +69,10 @@ export default function HeroSection() {
         transition={{ delay: 0.8, duration: 0.6 }}
         className="flex flex-wrap justify-center md:justify-start gap-4 mt-4"
       >
-        <button className="px-6 py-3 bg-cyan-500/20 border border-cyan-400 text-cyan-300 rounded-xl hover:bg-cyan-500/30 transition cursor-pointer">
+        <button className="px-6 py-3 bg-cyan-500/20 border border-cyan-400 text-cyan-300 rounded-xl hover:bg-cyan-500/30 transition cursor-none ">
           Join Us
         </button>
-        <button className="px-6 py-3 bg-transparent border border-white/40 text-white rounded-xl hover:bg-white/10 transition cursor-pointer">
+        <button className="px-6 py-3 bg-transparent border border-white/40 text-white rounded-xl hover:bg-white/10 transition cursor-none">
           Explore
         </button>
       </motion.div>

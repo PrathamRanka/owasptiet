@@ -19,7 +19,7 @@ export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
 
-    useGsapSmoothScroll();
+    // useGsapSmoothScroll();
 
   useEffect(() => {
     const today = new Date().toDateString();
@@ -52,7 +52,7 @@ export default function HomePage() {
       {showLoader && !loaded && <GooeyTextDemo onComplete={handleLoaderComplete} />}
       {loaded && (
         <>
-          <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+          <div className="fixed top-6 left-1/2 -translate-x-1/2 z-40">
             <DockDemo />
           </div>
 

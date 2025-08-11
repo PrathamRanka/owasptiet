@@ -105,7 +105,7 @@ const GridItem = ({ area, icon, title, description }: GridItemProps) => {
           </div>
           <Link
             href="/"
-            className="self-start mt-2 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold px-4 py-1.5 rounded-full transition duration-200"
+            className="self-start mt-2 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold px-4 py-1.5 rounded-full transition duration-200 cursor-none"
           >
             Register Now
           </Link>

@@ -29,7 +29,7 @@ const Section1: React.FC = () => {
   </p>
 
   <div className="pt-2 sm:pt-4">
-    <button className="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white transition font-semibold backdrop-blur">
+    <button className="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white transition font-semibold backdrop-blur cursor-none">
       Explore Our Chapters →
     </button>
   </div>
