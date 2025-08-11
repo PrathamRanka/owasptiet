@@ -37,7 +37,7 @@ const Section1: React.FC = () => {
 
 
         {/* GLOBE SECTION */}
-        <div className="w-60 sm:w-72 md:w-80 lg:w-[28rem] relative z-10 pointer-events-none mt-8 md:mt-0 self-center md:self-start animate-float">
+        <div className="w-60 sm:w-72 md:w-80 lg:w-[28rem] relative z-10 mt-8 md:mt-0 self-center md:self-start animate-float">
           <Globe />
         </div>
       </div>

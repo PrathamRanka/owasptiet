@@ -7,9 +7,8 @@ import { cn } from "@/lib/utils"
 const GLOBE_CONFIG: COBEOptions = {
   width: 1,
   height: 1,
-  onRender: () => {}, // will be replaced dynamically
-
-  devicePixelRatio: 2,
+  onRender: () => {},
+  devicePixelRatio: typeof window !== "undefined" && window.innerWidth < 768 ? 1.5 : 2,
   phi: 0,
   theta: 0.3,
   dark: 0,
@@ -21,17 +20,17 @@ const GLOBE_CONFIG: COBEOptions = {
   glowColor: [1, 1, 1],
   markers: [
     { location: [30.34, 76.38], size: 0.06 },
-    { location: [28.6139, 77.2090], size: 0.08 },
-    { location: [19.0760, 72.8777], size: 0.10 },
+    { location: [28.6139, 77.209], size: 0.08 },
+    { location: [19.076, 72.8777], size: 0.1 },
     { location: [13.0827, 80.2707], size: 0.09 },
-    { location: [47.6062, -122.3321], size: 0.10 },
+    { location: [47.6062, -122.3321], size: 0.1 },
     { location: [23.8103, 90.4125], size: 0.05 },
     { location: [30.0444, 31.2357], size: 0.07 },
-    { location: [-23.5505, -46.6333], size: 0.10 },
-    { location: [40.7128, -74.0060], size: 0.10 },
+    { location: [-23.5505, -46.6333], size: 0.1 },
+    { location: [40.7128, -74.006], size: 0.1 },
     { location: [51.5074, -0.1278], size: 0.08 },
     { location: [48.8566, 2.3522], size: 0.08 },
-    { location: [52.52, 13.4050], size: 0.08 },
+    { location: [52.52, 13.405], size: 0.08 },
     { location: [35.6895, 139.6917], size: 0.08 },
     { location: [1.3521, 103.8198], size: 0.08 },
     { location: [43.6532, -79.3832], size: 0.08 },
@@ -51,10 +50,8 @@ export function Globe({
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const phiRef = useRef(0)
+  const velocityRef = useRef(0) // inertia
   const pointerStart = useRef<number | null>(null)
-  const pointerDelta = useRef(0)
-
-  const [rotationOffset, setRotationOffset] = useState(0)
   const [size, setSize] = useState(0)
 
   const updatePointerStart = (value: number | null) => {
@@ -66,9 +63,11 @@ export function Globe({
 
   const handlePointerMove = (clientX: number) => {
     if (pointerStart.current !== null) {
+      const sensitivity = window.innerWidth < 768 ? 100 : 200 // more sensitive on mobile
       const delta = clientX - pointerStart.current
-      pointerDelta.current = delta
-      setRotationOffset(delta / 200)
+      phiRef.current += delta / sensitivity
+      velocityRef.current = delta / sensitivity // store movement for inertia
+      pointerStart.current = clientX
     }
   }
 
@@ -81,13 +80,18 @@ export function Globe({
   const onRender = useCallback(
     (state: Record<string, number>) => {
       if (pointerStart.current === null) {
-        phiRef.current += 0.005
+        // auto-rotate + inertia
+        phiRef.current += velocityRef.current || 0.005
+        velocityRef.current *= 0.95 // slow down gradually
+        if (Math.abs(velocityRef.current) < 0.0001) {
+          velocityRef.current = 0 // stop when too small
+        }
       }
-      state.phi = phiRef.current + rotationOffset
+      state.phi = phiRef.current
       state.width = size * 2
       state.height = size * 2
     },
-    [rotationOffset, size]
+    [size]
   )
 
   useEffect(() => {
@@ -116,27 +120,22 @@ export function Globe({
   return (
     <div
       className={cn(
-        "absolute inset-0 mx-auto aspect-square w-full max-w-[600px]",
-        "bg-transparent",
+        "absolute inset-0 mx-auto aspect-square w-full max-w-[600px] bg-transparent",
         className
       )}
     >
       <canvas
         ref={canvasRef}
         className={cn(
-          "size-full opacity-0 transition-opacity duration-500",
-          "[contain:layout_paint_size]",
-          "bg-transparent"
+          "size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size] bg-transparent"
         )}
-        onPointerDown={(e) =>
-          updatePointerStart(e.clientX - pointerDelta.current)
-        }
+        onPointerDown={(e) => updatePointerStart(e.clientX)}
         onPointerUp={() => updatePointerStart(null)}
         onPointerOut={() => updatePointerStart(null)}
         onMouseMove={(e) => handlePointerMove(e.clientX)}
-        onTouchMove={(e) =>
-          e.touches[0] && handlePointerMove(e.touches[0].clientX)
-        }
+        onTouchMove={(e) => e.touches[0] && handlePointerMove(e.touches[0].clientX)}
+        onTouchStart={(e) => e.touches[0] && updatePointerStart(e.touches[0].clientX)}
+        onTouchEnd={() => updatePointerStart(null)}
       />
     </div>
   )
