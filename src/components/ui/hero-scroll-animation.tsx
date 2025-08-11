@@ -25,7 +25,7 @@ const Section1: React.FC = () => {
   </h1>
 
   <p className="text-sm sm:text-lg md:text-xl text-slate-300 font-['Rubik_Burned']">
-    From one secure node to another, OWASP is spinning across the globe—protecting, building, evolving.
+    From one secure node to another, OWASP is spinning across the globe protecting, building, evolving.
   </p>
 
   <div className="pt-2 sm:pt-4">

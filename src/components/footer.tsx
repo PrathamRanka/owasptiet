@@ -196,11 +196,12 @@
 
             <div className="text-center pt-4">
               <button
-                type="submit"
-                className="px-8 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white font-semibold transition duration-200"
-              >
-                Send Message →
-              </button>
+  type="submit"
+  className="px-8 py-3 rounded-xl border border-primary font-semibold bg-transparent text-white transition duration-200 cursor-pointer"
+>
+  Send Message →
+</button>
+
               {submitted && (
                 <p className="text-green-400 flex items-center justify-center mt-4">
                   <CheckCircle className="mr-2 h-5 w-5" /> Message sent successfully!
