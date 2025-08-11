@@ -16,6 +16,11 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
