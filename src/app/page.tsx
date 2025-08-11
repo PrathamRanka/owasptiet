@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import dynamic from "next/dynamic";
 import { LazyWrapper } from "@/components/LazyWrapper";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
+import { useGsapSmoothScroll } from "@/lib/gsap";
 const SplineSceneBasic = dynamic(() => import("@/components/demo"), { ssr: false });
 const FeaturesSectionWithHoverEffectsDemo = dynamic(() => import("@/components/feature-section"), { ssr: false });
 const ComponentDemo = dynamic(() => import("@/components/scroll-section"), { ssr: false });
@@ -18,6 +18,8 @@ const DockDemo = dynamic(() => import("@/components/dock"), { ssr: false });
 export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
+
+    useGsapSmoothScroll();
 
   useEffect(() => {
     const today = new Date().toDateString();

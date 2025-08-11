@@ -16,9 +16,6 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
-html {
-  scroll-behavior: smooth;
-}
 
 @keyframes float {
   0% { transform: translateY(0px); }
