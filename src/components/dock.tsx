@@ -24,8 +24,9 @@ export default function DockDemo() {
     { icon: Home, label: "About", onClick: () => handleAnchorClick("about") },
     { icon: Globe, label: "Worldwide Reach", onClick: () => handleAnchorClick("worldwide-reach") },
     { icon: Target, label: "Core Mission", onClick: () => handleAnchorClick("core-mission") },
+    { icon: CornerDownLeft, label: "Form", onClick: () => handleAnchorClick("footer") },
     { icon: Users, label: "Team", onClick: handleTeamClick },
-    { icon: CornerDownLeft, label: "Footer", onClick: () => handleAnchorClick("footer") },
+    
   ]
 
   return <Dock items={items} />
