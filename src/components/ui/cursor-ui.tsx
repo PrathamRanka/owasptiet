@@ -22,6 +22,17 @@ type CursorProps = {
   onPositionChange?: (x: number, y: number) => void;
 };
 
+function isTouchDevice() {
+  // Check if device supports touch events or pointer with touch capability
+  return (
+    typeof window !== 'undefined' &&
+    ('ontouchstart' in window ||
+      navigator.maxTouchPoints > 0 ||
+      // For some browsers that support PointerEvent
+      (window.PointerEvent && navigator.maxTouchPoints > 0))
+  );
+}
+
 export function Cursor({
   children,
   className,
@@ -37,9 +48,19 @@ export function Cursor({
     typeof window !== 'undefined' ? window.innerHeight / 2 : 0
   );
   const cursorRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(!attachToParent);
+
+  const [isVisible, setIsVisible] = useState(
+    !attachToParent && !isTouchDevice()
+  );
 
   useEffect(() => {
+    if (isTouchDevice()) {
+      // On touch devices: show native cursor and don't track mouse
+      document.body.style.cursor = 'auto';
+      setIsVisible(false);
+      return;
+    }
+
     if (!attachToParent) {
       document.body.style.cursor = 'none';
     } else {
@@ -56,10 +77,17 @@ export function Cursor({
 
     return () => {
       document.removeEventListener('mousemove', updatePosition);
+      // Reset cursor style when unmounting
+      document.body.style.cursor = 'auto';
     };
   }, [cursorX, cursorY, onPositionChange, attachToParent]);
 
   useEffect(() => {
+    if (isTouchDevice()) {
+      // Do nothing on touch devices
+      return;
+    }
+
     const handleVisibilityChange = (visible: boolean) => {
       setIsVisible(visible);
     };
@@ -86,6 +114,11 @@ export function Cursor({
       }
     }
   }, [attachToParent]);
+
+  if (isTouchDevice()) {
+    // Don't render cursor component on touch devices
+    return null;
+  }
 
   return (
     <motion.div
