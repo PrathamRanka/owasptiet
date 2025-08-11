@@ -9,7 +9,7 @@ import { BentoGrid } from "../bento-grid";
 
 const Section1: React.FC = () => {
   return (
-    <section className="relative bg-transparent md:min-h-screen md:flex md:items-center md:justify-center pb-60 md:pb-0">
+    <section className="relative bg-transparent md:min-h-screen md:flex md:items-center md:justify-center md:pb-0">
   <div className="relative flex flex-col md:flex-row w-full max-w-7xl items-center justify-between px-4 md:px-12 lg:px-20 py-8 sm:py-12 gap-8">
         
         {/* TEXT SECTION */}
@@ -37,9 +37,11 @@ const Section1: React.FC = () => {
 
 
         {/* GLOBE SECTION */}
-        <div className="w-60 sm:w-72 md:w-80 lg:w-[28rem] relative z-10 mt-8 md:mt-0 self-center md:self-start animate-float">
-          <Globe />
-        </div>
+       <div className="w-[18rem] sm:w-[20rem] md:w-80 lg:w-[28rem] relative z-10 mt-8 md:mt-0 self-center md:self-start mx-auto md:mx-0 animate-float">
+  <Globe />
+</div>
+
+
       </div>
     </section>
   );
