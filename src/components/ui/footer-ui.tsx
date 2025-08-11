@@ -184,6 +184,7 @@ export default function StickyFooter() {
             variants={containerVariants}
             className="py-6 md:py-12 px-4 md:px-12 h-full w-full flex flex-col justify-between relative overflow-hidden"
           >
+            <div className="absolute top-0 left-0 w-full h-[3px] bg-[radial-gradient(circle,_white_1px,_transparent_1px)] bg-[length:6px_3px]" />
             {/* Footer Links Section */}
             <motion.div variants={containerVariants} className="relative z-10">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 lg:gap-20">
