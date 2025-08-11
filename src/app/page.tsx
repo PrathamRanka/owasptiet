@@ -49,9 +49,11 @@ export default function HomePage() {
       {showLoader && !loaded && <GooeyTextDemo onComplete={handleLoaderComplete} />}
       {loaded && (
         <>
-          <div className="fixed top-6 left-1/2 -translate-x-1/2 z-40">
-            <DockDemo />
-          </div>
+          <div className="fixed top-0 left-0 w-full z-40">
+  <DockDemo />
+</div>
+
+
 
           <div id="about">
             <LazyWrapper>

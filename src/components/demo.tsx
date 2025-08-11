@@ -39,7 +39,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-[Orbitron] font-extrabold uppercase text-white tracking-tight leading-[1.1] hover:animate-pulse"
+        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-[Orbitron] font-extrabold uppercase text-white tracking-tight leading-[1.1]"
       >
         OWASP TIET
       </motion.h1>
@@ -48,11 +48,12 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.6 }}
-        className="text-base sm:text-lg md:text-xl font-[Unbounded] text-white tracking-wide min-h-[28px]"
+        className="text-base sm:text-lg md:text-xl font-mono text-green-400 tracking-wide min-h-[28px]"
       >
         {text}
         <span className="animate-pulse">|</span>
       </motion.div>
+
 
       <motion.p
         initial={{ opacity: 0, y: 15 }}
