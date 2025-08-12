@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import dynamic from "next/dynamic";
 import { LazyWrapper } from "@/components/LazyWrapper";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ScrollProgress } from "@/components/scroll-progress";
 const SplineSceneBasic = dynamic(() => import("@/components/demo"), { ssr: false });
 const FeaturesSectionWithHoverEffectsDemo = dynamic(() => import("@/components/feature-section"), { ssr: false });
 const ComponentDemo = dynamic(() => import("@/components/scroll-section"), { ssr: false });
@@ -49,9 +50,10 @@ export default function HomePage() {
       {showLoader && !loaded && <GooeyTextDemo onComplete={handleLoaderComplete} />}
       {loaded && (
         <>
-          <div className="fixed top-0 left-0 w-full z-40">
-  <DockDemo />
-</div>
+         <div className="fixed top-0 left-0 w-full z-40">
+          <DockDemo />
+          <ScrollProgress />
+        </div>
 
 
 
