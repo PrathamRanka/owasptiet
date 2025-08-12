@@ -3,7 +3,7 @@
 
 import React from "react"
 import { Home, Globe, Target, Users, CornerDownLeft } from "lucide-react"
-import { Dock } from "@/components/ui/dock-two"
+import { Dock } from "@/components/ui/dock-ui/dock-two"
 import { useRouter } from "next/navigation"
 
 export default function DockDemo() {

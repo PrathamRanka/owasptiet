@@ -1,6 +1,6 @@
 
 import React from "react";
-import { FeaturesSectionWithHoverEffects } from "@/components/ui/function-section-with-hover-effect";
+import { FeaturesSectionWithHoverEffects } from "@/components/ui/features-owasp-ui/function-section-with-hover-effect";
 
 export default function FeaturesSectionWithHoverEffectsDemo() {
   return (

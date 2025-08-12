@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { GooeyText } from '@/components/ui/gooey-text-morphing'
+import { GooeyText } from '@/components/ui/Pre-Landing-ui/gooey-text-morphing'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export function GooeyTextDemo({ onComplete }: { onComplete?: () => void }) {

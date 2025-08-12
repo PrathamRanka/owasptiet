@@ -2,10 +2,10 @@
 "use client";
 
 import React from "react";
-import { StarsBackground } from "@/components/ui/stars-background";
-import { ShootingStars } from "@/components/ui/shooting-stars";
-import { Globe } from "@/components/ui/globe";
-import { BentoGrid } from "../bento-grid";
+import { StarsBackground } from "@/components/ui/background-ui/stars-background";
+import { ShootingStars } from "@/components/ui/background-ui/shooting-stars";
+import { Globe } from "@/components/ui/Globe+Bento-ui/globe";
+import { BentoGrid } from "./bento-grid";
 
 const Section1: React.FC = () => {
   return (

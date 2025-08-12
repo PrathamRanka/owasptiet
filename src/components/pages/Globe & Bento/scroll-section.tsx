@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Component from '@/components/ui/hero-scroll-animation';
+import Component from '@/components/ui/Globe+Bento-ui/hero-scroll-animation';
 
 function ComponentDemo() {
   return <Component />;

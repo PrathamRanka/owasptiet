@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, easeInOut, easeOut, type Transition } from "framer-motion";
-import { StarsBackground } from "@/components/ui/stars-background";
-import { ShootingStars } from "@/components/ui/shooting-stars";
+import { StarsBackground } from "@/components/ui/background-ui/stars-background";
+import { ShootingStars } from "@/components/ui/background-ui/shooting-stars";
 
 // Animation variants
 const containerVariants = {

@@ -1,6 +1,6 @@
 "use client";
 
-import StickyFooter from "@/components/ui/footer-ui";
+import StickyFooter from "@/components/ui/footer-ui/footer-ui";
 import { useState } from "react";
 import {
   User,

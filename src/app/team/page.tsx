@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { TeamCards } from "@/components/eb-team-card";
-import CoreCards from "@/components/core-team-card";
+import { TeamCards } from "@/components/pages/TeamCards/eb-team-card";
+import CoreCards from "@/components/pages/TeamCards/core-team-card";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import Footer from "@/components/footer";
+import Footer from "@/components/pages/Footer/footer";
 
 export default function TeamPage() {
   const [selected, setSelected] = useState<"executive" | "core">("executive");

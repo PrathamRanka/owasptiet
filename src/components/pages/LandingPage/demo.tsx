@@ -2,10 +2,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { StarsBackground } from "@/components/ui/stars-background";
-import { ShootingStars } from "@/components/ui/shooting-stars";
-import { Spotlight } from "@/components/ui/spotlight";
-import Card from "@/components/ui/card";
+import { StarsBackground } from "@/components/ui/background-ui/stars-background";
+import { ShootingStars } from "@/components/ui/background-ui/shooting-stars";
+import { Spotlight } from "@/components/ui/LandingPage-ui/spotlight";
+import Card from "@/components/ui/LandingPage-ui/card";
 import Image from "next/image";
 import { useTypewriter } from "react-simple-typewriter";
 import { useEffect } from "react";

@@ -1,4 +1,4 @@
-import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel"
+import { ThreeDPhotoCarousel } from "@/components/ui/Sponsors-ui/3d-carousel"
 
 export default function ThreeDPhotoCarouselDemo() {
   return (

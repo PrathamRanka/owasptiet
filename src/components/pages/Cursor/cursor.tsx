@@ -1,7 +1,7 @@
 "use client";
 
 import React, { SVGProps } from "react";
-import { Cursor } from "@/components/ui/cursor-ui"; // adjust path if needed
+import { Cursor } from "@/components/ui/cursor-ui/cursor-ui"; // adjust path if needed
 
 const MouseIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg

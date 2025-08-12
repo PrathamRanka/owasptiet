@@ -2,8 +2,8 @@
 "use client";
 
 import { Box, Lock, Search, Settings, Sparkles } from "lucide-react";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { Badge } from "@/components/ui/badge";
+import { GlowingEffect } from "@/components/ui/Globe+Bento-ui/glowing-effect";
+import { Badge } from "@/components/ui/Globe+Bento-ui/badge";
 import Link from "next/link";
 
 export const Section2: React.FC = () => {
