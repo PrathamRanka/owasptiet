@@ -11,7 +11,7 @@ const DEFAULT_CONFIG: COBEOptions = {
   devicePixelRatio:
     typeof window !== "undefined" && window.innerWidth < 768 ? 1.5 : 2,
   phi: 0,
-  theta: 0.3,
+  theta: 0.3, // starting tilt
   dark: 0,
   diffuse: 0.4,
   mapSamples: 16000,
@@ -51,54 +51,66 @@ export function Globe({
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const phiRef = useRef(0);
-  const velocityRef = useRef(0); // inertia velocity
+  const thetaRef = useRef(0.3);
+  const velocityXRef = useRef(0);
+  const velocityYRef = useRef(0);
   const pointerStartX = useRef<number | null>(null);
+  const pointerStartY = useRef<number | null>(null);
   const [size, setSize] = useState(0);
 
-  // Set cursor style based on pointer interaction
   const setCursor = (isGrabbing: boolean) => {
     if (canvasRef.current) {
       canvasRef.current.style.cursor = isGrabbing ? "grabbing" : "grab";
     }
   };
 
-  // Pointer down/up handlers
-  const handlePointerDown = (clientX: number) => {
+  const handlePointerDown = (clientX: number, clientY: number) => {
     pointerStartX.current = clientX;
+    pointerStartY.current = clientY;
     setCursor(true);
   };
+
   const handlePointerUp = () => {
     pointerStartX.current = null;
+    pointerStartY.current = null;
     setCursor(false);
   };
 
-  // Handle pointer move for rotating the globe
-  const handlePointerMove = (clientX: number) => {
-    if (pointerStartX.current !== null) {
+  const handlePointerMove = (clientX: number, clientY: number) => {
+    if (pointerStartX.current !== null && pointerStartY.current !== null) {
       const sensitivity = window.innerWidth < 768 ? 100 : 200;
-      const delta = clientX - pointerStartX.current;
-      phiRef.current += delta / sensitivity;
-      velocityRef.current = delta / sensitivity;
+      const deltaX = clientX - pointerStartX.current;
+      const deltaY = clientY - pointerStartY.current;
+
+      phiRef.current += deltaX / sensitivity;
+      thetaRef.current += deltaY / sensitivity;
+
+      velocityXRef.current = deltaX / sensitivity;
+      velocityYRef.current = deltaY / sensitivity;
+
       pointerStartX.current = clientX;
+      pointerStartY.current = clientY;
     }
   };
 
-  // Update globe size on window resize or initial mount
   const updateSize = useCallback(() => {
     if (!canvasRef.current) return;
     const width = canvasRef.current.offsetWidth;
     setSize(window.innerWidth < 768 ? Math.min(width, 220) : width);
   }, []);
 
-  // Custom onRender callback to handle auto-rotation and sizing
   const onRender = useCallback(
     (state: Record<string, number>) => {
-      if (pointerStartX.current === null) {
-        phiRef.current += velocityRef.current || 0.005;
-        velocityRef.current *= 0.95;
-        if (Math.abs(velocityRef.current) < 0.0001) velocityRef.current = 0;
+      if (pointerStartX.current === null && pointerStartY.current === null) {
+        phiRef.current += velocityXRef.current || 0.005;
+        thetaRef.current += velocityYRef.current || 0;
+        velocityXRef.current *= 0.95;
+        velocityYRef.current *= 0.95;
+        if (Math.abs(velocityXRef.current) < 0.0001) velocityXRef.current = 0;
+        if (Math.abs(velocityYRef.current) < 0.0001) velocityYRef.current = 0;
       }
       state.phi = phiRef.current;
+      state.theta = thetaRef.current;
       state.width = size * 2;
       state.height = size * 2;
     },
@@ -118,7 +130,6 @@ export function Globe({
       onRender,
     });
 
-    // Fade-in canvas for smooth effect
     const canvas = canvasRef.current;
     if (canvas) {
       canvas.style.opacity = "0";
@@ -142,12 +153,16 @@ export function Globe({
         <canvas
           ref={canvasRef}
           className="size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size] bg-transparent"
-          onPointerDown={(e) => handlePointerDown(e.clientX)}
+          onPointerDown={(e) => handlePointerDown(e.clientX, e.clientY)}
           onPointerUp={handlePointerUp}
           onPointerOut={handlePointerUp}
-          onMouseMove={(e) => handlePointerMove(e.clientX)}
-          onTouchStart={(e) => e.touches[0] && handlePointerDown(e.touches[0].clientX)}
-          onTouchMove={(e) => e.touches[0] && handlePointerMove(e.touches[0].clientX)}
+          onMouseMove={(e) => handlePointerMove(e.clientX, e.clientY)}
+          onTouchStart={(e) =>
+            e.touches[0] && handlePointerDown(e.touches[0].clientX, e.touches[0].clientY)
+          }
+          onTouchMove={(e) =>
+            e.touches[0] && handlePointerMove(e.touches[0].clientX, e.touches[0].clientY)
+          }
           onTouchEnd={handlePointerUp}
         />
       </div>
