@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import CustomCursor from '../components/pages/Cursor/cursor';
+import { CustomCursor } from "../components/ui/cursor-ui/cursor-ui";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
