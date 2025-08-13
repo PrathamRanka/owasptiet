@@ -111,11 +111,7 @@ export default function HeroSection() {
     </motion.div>
 
     {/* Optional very subtle rotating halo */}
-    <motion.div
-      animate={{ rotate: 360 }}
-      transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-      className="absolute inset-0 rounded-full border border-cyan-400/20"
-    />
+
   </div>
 </motion.div>
 
