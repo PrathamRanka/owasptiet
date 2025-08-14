@@ -90,22 +90,6 @@ body {
     transform: translateY(calc(-100% - var(--gap)));
     }
   }
-  @keyframes marquee {
-  from {
-    transform: translateX(0);
-    }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
-    }
-  }
-  @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
-    }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
-    }
-  }
 }
 
 :root {
@@ -176,24 +160,6 @@ body {
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
-
-@layer utilities {
-  @keyframes marquee {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - var(--gap) / 2)); }
-  }
-  @keyframes marquee-vertical {
-    0%   { transform: translateY(0); }
-    100% { transform: translateY(calc(-50% - var(--gap) / 2)); }
-  }
-  .animate-marquee {
-    animation: marquee var(--duration) linear infinite;
-  }
-  .animate-marquee-vertical {
-    animation: marquee-vertical var(--duration) linear infinite;
-  }
-}
-
 
 @layer base {
   * {
