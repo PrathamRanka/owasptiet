@@ -15,17 +15,13 @@ import Footer from "@/components/pages/Footer/footer";
 import DockDemo from "@/components/pages/Navbar/dock";
 
 export default function HomePage() {
-  const [showLoader, setShowLoader] = useState(true);
 
-  const handleLoaderComplete = () => {
-    setShowLoader(false);
-  };
 
   return (
     <>
 
         <>
-          <div className="fixed top-0 left-0 w-full z-40">
+          <div className="fixed top-6 left-0 w-full z-40">
             <DockDemo />
             <ScrollProgress />
           </div>
