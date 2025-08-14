@@ -1,112 +1,28 @@
 "use client";
 
-import { memo, useEffect, useLayoutEffect, useMemo, useState } from "react";
-import {
-  motion,
-  useMotionValue,
-  useTransform,
-  useAnimationFrame,
-} from "framer-motion";
+import Image from "next/image";
+import { useMemo, ComponentPropsWithoutRef } from "react";
+import { cn } from "@/lib/utils";
 
-export const useIsomorphicLayoutEffect =
-  typeof window !== "undefined" ? useLayoutEffect : useEffect;
-
-type UseMediaQueryOptions = {
-  defaultValue?: boolean;
-  initializeWithValue?: boolean;
-};
-
-const IS_SERVER = typeof window === "undefined";
-
-export function useMediaQuery(
-  query: string,
-  {
-    defaultValue = false,
-    initializeWithValue = true,
-  }: UseMediaQueryOptions = {}
-): boolean {
-  const getMatches = (query: string): boolean => {
-    if (IS_SERVER) return defaultValue;
-    return window.matchMedia(query).matches;
-  };
-
-  const [matches, setMatches] = useState<boolean>(() => {
-    if (initializeWithValue) return getMatches(query);
-    return defaultValue;
-  });
-
-  const handleChange = () => setMatches(getMatches(query));
-
-  useIsomorphicLayoutEffect(() => {
-    const matchMedia = window.matchMedia(query);
-    handleChange();
-    matchMedia.addEventListener("change", handleChange);
-    return () => matchMedia.removeEventListener("change", handleChange);
-  }, [query]);
-
-  return matches;
+interface CarouselProps extends ComponentPropsWithoutRef<"div"> {
+  reverse?: boolean;
+  pauseOnHover?: boolean;
+  vertical?: boolean;
+  repeat?: number;
+  duration?: number;
+  gap?: string;
 }
 
-const Carousel = memo(({ cards }: { cards: string[] }) => {
-  const isScreenSizeSm = useMediaQuery("(max-width: 640px)");
-  const cylinderWidth = isScreenSizeSm ? 1600 : 2400;
-  const faceCount = cards.length;
-  const faceWidth = cylinderWidth / faceCount;
-  const radius = cylinderWidth / (2 * Math.PI);
-  const rotation = useMotionValue(0);
-  const transform = useTransform(rotation, (v) => `rotate3d(0, 1, 0, ${v}deg)`);
-  Carousel.displayName = "Carousel";
-
-  // ✅ Auto-rotate using requestAnimationFrame
-  useAnimationFrame((t, delta) => {
-    rotation.set(rotation.get() + delta * 0.01); // Smooth and framerate-independent
-  });
-
-  return (
-    <div
-      className="flex h-full items-center justify-center"
-      style={{
-        perspective: "1000px",
-        transformStyle: "preserve-3d",
-        willChange: "transform",
-      }}
-    >
-      <motion.div
-        className="relative flex h-full origin-center justify-center"
-        style={{
-          transform,
-          rotateY: rotation,
-          width: cylinderWidth,
-          transformStyle: "preserve-3d",
-        }}
-      >
-        {cards.map((imgUrl, i) => (
-          <motion.div
-            key={`logo-${i}`}
-            className="absolute flex h-full origin-center items-center justify-center rounded-xl p-2"
-            style={{
-              width: `${faceWidth}px`,
-              transform: `rotateY(${
-                i * (360 / faceCount)
-              }deg) translateZ(${radius}px)`,
-            }}
-          >
-            <motion.img
-              src={imgUrl}
-              alt={`logo_${i}`}
-              className="pointer-events-none w-full rounded-xl object-contain aspect-square"
-              initial={{ filter: "blur(4px)" }}
-              animate={{ filter: "blur(0px)" }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
-  );
-});
-
-function ThreeDPhotoCarousel() {
+export function ThreeDPhotoCarousel({
+  reverse = false,
+  pauseOnHover = false,
+  vertical = false,
+  repeat = 4,
+  duration = 40,
+  gap = "1rem",
+  className,
+  ...props
+}: CarouselProps) {
   const cards = useMemo(
     () => [
       "/jawed-habib.png",
@@ -122,11 +38,51 @@ function ThreeDPhotoCarousel() {
     []
   );
 
+  const style = {
+    ["--duration" as string]: `${duration}s`,
+    ["--gap" as string]: gap,
+  } as React.CSSProperties;
+
   return (
-    <motion.div layout className="relative h-[650px] w-full overflow-hidden">
-      <Carousel cards={cards} />
-    </motion.div>
+    <div
+      {...props}
+      style={style}
+      className={cn(
+        "group flex overflow-hidden p-2 [gap:var(--gap)]",
+        vertical ? "flex-col" : "flex-row",
+        className
+      )}
+    >
+      {Array.from({ length: repeat }).map((_, i) => (
+        <div
+          key={i}
+          className={cn(
+            "flex shrink-0 justify-around [gap:var(--gap)]",
+            vertical ? "flex-col animate-marquee-vertical" : "flex-row animate-marquee",
+            pauseOnHover && "group-hover:[animation-play-state:paused]",
+            reverse && "[animation-direction:reverse]"
+          )}
+        >
+          {cards.map((src, idx) => (
+            <div
+              key={`${i}-${idx}`}
+              className="flex items-center justify-center px-6"
+            >
+              <Image
+                src={src}
+                alt={`logo_${idx}`}
+                width={120}
+                height={120}
+                unoptimized // optional for static local PNGs
+                className="object-contain h-20 w-auto sm:h-24 md:h-28"
+                draggable={false}
+              />
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
   );
 }
 
-export { ThreeDPhotoCarousel };
+export default ThreeDPhotoCarousel;
