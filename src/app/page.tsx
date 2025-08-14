@@ -2,11 +2,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { GooeyTextDemo } from "@/components/pages/Pre-Loader/incoming-loader";
+// import { GooeyTextDemo } from "@/components/pages/Pre-Loader/incoming-loader"; 
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ScrollProgress } from "@/components/ui/ScrollProgress-ui/scroll-progress";
-
 import SplineSceneBasic from "@/components/pages/LandingPage/demo";
 import FeaturesSectionWithHoverEffectsDemo from "@/components/pages/OwaspFeatures/feature-section";
 import ComponentDemo from "@/components/pages/Globe & Bento/scroll-section";
@@ -24,8 +23,7 @@ export default function HomePage() {
 
   return (
     <>
-      {showLoader && <GooeyTextDemo onComplete={handleLoaderComplete} />}
-      {!showLoader && (
+
         <>
           <div className="fixed top-0 left-0 w-full z-40">
             <DockDemo />
@@ -53,7 +51,7 @@ export default function HomePage() {
             </div>
           </ScopedBodyStyle>
         </>
-      )}
+      
       <SpeedInsights />
       <Analytics />
     </>

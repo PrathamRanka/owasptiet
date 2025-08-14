@@ -23,6 +23,9 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
+* {
+  cursor: none;
+}
 
 @keyframes float {
   0% { transform: translateY(0px); }
