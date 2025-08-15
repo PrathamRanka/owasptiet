@@ -2,17 +2,17 @@
 "use client"
 
 import * as React from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
+import { Button } from "@/components/ui/footer-ui/footer-button"
+import { Input } from "@/components/ui/footer-ui/footer-input"
+import { Label } from "@/components/ui/footer-ui/footer-label"
+import { Switch } from "@/components/ui/footer-ui/footer-switch"
 
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
+} from "@/components/ui/footer-ui/footer-tooltip"
 import { Facebook, Instagram, Linkedin, Moon, Send, Sun, Twitter } from "lucide-react"
 
 function Footerdemo() {
