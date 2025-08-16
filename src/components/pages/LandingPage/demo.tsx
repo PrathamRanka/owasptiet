@@ -1,10 +1,10 @@
-/* eslint-disable */
 "use client";
 
 import Image from "next/image";
 import { useTypewriter } from "react-simple-typewriter";
 import { StarsBackground } from "@/components/ui/background-ui/stars-background";
 import { ShootingStars } from "@/components/ui/background-ui/shooting-stars";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function LandingPage() {
   const [text] = useTypewriter({
@@ -20,6 +20,12 @@ export default function LandingPage() {
     delaySpeed: 1000,
   });
 
+  const { scrollYProgress } = useScroll();
+
+  // Logo scale and y-movement based on scroll
+  const logoScale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
+  const logoY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+
   return (
     <div className="relative flex flex-col items-center justify-center h-screen w-screen bg-black text-white overflow-hidden px-4">
       {/* Background Layers */}
@@ -29,7 +35,10 @@ export default function LandingPage() {
       </div>
 
       {/* Logo Section */}
-      <div className="relative flex flex-col items-center z-10">
+      <motion.div
+        style={{ scale: logoScale, y: logoY }}
+        className="relative flex flex-col items-center z-10"
+      >
         <Image
           src="https://res.cloudinary.com/dduzorsii/image/upload/v1755198961/logo_2_vu8zon.png"
           alt="OWASP Logo"
@@ -40,31 +49,50 @@ export default function LandingPage() {
         />
 
         {/* Slim Gradient under the logo */}
-        {/* Slim Gradient under the logo */}
-<div className="w-full max-w-3xl h-8 relative mt-2">
-  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm" />
-  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
-  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-[3px] bg-gradient-to-r from-transparent via-sky-500 to-transparent blur-sm mt-[2px]" />
-  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-px bg-gradient-to-r from-transparent via-sky-500 to-transparent mt-[2px]" />
-</div>
-
-      </div>
+        <div className="w-full max-w-3xl h-8 relative mt-2">
+          <motion.div
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 1 }}
+          />
+          <motion.div
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 1 }}
+          />
+        </div>
+      </motion.div>
 
       {/* Typewriter Effect */}
-      <div className="mt-4 text-center text-lg sm:text-xl md:text-2xl font-mono text-green-400 z-10">
+      <motion.div
+        className="mt-4 text-center text-lg sm:text-xl md:text-2xl font-mono text-green-400 z-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.8 }}
+      >
         {text}
         <span className="animate-pulse">|</span>
-      </div>
+      </motion.div>
 
       {/* Buttons */}
-      <div className="mt-6 flex gap-4 z-10">
-        <button className="px-6 py-3 bg-cyan-500/20 border border-cyan-400 text-cyan-300 rounded-xl hover:bg-cyan-500/30 transition">
-          Join Us
-        </button>
-        <button className="px-6 py-3 bg-transparent border border-white/40 text-white rounded-xl hover:bg-white/10 transition">
-          Explore
-        </button>
-      </div>
+      <motion.div
+        className="mt-6 flex gap-4 z-10"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.3, duration: 0.8 }}
+      >
+        <a
+  href="https://chat.whatsapp.com/HJH2s0mAlH6IdHsaZi7cWI?mode=ac_t"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-6 py-3 bg-cyan-500/20 border border-cyan-400 text-cyan-300 rounded-xl hover:bg-cyan-500/30 transition"
+>
+  Join Us
+</a>
+
+      </motion.div>
     </div>
   );
 }
