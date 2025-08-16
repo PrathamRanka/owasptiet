@@ -2,7 +2,14 @@
 "use client"
 
 import React from "react"
-import { Home, Globe, Target, Users, CornerDownLeft } from "lucide-react"
+import {
+  Home,
+  Globe,
+  Flag,
+  FileText,
+  Handshake,
+  Users2
+} from "lucide-react";
 import { Dock } from "@/components/ui/dock-ui/dock-two"
 import { useRouter } from "next/navigation"
 
@@ -21,13 +28,13 @@ export default function DockDemo() {
   }
 
   const items = [
-    { icon: Home, label: "About", onClick: () => handleAnchorClick("about") },
-    { icon: Globe, label: "Worldwide Reach", onClick: () => handleAnchorClick("worldwide-reach") },
-    { icon: Target, label: "Core Mission", onClick: () => handleAnchorClick("core-mission") },
-    { icon: CornerDownLeft, label: "Form", onClick: () => handleAnchorClick("footer") },
-    { icon: Users, label: "Team", onClick: handleTeamClick },
-    
-  ]
+  { icon: Home, label: "Home", onClick: () => handleAnchorClick("home") },
+  { icon: Globe, label: "About", onClick: () => handleAnchorClick("about") },
+  { icon: Flag, label: "Missions", onClick: () => handleAnchorClick("missions") },
+  { icon: FileText, label: "Form", onClick: () => handleAnchorClick("form") },
+  { icon: Handshake, label: "Sponsors", onClick: () => handleAnchorClick("sponsors") },
+  { icon: Users2, label: "Team", onClick: handleTeamClick },
+];
 
   return <Dock items={items} />
 }

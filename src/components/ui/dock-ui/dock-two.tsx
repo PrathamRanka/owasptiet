@@ -20,6 +20,7 @@ interface DockIconButtonProps {
   label: string;
   onClick?: () => void;
   className?: string;
+  showLabelAlways?: boolean;
 }
 
 const floatingAnimation = {
@@ -35,21 +36,36 @@ const floatingAnimation = {
 } as const;
 
 const DockIconButton = React.forwardRef<HTMLButtonElement, DockIconButtonProps>(
-  ({ icon: Icon, label, onClick, className }, ref) => {
+  ({ icon: Icon, label, onClick, className, showLabelAlways }, ref) => {
     return (
       <motion.button
         ref={ref}
-        whileHover={{ scale: 1.1, y: -2 }}
         whileTap={{ scale: 0.95 }}
+        // Only animate on hover for desktop
+        whileHover={!showLabelAlways ? { scale: 1.1, y: -5 } : {}}
         onClick={onClick}
         className={cn(
-          "relative group p-3 sm:p-2 rounded-lg flex items-center gap-4 text-lg",
+          "relative group p-3 sm:p-2 rounded-lg flex items-center",
+          showLabelAlways ? "justify-start gap-4" : "justify-center",
           "hover:bg-white/10 transition-colors duration-300",
           className
         )}
       >
         <Icon className="w-6 h-6 sm:w-5 sm:h-5 text-white" />
-        <span className="text-white">{label}</span>
+
+        {/* Label for Mobile (Always Visible) */}
+        {showLabelAlways && (
+          <span className="text-white text-lg">{label}</span>
+        )}
+
+        {/* Label for Desktop (Hover Only) */}
+        {!showLabelAlways && (
+          <span
+            className="absolute bottom-[-1.5rem] left-1/2 -translate-x-1/2 text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            {label}
+          </span>
+        )}
       </motion.button>
     );
   }
@@ -59,6 +75,15 @@ DockIconButton.displayName = "DockIconButton";
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
   ({ items, className }, ref) => {
     const [isOpen, setIsOpen] = React.useState(false);
+
+    // Prevent body scroll when menu is open
+    React.useEffect(() => {
+      if (isOpen) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    }, [isOpen]);
 
     return (
       <div ref={ref} className={cn("w-full flex items-center justify-center p-2", className)}>
@@ -92,9 +117,9 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
+                initial={{ y: "-100%" }}
+                animate={{ y: 0 }}
+                exit={{ y: "-100%" }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex flex-col items-start p-8"
               >
@@ -109,8 +134,14 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
                   {items.map((item) => (
                     <DockIconButton
                       key={item.label}
-                      {...item}
-                      className="w-full justify-start text-2xl"
+                      icon={item.icon}
+                      label={item.label}
+                      showLabelAlways // Always show label on mobile
+                      onClick={() => {
+                        if (item.onClick) item.onClick();
+                        setIsOpen(false); // Close menu on click
+                      }}
+                      className="w-full text-2xl"
                     />
                   ))}
                 </div>

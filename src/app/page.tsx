@@ -27,15 +27,15 @@ export default function HomePage() {
             <ScrollProgress />
           </div>
 
-          <div id="about">
+          <div id="home">
             <SplineSceneBasic />
           </div>
           <ScopedBodyStyle>
-            <div id="worldwide-reach">
+            <div id="about">
               <ComponentDemo />
             </div>
 
-            <div id="core-mission">
+            <div id="missions">
               <FeaturesSectionWithHoverEffectsDemo />
             </div>
 
@@ -43,7 +43,7 @@ export default function HomePage() {
               <ThreeDPhotoCarouselDemo />
             </div>
 
-            <div id="footer">
+            <div id="form">
               <Footer />
             </div>
           </ScopedBodyStyle>
