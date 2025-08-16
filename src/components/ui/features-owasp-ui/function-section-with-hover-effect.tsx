@@ -113,13 +113,13 @@ export function FeaturesSectionWithHoverEffects() {
         <div className="md:hidden w-full relative">
           <button
             onClick={handlePrev}
-            className="absolute left-3 top-[115%] -translate-y-1/2 z-20 bg-transparent text-white p-3 rounded-full shadow-lg"
+            className="absolute left-3 top-[110%] -translate-y-1/2 z-20 bg-transparent text-white p-3 rounded-full shadow-lg"
           >
             ◀
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-2 top-[115%] -translate-y-1/2 z-20 bg-transparent text-white p-3 rounded-full shadow-lg"
+            className="absolute right-2 top-[110%] -translate-y-1/2 z-20 bg-transparent text-white p-3 rounded-full shadow-lg"
           >
             ▶
           </button>
