@@ -1,6 +1,5 @@
 "use client";
 
-
 import { useState } from "react";
 import {
   User,
@@ -104,36 +103,36 @@ export default function Form() {
   };
 
   return (
-    <main className="text-foreground cursor-none">
+    <main className="text-foreground">
       {/* Quote */}
-      <div className="flex items-center justify-center px-4 pt-10 md:pt-24 cursor-none">
-        <div className="text-center cursor-none">
-          <h2 className="text-white font-serif font-extrabold tracking-tight text-[9vw] md:text-[5vw] leading-tight mb-4 cursor-none">
-            “Talk is cheap. Show me the code.”
+      <div className="flex items-center justify-center px-4 pt-10 md:pt-24">
+        <div className="text-center">
+          <h2 className="text-white font-serif font-extrabold tracking-tight text-[9vw] md:text-[5vw] leading-tight mb-4">
+            “No more insecure software”
           </h2>
-          <p className="text-gray-400 italic text-base md:text-xl mb-2 cursor-none">
-            — Linus Torvalds
+          <p className="text-gray-400 italic text-base md:text-xl mb-2">
+            — OWASP Foundation
           </p>
-          <p className="text-white text-sm md:text-lg font-medium mt-2 cursor-none">
+          <p className="text-white text-sm md:text-lg font-medium mt-2">
             At OWASP TIET, we live by this.
           </p>
-          <p className="text-white text-sm md:text-lg font-medium cursor-none">
+          <p className="text-white text-sm md:text-lg font-medium">
             Perfect for a society that builds, not just talks.
           </p>
-          <div className="w-16 md:w-24 h-0.5 bg-gradient-to-r from-primary to-secondary mx-auto mt-6 cursor-none" />
+          <div className="w-16 md:w-24 h-0.5 bg-gradient-to-r from-primary to-secondary mx-auto mt-6" />
         </div>
       </div>
 
       {/* Query Form */}
-      <section className="max-w-5xl mx-auto px-6 md:px-12 py-12 mt-10 mb-24 rounded-2xl cursor-none">
-        <h3 className="text-3xl md:text-4xl font-serif font-bold text-white text-center mb-8 cursor-none">
+      <section className="max-w-5xl mx-auto px-6 md:px-12 py-12 mt-10 mb-24 bg-transparent rounded-none">
+        <h3 className="text-3xl md:text-4xl font-serif font-bold text-white text-center mb-8">
           Got a Query? Let’s Talk
         </h3>
 
-        <form onSubmit={handleSubmit} className="space-y-5 cursor-none">
-          <div className="grid md:grid-cols-2 gap-5 cursor-none">
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div className="grid md:grid-cols-2 gap-5">
             <FormField
-              icon={<User className="text-gray-400 w-5 h-5 cursor-none" />}
+              icon={<User className="text-gray-400 w-5 h-5" />}
               name="name"
               placeholder="Your Name"
               value={formData.name}
@@ -141,7 +140,7 @@ export default function Form() {
               onChange={handleChange}
             />
             <FormField
-              icon={<Mail className="text-gray-400 w-5 h-5 cursor-none" />}
+              icon={<Mail className="text-gray-400 w-5 h-5" />}
               name="email"
               placeholder="you@example.com"
               value={formData.email}
@@ -152,9 +151,9 @@ export default function Form() {
             />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-5 cursor-none">
+          <div className="grid md:grid-cols-2 gap-5">
             <FormField
-              icon={<Phone className="text-gray-400 w-5 h-5 cursor-none" />}
+              icon={<Phone className="text-gray-400 w-5 h-5" />}
               name="phone"
               placeholder="Phone Number"
               value={formData.phone}
@@ -164,7 +163,7 @@ export default function Form() {
               inputMode="numeric"
             />
             <FormField
-              icon={<Pencil className="text-gray-400 w-5 h-5 cursor-none" />}
+              icon={<Pencil className="text-gray-400 w-5 h-5" />}
               name="subject"
               placeholder="Subject"
               value={formData.subject}
@@ -173,40 +172,39 @@ export default function Form() {
             />
           </div>
 
-          <div className="relative cursor-none">
+          <div className="relative">
             <textarea
               name="message"
               rows={6}
               placeholder="Your Message to make OWASP-TIET better"
               value={formData.message}
               onChange={handleChange}
-              className={`w-full bg-white/10 text-white p-4 pl-12 rounded-lg border transition ${
+              className={`w-full bg-white/10 text-white p-4 pl-12 rounded-none border transition ${
                 errors.message ? "border-red-500" : "border-white/10"
-              } focus:outline-none focus:ring-2 focus:ring-primary resize-none cursor-none`}
+              } focus:outline-none focus:ring-2 focus:ring-primary resize-none`}
             />
-            <MessageSquare className="absolute top-4 left-4 text-gray-400 w-5 h-5 cursor-none" />
+            <MessageSquare className="absolute top-4 left-4 text-gray-400 w-5 h-5" />
             {errors.message && (
-              <p className="text-red-500 text-sm mt-1 cursor-none">{errors.message}</p>
+              <p className="text-red-500 text-sm mt-1">{errors.message}</p>
             )}
           </div>
 
-          <div className="text-center pt-4 cursor-none">
+          <div className="text-center pt-4">
             <button
               type="submit"
-              className="px-8 py-3 rounded-xl border border-primary font-semibold bg-transparent text-white transition duration-200 cursor-none"
+              className="px-8 py-3 rounded-none border border-primary font-semibold bg-transparent text-white transition duration-200"
             >
               Send Message →
             </button>
 
             {submitted && (
-              <p className="text-green-400 flex items-center justify-center mt-4 cursor-none">
-                <CheckCircle className="mr-2 h-5 w-5 cursor-none" /> Message sent successfully!
+              <p className="text-green-400 flex items-center justify-center mt-4">
+                <CheckCircle className="mr-2 h-5 w-5" /> Message sent successfully!
               </p>
             )}
           </div>
         </form>
       </section>
-
     </main>
   );
 }
@@ -233,7 +231,7 @@ function FormField({
   inputMode,
 }: FormFieldProps) {
   return (
-    <div className="relative cursor-none">
+    <div className="relative">
       <input
         type={type}
         inputMode={inputMode}
@@ -241,12 +239,12 @@ function FormField({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={`w-full bg-white/10 text-white p-4 pl-12 rounded-lg border transition ${
+        className={`w-full bg-white/10 text-white p-4 pl-12 rounded-none border transition ${
           error ? "border-red-500" : "border-white/10"
-        } focus:outline-none focus:ring-2 focus:ring-primary cursor-none`}
+        } focus:outline-none focus:ring-2 focus:ring-primary`}
       />
-      <div className="absolute top-4 left-4 cursor-none">{icon}</div>
-      {error && <p className="text-red-500 text-sm mt-1 cursor-none">{error}</p>}
+      <div className="absolute top-4 left-4">{icon}</div>
+      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
     </div>
   );
 }

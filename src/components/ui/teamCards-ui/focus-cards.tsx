@@ -27,19 +27,19 @@ export const Card = React.memo(
     >
       {/* ✅ Optimized Image */}
       <Image
-        src={card.src} // e.g., "/cards/webdev.png"
+        src={card.src}
         alt={card.title}
         fill
         className="object-cover"
         sizes="(max-width: 768px) 100vw, 33vw"
-        priority={index === 0} // Optional: only first one loads eagerly
+        priority={index === 0}
       />
 
-      {/* Overlay Text */}
+      {/* ✅ Overlay Text (Reversed Logic) */}
       <div
         className={cn(
           "absolute inset-0 bg-black/50 flex items-end py-8 px-4 transition-opacity duration-300",
-          hovered === index ? "opacity-100" : "opacity-0"
+          hovered === index ? "opacity-0" : "opacity-100"
         )}
       >
         <div className="text-xl md:text-2xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-200">
@@ -54,7 +54,7 @@ Card.displayName = "Card";
 
 type Card = {
   title: string;
-  src: string; // Make sure src starts with `/` and points to `public/`
+  src: string;
 };
 
 export function FocusCards({ cards }: { cards: Card[] }) {

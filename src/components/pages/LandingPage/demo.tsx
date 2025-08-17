@@ -10,31 +10,38 @@ export default function LandingPage() {
   const [text] = useTypewriter({
     words: [
       "Open Worldwide Application Security Project",
-      "Defending the Web, One Line at a Time",
-      "Built by Hackers, Loved by Developers",
-      "Security is a Feature, Not a Patch",
+      "Hack • Learn • Secure • Repeat",
+      "Driven by Students, Trusted by Developers",
+      "Building Safer Web, One Project at a Time",
     ],
     loop: 0,
     typeSpeed: 70,
     deleteSpeed: 25,
-    delaySpeed: 1000,
+    delaySpeed: 2000,
   });
 
   const { scrollYProgress } = useScroll();
 
-  // Logo scale and y-movement based on scroll
   const logoScale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
   const logoY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const glowOpacity = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
 
   return (
     <div className="relative flex flex-col items-center justify-center h-screen w-screen bg-black text-white overflow-hidden px-4">
-      {/* Background Layers */}
+      {/* Background with stars */}
       <div className="absolute inset-0 z-0">
+        <StarsBackground />
         <StarsBackground />
         <ShootingStars />
       </div>
 
-      {/* Logo Section */}
+      {/* Glowing Aura */}
+      <motion.div
+        style={{ opacity: glowOpacity }}
+        className="absolute w-[600px] h-[600px] rounded-full blur-3xl bg-cyan-500/15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0"
+      />
+
+      {/* Logo */}
       <motion.div
         style={{ scale: logoScale, y: logoY }}
         className="relative flex flex-col items-center z-10"
@@ -42,22 +49,25 @@ export default function LandingPage() {
         <Image
           src="https://res.cloudinary.com/dduzorsii/image/upload/v1755198961/logo_2_vu8zon.png"
           alt="OWASP Logo"
-          width={450}
-          height={450}
+          width={500}
+          height={500}
           priority
-          className="object-contain w-[180px] sm:w-[250px] md:w-[320px] lg:w-[380px] xl:w-[420px]"
+          className="object-contain w-[220px] sm:w-[300px] md:w-[360px] lg:w-[420px] xl:w-[480px] 
+                     hover:scale-110 transition-transform duration-500 ease-in-out"
         />
 
-        {/* Slim Gradient under the logo */}
-        <div className="w-full max-w-3xl h-8 relative mt-2">
+        {/* Lines under logo */}
+        <div className="w-full max-w-6xl h-16 relative mt-6">
           <motion.div
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm"
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[6px] 
+                       bg-gradient-to-r from-transparent via-cyan-400/70 to-transparent blur-2xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 1 }}
           />
           <motion.div
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent"
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[2px] 
+                       bg-gradient-to-r from-transparent via-purple-400/60 to-transparent"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 1 }}
@@ -65,33 +75,38 @@ export default function LandingPage() {
         </div>
       </motion.div>
 
-      {/* Typewriter Effect */}
+      {/* Typewriter Text */}
       <motion.div
-        className="mt-4 text-center text-lg sm:text-xl md:text-2xl font-mono text-green-400 z-10"
+        className="mt-8 text-center text-2xl sm:text-3xl md:text-4xl font-bold 
+                   text-gray-200 tracking-wide z-10 drop-shadow-[0_0_10px_rgba(200,200,255,0.3)]"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8 }}
       >
         {text}
-        <span className="animate-pulse">|</span>
+        <span className="text-cyan-300 animate-pulse">|</span>
       </motion.div>
 
-      {/* Buttons */}
+      {/* Join Us Button - Transparent with Hover Glow */}
       <motion.div
-        className="mt-6 flex gap-4 z-10"
+        className="mt-16 flex gap-4 z-10"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.3, duration: 0.8 }}
       >
         <a
-  href="https://chat.whatsapp.com/HJH2s0mAlH6IdHsaZi7cWI?mode=ac_t"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="px-6 py-3 bg-cyan-500/20 border border-cyan-400 text-cyan-300 rounded-xl hover:bg-cyan-500/30 transition"
->
-  Join Us
-</a>
-
+          href="https://chat.whatsapp.com/HJH2s0mAlH6IdHsaZi7cWI?mode=ac_t"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative px-10 py-4 text-lg font-semibold rounded-xl 
+                     bg-transparent border border-cyan-400/60 text-gray-100
+                     hover:bg-cyan-500/10 hover:border-cyan-400 hover:text-white
+                     hover:shadow-[0_0_20px_rgba(0,255,255,0.3)]
+                     active:scale-95
+                     transition-all duration-300 ease-in-out"
+        >
+          Join Us
+        </a>
       </motion.div>
     </div>
   );

@@ -9,8 +9,8 @@ import { BentoGrid } from "./bento-grid";
 
 const Section1: React.FC = () => {
   return (
-    <section className="relative bg-transparent md:min-h-screen md:flex md:items-center md:justify-center md:pb-0">
-      <div className="relative flex flex-col md:flex-row w-full max-w-7xl items-center justify-between px-4 md:px-12 lg:px-20 py-8 sm:py-12 gap-8">
+    <section className="relative  md:min-h-screen md:flex md:items-center md:justify-center md:pb-0">
+      <div className="relative flex flex-col md:flex-row w-full max-w-7xl items-center justify-between px-4 md:px-0 lg:px-0 py-8 sm:py-12">
         
         {/* TEXT SECTION */}
         <div className="flex flex-col text-center md:text-left z-10 max-w-xl space-y-4 sm:space-y-6 items-center md:items-start">
@@ -31,16 +31,16 @@ const Section1: React.FC = () => {
     href="https://owasp.org/www-chapter-thapar-institute-of-engineering-and-technology/"
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-block px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white transition font-semibold backdrop-blur cursor-none"
+    className="inline-block px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white transition font-semibold backdrop-blur"
   >
-    Explore Our Chapters →
+    Explore Our Chapter →
   </a>
 </div>
 
         </div>
 
         {/* GLOBE SECTION */}
-        <div className="w-[18rem] sm:w-[20rem] md:w-[24rem] lg:w-[28rem] max-w-full relative z-10 mt-8 md:mt-0 self-center md:self-start mx-auto md:mx-0 flex-shrink-0 animate-float cursor-none">
+        <div className="w-[18rem] sm:w-[20rem] md:w-[24rem] lg:w-[40rem] max-w-full relative z-10 mt-8 md:mt-0 self-center md:self-start mx-auto md:mx-0 flex-shrink-0 animate-float">
           <Globe />
         </div>
       </div>
@@ -51,7 +51,7 @@ const Section1: React.FC = () => {
 const Section2: React.FC = () => {
   return (
     <section className="relative min-h-screen z-10 bg-transparent">
-      <article className="container mx-auto relative z-10 px-4 py-20 sm:py-32">
+      <article className="container mx-auto relative z-10 px-10 py-20 sm:py-32">
         <BentoGrid />
       </article>
     </section>

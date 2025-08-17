@@ -41,24 +41,21 @@ const DockIconButton = React.forwardRef<HTMLButtonElement, DockIconButtonProps>(
       <motion.button
         ref={ref}
         whileTap={{ scale: 0.95 }}
-        // Only animate on hover for desktop
         whileHover={!showLabelAlways ? { scale: 1.1, y: -5 } : {}}
         onClick={onClick}
         className={cn(
-          "relative group p-3 sm:p-2 rounded-lg flex items-center",
+          "relative group p-2 sm:p-3 rounded-lg flex items-center",
           showLabelAlways ? "justify-start gap-4" : "justify-center",
           "hover:bg-white/10 transition-colors duration-300",
           className
         )}
       >
-        <Icon className="w-6 h-6 sm:w-5 sm:h-5 text-white" />
+        <Icon className="w-5 h-5 sm:w-5 sm:h-5 text-white" />
 
-        {/* Label for Mobile (Always Visible) */}
         {showLabelAlways && (
           <span className="text-white text-lg">{label}</span>
         )}
 
-        {/* Label for Desktop (Hover Only) */}
         {!showLabelAlways && (
           <span
             className="absolute bottom-[-1.5rem] left-1/2 -translate-x-1/2 text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity"
@@ -76,17 +73,15 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
   ({ items, className }, ref) => {
     const [isOpen, setIsOpen] = React.useState(false);
 
-    // Prevent body scroll when menu is open
     React.useEffect(() => {
-      if (isOpen) {
-        document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "";
-      }
+      document.body.style.overflow = isOpen ? "hidden" : "";
     }, [isOpen]);
 
     return (
-      <div ref={ref} className={cn("w-full flex items-center justify-center p-2", className)}>
+      <div
+        ref={ref}
+        className={cn("w-full flex items-center justify-center p-2", className)}
+      >
         {/* Desktop Dock */}
         <motion.div
           initial="initial"
@@ -109,39 +104,41 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-3 rounded-lg bg-black/50 backdrop-blur-lg"
+            className="p-2 rounded-lg bg-black/50 backdrop-blur-lg"
           >
-            {isOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
+            {isOpen ? (
+              <X className="w-6 h-6 text-white" />
+            ) : (
+              <Menu className="w-6 h-6 text-white" />
+            )}
           </button>
 
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                initial={{ y: "-100%" }}
-                animate={{ y: 0 }}
-                exit={{ y: "-100%" }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex flex-col items-start p-8"
+                key="dock-popup"
+                initial={{ opacity: 0, scale: 0.8, y: -20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.8, y: -20 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="
+                  fixed top-6 left-1/2 -translate-x-1/2 z-50
+                  bg-black/80 backdrop-blur-xl
+                  p-2 rounded-2xl border border-white/10 shadow-lg
+                  overflow-hidden
+                "
               >
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="absolute top-5 right-5 p-2 bg-white/10 rounded-lg"
-                >
-                  <X className="w-6 h-6 text-white" />
-                </button>
-
-                <div className="mt-16 flex flex-col gap-6 w-full">
+                <div className="flex flex-row gap-2 sm:gap-3">
                   {items.map((item) => (
                     <DockIconButton
                       key={item.label}
                       icon={item.icon}
                       label={item.label}
-                      showLabelAlways // Always show label on mobile
                       onClick={() => {
                         if (item.onClick) item.onClick();
-                        setIsOpen(false); // Close menu on click
+                        setIsOpen(false);
                       }}
-                      className="w-full text-2xl"
+                      className="p-2"
                     />
                   ))}
                 </div>

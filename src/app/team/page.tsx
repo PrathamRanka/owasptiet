@@ -7,11 +7,13 @@ import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Footer } from "@/components/pages/Footer/footer";
+import { ScrollProgress } from "@/components/ui/ScrollProgress-ui/scroll-progress";
 
 export default function TeamPage() {
   const [selected, setSelected] = useState<"executive" | "core">("executive");
 
-  return (
+  return (<>
+    <ScrollProgress />
     <div className="relative min-h-screen w-full overflow-x-hidden text-white px-6 py-12 cursor-none">
       <Link
         href="https://owasptiet.vercel.app"
@@ -57,8 +59,9 @@ export default function TeamPage() {
         {selected === "executive" ? <TeamCards /> : <CoreCards />}
       </div>
 
-      <div className="mt-24 cursor-none" />
+      <div className="mt-24  cursor-none" />
       <Footer />
     </div>
+    </>
   );
 }

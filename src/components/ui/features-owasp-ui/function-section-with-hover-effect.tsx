@@ -8,8 +8,6 @@ import {
   IconUsersGroup,
   IconBinary,
   IconCircuitCellPlus,
-  IconCalendarEvent,
-  IconSwords,
   IconShieldLock,
 } from "@tabler/icons-react";
 import { useKeenSlider } from "keen-slider/react";
@@ -19,44 +17,43 @@ import { useEffect } from "react";
 export function FeaturesSectionWithHoverEffects() {
   const features = [
     {
-      title: "EVENTS: WHERE SECURITY MEETS INNOVATION",
+      title: "EVENTS THAT TEST YOUR EDGE",
       description:
-        "HackOWASP: Our flagship hackathon challenges you to build secure solutions under pressure, mentored by industry experts.\nCapture The Flag (CTF): Compete in adrenaline-fueled cybersecurity battles – exploit vulnerabilities, defend systems, and sharpen your tactical skills.",
+        "HackOWASP – flagship hackathon where security meets creativity.\n• CTF – ultimate cybersecurity battle\n• Regular workshops & sessions to keep your skills sharp",
       icon: <IconFlagCheck />,
     },
     {
-      title: "JUNIOR-SENIOR SYNERGY: GUIDANCE BEYOND THE CLASSROOM",
+      title: "MENTORSHIP THAT MATTERS",
       description:
-        "Structured mentorship where seniors provide:\n• Course Support for cybersecurity, AI, cloud, web dev\n• Tech Resources for certifications (CEH, CompTIA+)\n• Project Rescue for troubleshooting and design challenges",
+        "Learn from peers & seasoned pros:\n• Certifications like CEH, CompTIA+\n• Advanced projects & debugging\n• Tech talks and real-world insights",
       icon: <IconUsersGroup />,
     },
     {
-      title: "TECH WITH TEETH: SECURITY THAT DELIVERS IMPACT",
+      title: "TECH THAT FIGHTS BACK",
       description:
-        "We engineer solutions that solve real vulnerabilities:\n• Offensive security tools (pen-testing, threat detection)\n• AI/IoT/cloud projects\n• Features that 'bite back' against threats",
+        "Hands-on security from day one:\n• Pen-testing tools\n• AI & IoT security\n• Cloud and network defense",
       icon: <IconBinary />,
     },
     {
-      title: "PROJECT BUILDING: FROM IDEATION TO DEPLOYMENT",
+      title: "PROJECTS FROM IDEA TO IMPACT",
       description:
-        "Join end-to-end development:\n• Build scanners, DApps, forensic tools\n• Collaborate in cross-functional teams\n• Deploy real-world solutions with industry partners",
+        "We build real stuff:\n• Scanners, forensic tools, DApps\n• Intra-hackathons & global challenges\n• Products that actually ship",
       icon: <IconCircuitCellPlus />,
     },
     {
-      title: "BEYOND CODE: LAUNCHPADS FOR EVERY PASSION",
+      title: "ROLES BEYOND CODE",
       description:
-        "Non-tech roles power our mission:\n• Marketing & Branding for events\n• UX/Design for security platforms\n• Finance & Startups for funding and growth\n• Event Management for top-tier conferences",
+        "Security needs more than code:\n• Marketing & PR\n• Finance & strategy\n• Design & UX",
       icon: <IconSparkles />,
     },
     {
-      title: "OUR CULTURE: NO HIERARCHIES, ONLY HUSTLERS",
+      title: "OUR CULTURE: ZERO HIERARCHY",
       description:
-        "A flat community where every member codes, defends, and strategizes together. Security isn’t just a skill – it’s our mindset.",
+        "Yes, there’s structure:\n• Executive Board (top)\n• Core Team (next)\n• Executive Members (where you start)\nBut inside OWASP, titles don’t define us we build, break, and grow together.",
       icon: <IconShieldLock />,
     },
   ];
 
-  // Keen Slider setup for mobile
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slides: { perView: 1, spacing: 16 },
@@ -66,7 +63,6 @@ export function FeaturesSectionWithHoverEffects() {
     },
   });
 
-  // Auto swipe every 4 seconds
   useEffect(() => {
     if (!slider) return;
     const interval = setInterval(() => {
@@ -75,30 +71,21 @@ export function FeaturesSectionWithHoverEffects() {
     return () => clearInterval(interval);
   }, [slider]);
 
-  const handlePrev = () => {
-    if (slider.current) slider.current.prev();
-  };
-  const handleNext = () => {
-    if (slider.current) slider.current.next();
-  };
+  const handlePrev = () => slider.current?.prev();
+  const handleNext = () => slider.current?.next();
 
   return (
     <section className="w-full py-16 px-6 sm:px-10 md:px-16 lg:px-24 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        {/* Heading */}
         <div className="text-center mb-16">
           <span className="text-xs sm:text-sm tracking-widest uppercase text-blue-400 font-semibold font-mono block mb-4">
-            OWASP Missions
+            OWASP MISSIONS
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight font-['Orbitron'] uppercase">
-            YOUR LAUNCHPAD FOR YOUR TECH JOURNEY
+            Your Tech Launchpad
           </h2>
           <p className="mt-6 text-sm sm:text-lg text-neutral-300 max-w-3xl mx-auto leading-relaxed">
-            We’re more than a cybersecurity chapter – we’re an innovation
-            ecosystem where curious minds become tech leaders. At OWASP Thapar,
-            you’ll bridge theory with real-world impact through collaborative
-            security projects, industry-aligned events, and multidisciplinary
-            growth.
+            Not just a club an ecosystem. Build, break, secure, and innovate with a community that thrives on real-world challenges and endless learning.
           </p>
         </div>
 
@@ -130,9 +117,7 @@ export function FeaturesSectionWithHoverEffects() {
                 key={idx}
                 className="keen-slider__slide min-w-[80%] mx-auto bg-neutral-900 rounded-xl border border-neutral-700 p-6 flex flex-col"
               >
-                <div className="text-blue-400 text-4xl mb-4">
-                  {feature.icon}
-                </div>
+                <div className="text-blue-400 text-4xl mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold text-white mb-4">
                   {feature.title}
                 </h3>
@@ -160,13 +145,10 @@ const Feature = ({
   index: number;
 }) => {
   return (
-    <div
-      className={cn("flex flex-col py-12 relative group/feature")}
-    >
-      {index < 3 && (
+    <div className={cn("flex flex-col py-12 relative group/feature")}>
+      {index < 3 ? (
         <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100/5 dark:from-neutral-800 to-transparent pointer-events-none" />
-      )}
-      {index >= 3 && (
+      ) : (
         <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100/5 dark:from-neutral-800 to-transparent pointer-events-none" />
       )}
       <div className="mb-4 relative z-10 px-6 sm:px-8 text-blue-400 group-hover/feature:text-white transition-colors duration-200 text-2xl">

@@ -8,47 +8,22 @@ const DEFAULT_CONFIG: COBEOptions = {
   width: 1,
   height: 1,
   onRender: () => {},
-  devicePixelRatio:
-    typeof window !== "undefined" && window.innerWidth < 768 ? 1.5 : 2,
+  devicePixelRatio: typeof window !== "undefined" && window.innerWidth < 768 ? 1.5 : 2,
   phi: 0,
-  theta: 0.3, // starting tilt
+  theta: 0.3,
   dark: 0,
   diffuse: 0.4,
-  mapSamples: 16000,
+  mapSamples: typeof window !== "undefined" && window.innerWidth < 768 ? 5000 : 16000, // low-res on mobile
   mapBrightness: 1.2,
   baseColor: [1, 1, 1],
   markerColor: [251 / 255, 100 / 255, 21 / 255],
   glowColor: [1, 1, 1],
   markers: [
-    { location: [30.34, 76.38], size: 0.06 },
-    { location: [28.6139, 77.209], size: 0.08 },
-    { location: [19.076, 72.8777], size: 0.1 },
-    { location: [13.0827, 80.2707], size: 0.09 },
-    { location: [47.6062, -122.3321], size: 0.1 },
-    { location: [23.8103, 90.4125], size: 0.05 },
-    { location: [30.0444, 31.2357], size: 0.07 },
-    { location: [-23.5505, -46.6333], size: 0.1 },
-    { location: [40.7128, -74.006], size: 0.1 },
-    { location: [51.5074, -0.1278], size: 0.08 },
-    { location: [48.8566, 2.3522], size: 0.08 },
-    { location: [52.52, 13.405], size: 0.08 },
-    { location: [35.6895, 139.6917], size: 0.08 },
-    { location: [1.3521, 103.8198], size: 0.08 },
-    { location: [43.6532, -79.3832], size: 0.08 },
-    { location: [-33.8688, 151.2093], size: 0.08 },
-    { location: [55.7558, 37.6173], size: 0.08 },
-    { location: [41.0082, 28.9784], size: 0.08 },
-    { location: [-26.2041, 28.0473], size: 0.08 },
+{ location: [30.34, 76.38], size: 0.06 }, { location: [28.6139, 77.209], size: 0.08 }, { location: [19.076, 72.8777], size: 0.1 }, { location: [13.0827, 80.2707], size: 0.09 }, { location: [47.6062, -122.3321], size: 0.1 }, { location: [23.8103, 90.4125], size: 0.05 }, { location: [30.0444, 31.2357], size: 0.07 }, { location: [-23.5505, -46.6333], size: 0.1 }, { location: [40.7128, -74.006], size: 0.1 }, { location: [51.5074, -0.1278], size: 0.08 }, { location: [48.8566, 2.3522], size: 0.08 }, { location: [52.52, 13.405], size: 0.08 }, { location: [35.6895, 139.6917], size: 0.08 }, { location: [1.3521, 103.8198], size: 0.08 }, { location: [43.6532, -79.3832], size: 0.08 }, { location: [-33.8688, 151.2093], size: 0.08 }, { location: [55.7558, 37.6173], size: 0.08 }, { location: [41.0082, 28.9784], size: 0.08 }, { location: [-26.2041, 28.0473], size: 0.08 },
   ],
 };
 
-export function Globe({
-  className,
-  config = DEFAULT_CONFIG,
-}: {
-  className?: string;
-  config?: COBEOptions;
-}) {
+export function Globe({ className, config = DEFAULT_CONFIG }: { className?: string; config?: COBEOptions }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const phiRef = useRef(0);
   const thetaRef = useRef(0.3);
@@ -57,6 +32,7 @@ export function Globe({
   const pointerStartX = useRef<number | null>(null);
   const pointerStartY = useRef<number | null>(null);
   const [size, setSize] = useState(0);
+  const [initialized, setInitialized] = useState(false);
 
   const setCursor = (isGrabbing: boolean) => {
     if (canvasRef.current) {
@@ -64,32 +40,27 @@ export function Globe({
     }
   };
 
-  const handlePointerDown = (clientX: number, clientY: number) => {
-    pointerStartX.current = clientX;
-    pointerStartY.current = clientY;
+  const handlePointerDown = (x: number, y: number) => {
+    pointerStartX.current = x;
+    pointerStartY.current = y;
     setCursor(true);
   };
-
   const handlePointerUp = () => {
     pointerStartX.current = null;
     pointerStartY.current = null;
     setCursor(false);
   };
-
-  const handlePointerMove = (clientX: number, clientY: number) => {
+  const handlePointerMove = (x: number, y: number) => {
     if (pointerStartX.current !== null && pointerStartY.current !== null) {
       const sensitivity = window.innerWidth < 768 ? 100 : 200;
-      const deltaX = clientX - pointerStartX.current;
-      const deltaY = clientY - pointerStartY.current;
-
+      const deltaX = x - pointerStartX.current;
+      const deltaY = y - pointerStartY.current;
       phiRef.current += deltaX / sensitivity;
       thetaRef.current += deltaY / sensitivity;
-
       velocityXRef.current = deltaX / sensitivity;
       velocityYRef.current = deltaY / sensitivity;
-
-      pointerStartX.current = clientX;
-      pointerStartY.current = clientY;
+      pointerStartX.current = x;
+      pointerStartY.current = y;
     }
   };
 
@@ -101,7 +72,7 @@ export function Globe({
 
   const onRender = useCallback(
     (state: Record<string, number>) => {
-      if (pointerStartX.current === null && pointerStartY.current === null) {
+      if (!pointerStartX.current && !pointerStartY.current) {
         phiRef.current += velocityXRef.current || 0.005;
         thetaRef.current += velocityYRef.current || 0;
         velocityXRef.current *= 0.95;
@@ -119,16 +90,18 @@ export function Globe({
 
   useEffect(() => {
     updateSize();
-    window.addEventListener("resize", updateSize);
+    let frame: number;
+    const handleResize = () => {
+      if (frame) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(updateSize);
+    };
+    window.addEventListener("resize", handleResize);
 
     if (!canvasRef.current) return;
 
-    const globe = createGlobe(canvasRef.current, {
-      ...config,
-      width: size * 2,
-      height: size * 2,
-      onRender,
-    });
+    // Initialize globe
+    const globe = createGlobe(canvasRef.current, { ...config, width: size * 2, height: size * 2, onRender });
+    setInitialized(true);
 
     const canvas = canvasRef.current;
     if (canvas) {
@@ -137,22 +110,19 @@ export function Globe({
     }
 
     return () => {
-      window.removeEventListener("resize", updateSize);
+      window.removeEventListener("resize", handleResize);
       globe.destroy();
     };
   }, [config, onRender, size, updateSize]);
 
   return (
     <div className="flex items-center justify-center w-full h-full">
-      <div
-        className={cn(
-          "aspect-square w-full max-w-[600px] bg-transparent",
-          className
-        )}
-      >
+      {/* Placeholder for instant paint */}
+      {!initialized && <div className="w-24 h-24 rounded-full bg-gray-800 animate-pulse" />}
+      <div className={cn("aspect-square w-full max-w-[600px] bg-transparent", className)}>
         <canvas
           ref={canvasRef}
-          className="size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size] bg-transparent"
+          className="w-full h-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size] bg-transparent"
           onPointerDown={(e) => handlePointerDown(e.clientX, e.clientY)}
           onPointerUp={handlePointerUp}
           onPointerOut={handlePointerUp}

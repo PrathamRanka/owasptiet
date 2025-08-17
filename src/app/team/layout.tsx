@@ -1,5 +1,5 @@
 "use client";
-
+import "./team.css";
 import { ShootingStars } from "@/components/ui/background-ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/background-ui/stars-background";
 import AnimatedPageWrapper from "@/components/AnimatedPageWrapper";

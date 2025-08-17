@@ -148,20 +148,21 @@ const CardComponent = React.memo(
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
       )}
     >
-      {/* ✅ Lazy-loaded and optimized image */}
+      {/* ✅ Background Image */}
       <Image
         src={card.src}
         alt={card.title}
         fill
         sizes="(max-width: 768px) 100vw, 33vw"
-        priority={false} // Keep false for lazy
+        priority={false} // Lazy loading for optimization
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
 
+      {/* ✅ Details Overlay (Visible by default, hides on hover) */}
       <div
         className={cn(
           "absolute inset-0 bg-black/40 flex flex-col justify-end px-4 py-6 transition-opacity duration-300",
-          hovered === index ? "opacity-100" : "opacity-0"
+          hovered === index ? "opacity-90" : "opacity-100"
         )}
       >
         <div className="text-white drop-shadow-[0_1.5px_2px_rgba(0,0,0,0.8)]">

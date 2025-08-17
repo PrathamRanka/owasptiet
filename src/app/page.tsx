@@ -12,7 +12,6 @@ import ComponentDemo from "@/components/pages/Globe & Bento/scroll-section";
 import ScopedBodyStyle from "@/components/ScopedBodyStyle";
 import ThreeDPhotoCarouselDemo from "@/components/pages/Sponsors/company-carousel";
 import { Footer } from "@/components/pages/Footer/footer";
-
 import DockDemo from "@/components/pages/Navbar/dock";
 
 export default function HomePage() {

@@ -18,97 +18,99 @@ function Footerdemo() {
 
   return (
     <footer className="relative border-t bg-background text-foreground transition-colors">
-  <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8 relative">
-    {/* Decorative blur element (kept absolutely positioned) */}
-    <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
+      <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8 relative">
+        {/* Decorative blur element */}
+        <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
 
-    <div className="flex flex-col gap-12 md:flex-row md:justify-between md:items-start">
-      {/* Quick Links */}
-      <div className="flex-1 space-y-4 md:pr-8">
-        <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
-        <nav className="space-y-2 text-sm">
-          <a href="#home" className="block transition-colors hover:text-primary">Home</a>
-          <a href="#about" className="block transition-colors hover:text-primary">About OWASP</a>
-          <a href="#missionS" className="block transition-colors hover:text-primary">Core Mission</a>
-          <a href="#form" className="block transition-colors hover:text-primary">Form</a>
-          <a href="/team" className="block transition-colors hover:text-primary">Team</a>
-        </nav>
-      </div>
+        {/* Main Sections */}
+        <div className="flex flex-col gap-12 items-center md:flex-row md:justify-between md:items-start">
+          {/* Quick Links */}
+          <div className="flex-1 space-y-4 text-center md:text-left md:pr-8">
+            <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
+            <nav className="space-y-2 text-sm">
+              <a href="#home" className="block transition-colors hover:text-primary">Home</a>
+              <a href="#about" className="block transition-colors hover:text-primary">About OWASP</a>
+              <a href="#missionS" className="block transition-colors hover:text-primary">Core Mission</a>
+              <a href="#form" className="block transition-colors hover:text-primary">Form</a>
+              <a href="/team" className="block transition-colors hover:text-primary">Team</a>
+            </nav>
+          </div>
 
-      {/* Contact Info */}
-      <div className="flex-1 text-center md:text-left">
-        <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
-        <address className="space-y-2 text-sm not-italic">
-          <p>Thapar Institute of Engineering</p>
-          <p>Phone: +91 95013 49322</p>
-          <p>Email: owasptu@gmail.com</p>
-        </address>
-      </div>
+          {/* Contact Info */}
+          <div className="flex-1 text-center md:text-left">
+            <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
+            <address className="space-y-2 text-sm not-italic">
+              <p>Thapar Institute of Engineering</p>
+              <p>Phone: +91 95013 49322</p>
+              <p>Email: owasptu@gmail.com</p>
+            </address>
+          </div>
 
-      {/* Social Links */}
-      <div className="flex-1 text-center md:text-right">
-        <h3 className="mb-4 text-lg font-semibold">Follow Us</h3>
-        <div className="mb-6 flex justify-center md:justify-end space-x-4">
-          {/* Social Icons (keep as-is) */}
-          {/* Twitter */}
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <a href="https://x.com/owasp_tiet" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="icon" className="rounded-full">
-                    <Twitter className="h-4 w-4" />
-                    <span className="sr-only">Twitter</span>
-                  </Button>
-                </a>
-              </TooltipTrigger>
-              <TooltipContent><p>Follow us on X (Twitter)</p></TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          {/* Instagram */}
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <a href="https://www.instagram.com/owasp_tiet/?hl=en" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="icon" className="rounded-full">
-                    <Instagram className="h-4 w-4" />
-                    <span className="sr-only">Instagram</span>
-                  </Button>
-                </a>
-              </TooltipTrigger>
-              <TooltipContent><p>Follow us on Instagram</p></TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          {/* LinkedIn */}
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <a href="https://www.linkedin.com/company/owasp-tiet/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="icon" className="rounded-full">
-                    <Linkedin className="h-4 w-4" />
-                    <span className="sr-only">LinkedIn</span>
-                  </Button>
-                </a>
-              </TooltipTrigger>
-              <TooltipContent><p>Connect with us on LinkedIn</p></TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          {/* Social Links */}
+          <div className="flex-1 text-center md:text-right">
+            <h3 className="mb-4 text-lg font-semibold">Follow Us</h3>
+            <div className="mb-6 flex justify-center md:justify-end space-x-4">
+              {/* Twitter */}
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a href="https://x.com/owasp_tiet" target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" size="icon" className="rounded-full">
+                        <Twitter className="h-4 w-4" />
+                        <span className="sr-only">Twitter</span>
+                      </Button>
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent><p>Follow us on X (Twitter)</p></TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+
+              {/* Instagram */}
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a href="https://www.instagram.com/owasp_tiet/?hl=en" target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" size="icon" className="rounded-full">
+                        <Instagram className="h-4 w-4" />
+                        <span className="sr-only">Instagram</span>
+                      </Button>
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent><p>Follow us on Instagram</p></TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+
+              {/* LinkedIn */}
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a href="https://www.linkedin.com/company/owasp-tiet/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" size="icon" className="rounded-full">
+                        <Linkedin className="h-4 w-4" />
+                        <span className="sr-only">LinkedIn</span>
+                      </Button>
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent><p>Connect with us on LinkedIn</p></TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
+          <p className="text-sm text-muted-foreground">
+            © OWASP TIET STUDENT CHAPTER
+          </p>
+          <nav className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm">
+            <a href="#" className="transition-colors hover:text-primary">Privacy Policy</a>
+            <a href="#" className="transition-colors hover:text-primary">Terms of Service</a>
+            <a href="#" className="transition-colors hover:text-primary">Cookie Settings</a>
+          </nav>
         </div>
       </div>
-    </div>
-
-    {/* Bottom Section */}
-    <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
-      <p className="text-sm text-muted-foreground">
-        © OWASP TIET STUDENT CHAPTER
-      </p>
-      <nav className="flex gap-4 text-sm">
-        <a href="#" className="transition-colors hover:text-primary">Privacy Policy</a>
-        <a href="#" className="transition-colors hover:text-primary">Terms of Service</a>
-        <a href="#" className="transition-colors hover:text-primary">Cookie Settings</a>
-      </nav>
-    </div>
-  </div>
-</footer>
+    </footer>
   );
 }
 
