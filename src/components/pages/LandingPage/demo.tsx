@@ -11,8 +11,8 @@ export default function LandingPage() {
     words: [
       "Open Worldwide Application Security Project",
       "Hack • Learn • Secure • Repeat",
-      "Driven by Students, Trusted by Developers",
-      "Building Safer Web, One Project at a Time",
+      "From writing code to leading teams, we’ve got it all.",
+      "HackOWASP and CTF are the crown jewels of our event lineup...",
     ],
     loop: 0,
     typeSpeed: 70,
@@ -46,25 +46,23 @@ export default function LandingPage() {
           className="object-contain w-[220px] sm:w-[300px] md:w-[360px] lg:w-[420px] xl:w-[480px] 
                      hover:scale-105 transition-transform duration-500 ease-in-out"
         />
-
-        {/* Original Gradient Lines */}
-        <div className="w-full max-w-6xl h-16 relative mt-6">
-          <motion.div
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[6px] 
-                       bg-gradient-to-r from-transparent via-cyan-400/70 to-transparent blur-2xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 1 }}
-          />
-          <motion.div
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[2px] 
-                       bg-gradient-to-r from-transparent via-purple-400/60 to-transparent"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 1 }}
-          />
-        </div>
       </motion.div>
+
+      {/* Enhanced Gradient Lines */}
+      <div className="w-full max-w-6xl h-16 relative mt-6">
+        {/* Soft Glow Line (Static) */}
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[8px] 
+               bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-30"
+  />
+  
+  {/* Sharp Core Line */}
+  <div
+    className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[3px] 
+               bg-gradient-to-r from-transparent via-purple-500 to-transparent rounded-full"
+  />
+</div>
+
 
       {/* Typewriter Text */}
       <motion.div
@@ -75,7 +73,7 @@ export default function LandingPage() {
         transition={{ delay: 1, duration: 0.8 }}
       >
         {text}
-        <span className="text-sky-400 animate-pulse">|</span>
+        <span className="text-purple-400 animate-pulse">|</span>
       </motion.div>
 
       {/* Join Us Button */}
@@ -92,7 +90,7 @@ export default function LandingPage() {
           className="relative px-10 py-4 text-lg font-semibold rounded-xl 
                      bg-transparent border border-gray-400/30 text-[#e5e5e5]
                      backdrop-blur-md
-                     hover:border-sky-400 hover:shadow-[0_0_15px_rgba(0,255,255,0.2)]
+                     hover:border-purple-400 hover:shadow-[0_0_15px_rgba(0,255,255,0.4)]
                      hover:text-white
                      active:scale-95
                      transition-all duration-300 ease-in-out"
