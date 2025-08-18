@@ -1,56 +1,101 @@
+/* eslint-disable */
 "use client";
 
 import { useMemo } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Marquee } from "@/components/ui/Sponsors-ui/InfiniteCarousel";
 
 export function Sponsors() {
-  const cards = useMemo(
-    () => [
-      "/jawed-habib.png",
-      "/gfg-03.png",
-      "/paytm.png",
-      "/bonn.png",
-      "/devfolio.png",
-      "/codechef.png",
-      "/redbull.png",
-      "/jio.png",
-      "/time.png",
-    ],
-    []
+  const titleSponsors = useMemo(() => [
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505364/Kelloggs_logo_logotype_a385d9.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505363/paytm_l8xl0w.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505363/redbull_tugn5g.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505363/jio_ly5sdu.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505362/polygon_hqf4pp.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505362/mlh_cwz3hn.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505361/github_yks7aa.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505361/pepsi_r5kbk6.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505361/ibm_xepg3z.jpg",
+  ], []);
+
+  const associateSponsors = useMemo(() => [
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505362/blockseblock_logo_u6wicm.jpg",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505361/souled_jk9hux.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505360/solana_t7pfvp.jpg",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505360/replit_tspfxb.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505360/postman_m6rzp3.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505362/eth_tnpx2h.svg",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505362/devfolio_thzxdq.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505362/codechef_bdzsdh.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505362/codingblocks_f3i7lj.png",
+  ], []);
+
+  const communityPartners = useMemo(() => [
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505363/jawed-habib_ihfrno.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505360/starbucks_nd1yeb.jpg",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505360/tim-horotns_pnnqnl.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505360/xyz_slcx2i.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505360/belgian_waffle-removebg-preview_kcvvt4.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505360/archives-removebg-preview_svslrb.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505359/dev-removebg-preview_ms1yd9.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505359/starbucks-removebg-preview_uzxdm0.png",
+    "https://res.cloudinary.com/dduzorsii/image/upload/v1755505362/codingninjas_vwku0y.png",
+  ], []);
+
+  const renderMarquee = (arr: string[], reverse = false, marginTop = "mt-10") => (
+    <div className={marginTop}>
+      <Marquee reverse={reverse} pauseOnHover className="[--duration:20s]">
+        {arr.map((imgUrl, i) => (
+          <motion.div
+            key={`${imgUrl}-${i}`}
+            className="relative mx-4 sm:mx-5 md:mx-6 lg:mx-6"
+            initial={{ opacity: 0, scale: 0.8, boxShadow: "0 0 0px rgba(0,0,0,0)" }}
+            animate={{ opacity: 1, scale: 1, boxShadow: "0 10px 20px rgba(0,0,0,0.25)" }}
+            exit={{ opacity: 0, scale: 0.8, boxShadow: "0 0 0px rgba(0,0,0,0)" }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+          >
+            <div className="h-20 w-32 sm:h-28 sm:w-44 md:h-32 md:w-52 lg:h-36 lg:w-56 xl:h-40 xl:w-60 relative">
+              <Image
+                src={imgUrl}
+                alt={`logo_${i}`}
+                fill
+                className="object-contain"
+                loading="lazy"
+                sizes="(max-width: 768px) 8rem, (max-width: 1024px) 10rem, 16rem"
+              />
+            </div>
+          </motion.div>
+        ))}
+      </Marquee>
+    </div>
   );
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-      {/* First Row */}
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {cards.map((imgUrl, i) => (
-          <motion.img
-            key={`logo-${i}`}
-            src={imgUrl}
-            alt={`logo_${i}`}
-            className="h-16 w-28 sm:h-20 sm:w-36 md:h-24 md:w-44 lg:h-28 lg:w-52 xl:h-32 xl:w-56 object-contain mx-4 sm:mx-5 md:mx-6"
-            initial={{ filter: "blur(4px)", opacity: 0 }}
-            animate={{ filter: "blur(0px)", opacity: 1 }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-          />
-        ))}
-      </Marquee>
+      {/* Title Sponsors */}
+      <div className="w-full text-center mb-8">
+        <span className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl font-['Orbitron'] tracking-widest uppercase text-gray-300 block">
+          Title Sponsors
+        </span>
+      </div>
+      {renderMarquee(titleSponsors, false, "mt-6")}
 
-      {/* Second Row (reverse direction) */}
-      <Marquee reverse pauseOnHover className="[--duration:20s] mt-4">
-        {cards.map((imgUrl, i) => (
-          <motion.img
-            key={`logo-reverse-${i}`}
-            src={imgUrl}
-            alt={`logo_reverse_${i}`}
-            className="h-16 w-28 sm:h-20 sm:w-36 md:h-24 md:w-44 lg:h-28 lg:w-52 xl:h-32 xl:w-56 object-contain mx-4 sm:mx-5 md:mx-6"
-            initial={{ filter: "blur(4px)", opacity: 0 }}
-            animate={{ filter: "blur(0px)", opacity: 1 }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-          />
-        ))}
-      </Marquee>
+      {/* Associate Sponsors */}
+      <div className="w-full text-center mb-8 mt-16">
+        <span className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl font-['Orbitron'] tracking-widest uppercase text-gray-400 block">
+          Associate Sponsors
+        </span>
+      </div>
+      {renderMarquee(associateSponsors, true, "mt-6")}
+
+      {/* Community Partners */}
+      <div className="w-full text-center mb-8 mt-16">
+        <span className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl font-['Orbitron'] tracking-widest uppercase text-gray-500 block">
+          Community Partners
+        </span>
+      </div>
+      {renderMarquee(communityPartners, false, "mt-6")}
     </div>
   );
 }
