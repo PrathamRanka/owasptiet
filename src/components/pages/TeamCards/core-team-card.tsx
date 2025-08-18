@@ -3,128 +3,156 @@
 import React, { useState } from "react"
 import { cn } from "@/lib/utils"
 import { Github, Linkedin } from "lucide-react"
-import Image from "next/image" // ✅ Import Next.js Image component
+import Image from "next/image"
 
 type Card = {
   title: string
   designation: string
   src: string
-  linkedin?: string
-  github?: string
+  linkedin: string
+  github: string
 }
 
 const coreTeamCards: Card[] = [
   {
-    title: "Rakshit Dhamija",
+    title: "Avneet Kaur Bhatia",
     designation: "Core",
-    src: "/rakshit.jpeg",
-    linkedin: "https://linkedin.com/in/rakshit",
-    github: "https://github.com/rakshit",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548082/IMG_5039_-_Avneet_kaur_Bhatia_rjnods.jpg",
+    linkedin: "https://www.linkedin.com/in/avneet-kaur-bhatia-5a60bb314?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    github: "https://github.com/Avneetbhatia12",
   },
   {
-    title: "Vedant Anand",
+    title: "Pratham Ranka",
     designation: "Core",
-    src: "/vedant.jpeg",
-    linkedin: "https://linkedin.com/in/vedant",
-    github: "https://github.com/vedant",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548702/ME_pk41bw.jpg",
+    linkedin: "linkedin.com/in/prathamranka06",
+    github: "https://github.com/PrathamRanka",
   },
   {
-    title: "Gurkirat Singh",
+    title: "Krish Kumar",
     designation: "Core",
-    src: "/gurkirat.jpeg",
-    linkedin: "https://linkedin.com/in/gurkirat",
-    github: "https://github.com/gurkirat",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548773/Screenshot_20250817_214557_WhatsApp_-_Krish_Kumar_dugrr2.png",
+    linkedin: "https://www.linkedin.com/in/krish-kumar-90a78a33b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    github: "https://github.com/Krishkumar527",
   },
   {
-    title: "Anshum Singla",
+    title: "Sanchita Jain",
     designation: "Core",
-    src: "/anshum.jpeg",
-    linkedin: "https://linkedin.com/in/anshum",
-    github: "https://github.com/anshum",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548084/Sanchita_1024031020_-_Sanchita_Jain_dwkrad.png",
+    linkedin: "https://www.linkedin.com/in/sanchita-jain-5724b6310/",
+    github: "https://github.com/sanchita1001",
   },
   {
-    title: "Sanil Grover",
+    title: "Sagarika Wankhede",
     designation: "Core",
-    src: "/sanil.jpeg",
-    linkedin: "https://linkedin.com/in/sanil",
-    github: "https://github.com/sanil",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548084/profile_picture_sagarika_-_Sagarika_Wankhede_ohukao.jpg",
+    linkedin: "https://www.linkedin.com/in/sagarikawankhede/",
+    github: "https://github.com/SagarikaWankhede",
   },
   {
-    title: "Sanchit Thareja",
+    title: "Aryaman Malik",
     designation: "Core",
-    src: "/sanchit.jpeg",
-    linkedin: "https://linkedin.com/in",
-    github: "https://github.com",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548088/IMG_20250322_231158_-_ARYAMAN_MALIK_aef2lj.jpg",
+    linkedin: "https://www.linkedin.com/in/aryaman-malik-a3342126b",
+    github: "https://github.com/SlayerDraco",
   },
   {
-    title: "Deepesh Kakkar",
+    title: "Antriksh",
     designation: "Core",
-    src: "/deepesh.jpg",
-    linkedin: "https://linkedin.com/in",
-    github: "https://github.com",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548081/IMG-20250409-WA0004_-_Antriksh_lwmxxg.jpg",
+    linkedin: "https://www.linkedin.com/in/antrikshsingh08?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    github: "https://github.com/Antriksh1984",
   },
   {
-    title: "Akshat",
+    title: "Priyancy Ajmani",
     designation: "Core",
-    src: "/akshat.png",
-    linkedin: "https://linkedin.com/in",
-    github: "https://github.com",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548087/WhatsApp_Image_2025-08-17_at_20.26.42_a7a79124_-_Priyancy_Ajmani_toexxk.jpg",
+    linkedin: "https://www.linkedin.com/in/priyancy-ajmani-b4a02b2bb?trk=contact-info",
+    github: "https://github.com/ajmanipriyancy",
   },
   {
-    title: "Amritesh Bharadwaj",
+    title: "Kumari Manya",
     designation: "Core",
-    src: "/amritesh.png",
-    linkedin: "https://linkedin.com/in",
-    github: "https://github.com",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548085/OwaspProfile_-_Kumari_Manya_qv54t5.jpg",
+    linkedin: "https://www.linkedin.com/in/kumari-manya-346118328/",
+    github: "https://github.com/ManyaK22",
   },
   {
-    title: "Arjun Angirus",
+    title: "Anmol Mittal",
     designation: "Core",
-    src: "/arjun.png",
-    linkedin: "https://linkedin.com/in",
-    github: "https://github.com",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548080/20250411_230819_-_Anmol_Mittal_vrdogv.jpg",
+    linkedin: "",
+    github: "https://github.com/CoderAnmolMittal",
   },
   {
-    title: "Ashmit Giridhar",
+    title: "Bhoomi Jain",
     designation: "Core",
-    src: "/ashmitgiri.png",
-    linkedin: "https://linkedin.com/in",
-    github: "https://github.com",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548076/bhoomi_profile_-_Bhoomi_Jain_oozbox.jpg",
+    linkedin: "https://www.linkedin.com/in/bhoomi-jain-7378b6330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    github: "https://github.com/bhoomi0312",
   },
   {
-    title: "Khushi",
+    title: "Akshita",
     designation: "Core",
-    src: "/khushi.png",
-    linkedin: "https://linkedin.com/in",
-    github: "https://github.com",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548083/photo_w_-_Akshita_uhhnyb.jpg",
+    linkedin: "https://www.linkedin.com/in/akshita251/",
+    github: "https://github.com/akshita264",
   },
   {
-    title: "Sumit",
+    title: "Avleen Kaur",
     designation: "Core",
-    src: "/sumit.png",
-    linkedin: "https://linkedin.com/in",
-    github: "https://github.com",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548082/IMG-20250818-WA0002_2_-_Avleen_Kaur_n3x0j2.jpg",
+    linkedin: "https://www.linkedin.com/in/avleen-kaur-42019a377",
+    github: "",
   },
   {
-    title: "Garima Dahuja",
+    title: "Kavya",
     designation: "Core",
-    src: "/garima.jpg",
-    linkedin: "https://linkedin.com/in",
-    github: "https://github.com",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548081/IMG-20250717-WA0026_-_Kavya_ay9p7d.jpg",
+    linkedin: "https://www.linkedin.com/in/kavya-thukral-82b090325?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    github: "https://github.com/kavvz20",
   },
   {
-    title: "Ishan",
+    title: "Dhruv Mittal",
     designation: "Core",
-    src: "/ishan.jpg",
-    linkedin: "https://linkedin.com/in",
-    github: "https://github.com",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548080/dhruvuvuvuvuv_-_Dhruv_Mittal_byjtil.jpg",
+    linkedin: "https://www.linkedin.com/in/its-dhruv-here/",
+    github: "https://github.com/its-dhruv-here",
   },
   {
-    title: "Preet",
+    title: "Sehajneet Kaur",
     designation: "Core",
-    src: "/preet.jpg",
-    linkedin: "https://linkedin.com/in",
-    github: "https://github.com",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548080/IMG_2403_-_Sehajneet_Kaur_ilblyf.jpg",
+    linkedin: "http://www.linkedin.com/in/sehajneet-kaur-788412330",
+    github: "https://github.com/Sehaj38",
+  },
+  {
+    title: "Harshdeep Athawale",
+    designation: "Core",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548080/good_pic_-_Harshdeep_Athawale_cs7fx3.jpg",
+    linkedin: "http://www.linkedin.com/in/harshdeepathawale",
+    github: "https://github.com/HarshdeepAthawale",
+  },
+  {
+    title: "Sparsh Khandelwal",
+    designation: "Core",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548080/IMG_3985_-_Sparsh_Khandelwal_cyysfl.jpg",
+    linkedin: "http://www.linkedin.com/in/sparsh-khandelwal-256333314",
+    github: "https://github.com/sparsh914",
+  },
+  {
+    title: "Mehak Garg",
+    designation: "Core",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548079/1000160078_-_Mehak_Garg_x48aoi.jpg",
+    linkedin: "https://www.linkedin.com/in/mehakgarg007",
+    github: "https://github.com/Mehak1314",
+  },
+  {
+    title: "Sneha Tanwar",
+    designation: "Core",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548083/IMG-20250609-WA0006_3_-_Sneha_Tanwar_bthcs0.jpg",
+    linkedin: "https://www.linkedin.com/in/sneha-tanwar-a8186a213/",
+    github: "https://github.com/SnehaTanwar006",
   },
 ]
 
@@ -148,17 +176,15 @@ const CardComponent = React.memo(
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
       )}
     >
-      {/* ✅ Background Image */}
       <Image
         src={card.src}
         alt={card.title}
         fill
         sizes="(max-width: 768px) 100vw, 33vw"
-        priority={false} // Lazy loading for optimization
+        priority={false}
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
 
-      {/* ✅ Details Overlay (Visible by default, hides on hover) */}
       <div
         className={cn(
           "absolute inset-0 bg-black/40 flex flex-col justify-end px-4 py-6 transition-opacity duration-300",
@@ -170,26 +196,22 @@ const CardComponent = React.memo(
           <div className="text-sm text-gray-300 mt-1">{card.designation}</div>
 
           <div className="flex gap-4 mt-3">
-            {card.linkedin && (
-              <a
-                href={card.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-transform hover:scale-110"
-              >
-                <Linkedin className="w-5 h-5 text-white hover:text-blue-400 hover:drop-shadow-[0_0_6px_#3b82f6]" />
-              </a>
-            )}
-            {card.github && (
-              <a
-                href={card.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-transform hover:scale-110"
-              >
-                <Github className="w-5 h-5 text-white hover:text-gray-300 hover:drop-shadow-[0_0_6px_#a3a3a3]" />
-              </a>
-            )}
+            <a
+              href={card.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-transform hover:scale-110"
+            >
+              <Linkedin className="w-5 h-5 text-white hover:text-blue-400 hover:drop-shadow-[0_0_6px_#3b82f6]" />
+            </a>
+            <a
+              href={card.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-transform hover:scale-110"
+            >
+              <Github className="w-5 h-5 text-white hover:text-gray-300 hover:drop-shadow-[0_0_6px_#a3a3a3]" />
+            </a>
           </div>
         </div>
       </div>
@@ -205,10 +227,7 @@ export default function CoreCards() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto px-4 w-full">
       {coreTeamCards.map((card, index) => (
-        <div
-          id={card.title.toLowerCase().replace(/\s+/g, "-")}
-          key={card.title}
-        >
+        <div key={index}>
           <CardComponent
             card={card}
             index={index}
