@@ -6,8 +6,14 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['res.cloudinary.com'], // ✅ Allow Cloudinary images
-    formats: ['image/avif', 'image/webp'], // ✅ Optional: Modern formats for better performance
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/**', // allows all paths under res.cloudinary.com
+      },
+    ],
+    formats: ['image/avif', 'image/webp'],
   },
 };
 

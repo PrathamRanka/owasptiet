@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap'); */
+/* 
 .font-anton {
   font-family: 'Anton', sans-serif;
 }
 
 .font-fira-mono {
   font-family: 'Fira Mono', monospace;
-}
+} */
 
 @import "tailwindcss";
 @import "tw-animate-css";
