@@ -5,7 +5,7 @@ export default function ThreeDPhotoCarouselDemo() {
     <div
       className="
         w-full flex flex-col items-center
-        px-6 sm:px-8 md:px-4
+        sm:px-8 md:px-4
         pt-12 pb-16 sm:pt-16 sm:pb-20
         lg:min-h-screen
       "

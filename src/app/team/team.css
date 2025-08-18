@@ -1,3 +1,5 @@
-*{
-    cursor:none;
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+* {
+  font-family: "Fjalla One", "Roboto Slab", sans-serif;
 }
