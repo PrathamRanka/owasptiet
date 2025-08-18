@@ -182,6 +182,7 @@ const CardComponent = React.memo(
         fill
         sizes="(max-width: 768px) 100vw, 33vw"
         priority={false}
+        loading="lazy"
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
 
@@ -225,7 +226,8 @@ export default function CoreCards() {
   const [hovered, setHovered] = useState<number | null>(null)
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto px-4 w-full">
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto px-4 w-full">
+
       {coreTeamCards.map((card, index) => (
         <div key={index}>
           <CardComponent
