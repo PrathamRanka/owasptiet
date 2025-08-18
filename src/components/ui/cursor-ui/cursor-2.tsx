@@ -7,6 +7,7 @@ export const CustomCursor2 = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Random color once per page load
   const [color] = useState(() => {
@@ -23,6 +24,11 @@ export const CustomCursor2 = () => {
   });
 
   useEffect(() => {
+    // Detect touch devices
+    setIsMobile('ontouchstart' in window || navigator.maxTouchPoints > 0);
+
+    if (isMobile) return; // Skip cursor setup on mobile
+
     const handleMouseMove = (e: MouseEvent) => {
       x.set(e.clientX);
       y.set(e.clientY);
@@ -38,7 +44,9 @@ export const CustomCursor2 = () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [x, y]);
+  }, [x, y, isMobile]);
+
+  if (isMobile) return null; // Don't render anything on mobile
 
   return (
     <>
