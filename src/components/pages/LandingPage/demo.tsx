@@ -21,10 +21,8 @@ export default function LandingPage() {
   });
 
   const { scrollYProgress } = useScroll();
-
   const logoScale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
   const logoY = useTransform(scrollYProgress, [0, 1], [0, 150]);
-  const glowOpacity = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
 
   return (
     <div className="relative flex flex-col items-center justify-center h-screen w-screen bg-black text-white overflow-hidden px-4">
@@ -35,16 +33,10 @@ export default function LandingPage() {
         <ShootingStars />
       </div>
 
-      {/* Glowing Aura */}
-      <motion.div
-        style={{ opacity: glowOpacity }}
-        className="absolute w-[600px] h-[600px] rounded-full blur-3xl bg-cyan-500/15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0"
-      />
-
       {/* Logo */}
       <motion.div
         style={{ scale: logoScale, y: logoY }}
-        className="relative flex flex-col items-center z-10"
+        className="relative flex flex-col items-center z-10 mt-16"
       >
         <Image
           src="https://res.cloudinary.com/dduzorsii/image/upload/v1755198961/logo_2_vu8zon.png"
@@ -87,7 +79,7 @@ export default function LandingPage() {
         <span className="text-cyan-300 animate-pulse">|</span>
       </motion.div>
 
-      {/* Join Us Button - Transparent with Hover Glow */}
+      {/* Join Us Button */}
       <motion.div
         className="mt-16 flex gap-4 z-10"
         initial={{ opacity: 0, y: 30 }}

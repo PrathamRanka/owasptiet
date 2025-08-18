@@ -96,38 +96,57 @@ export function FeaturesSectionWithHoverEffects() {
           ))}
         </div>
 
-        {/* Mobile Swipable Cards */}
-        <div className="md:hidden w-full relative">
-          <button
-            onClick={handlePrev}
-            className="absolute left-3 top-[110%] -translate-y-1/2 z-20 bg-transparent text-white p-3 rounded-full shadow-lg"
-          >
-            ◀
-          </button>
-          <button
-            onClick={handleNext}
-            className="absolute right-2 top-[110%] -translate-y-1/2 z-20 bg-transparent text-white p-3 rounded-full shadow-lg"
-          >
-            ▶
-          </button>
+{/* Mobile Swipable Cards */}
+<div className="md:hidden w-full relative">
+  <button
+    onClick={handlePrev}
+    className="absolute left-3 top-[110%] -translate-y-1/2 z-20 bg-transparent text-white p-3 rounded-full shadow-lg"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={2.5}
+      stroke="currentColor"
+      className="w-6 h-6"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+  <button
+    onClick={handleNext}
+    className="absolute right-2 top-[110%] -translate-y-1/2 z-20 bg-transparent text-white p-3 rounded-full shadow-lg"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={2.5}
+      stroke="currentColor"
+      className="w-6 h-6"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
 
-          <div ref={sliderRef} className="keen-slider">
-            {features.map((feature, idx) => (
-              <div
-                key={idx}
-                className="keen-slider__slide min-w-[80%] mx-auto bg-neutral-900 rounded-xl border border-neutral-700 p-6 flex flex-col"
-              >
-                <div className="text-blue-400 text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-4">
-                  {feature.title}
-                </h3>
-                <p className="text-neutral-300 text-base whitespace-pre-line leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+  <div ref={sliderRef} className="keen-slider">
+    {features.map((feature, idx) => (
+      <div
+        key={idx}
+        className="keen-slider__slide min-w-[80%] mx-auto bg-neutral-900 rounded-xl border border-neutral-700 p-6 flex flex-col"
+      >
+        <div className="text-blue-400 text-4xl mb-4">{feature.icon}</div>
+        <h3 className="text-xl font-bold text-white mb-4">
+          {feature.title}
+        </h3>
+        <p className="text-neutral-300 text-base whitespace-pre-line leading-relaxed">
+          {feature.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
+
       </div>
     </section>
   );
