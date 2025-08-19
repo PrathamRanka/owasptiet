@@ -12,7 +12,7 @@ export default function LandingPage() {
       "Open Worldwide Application Security Project",
       "Hack • Learn • Grow",
       "From writing code to leading teams, we’ve got it all.",
-      "HackOWASP and CTF are the crown jewels of our event lineup...",
+      "Our flagship events, HackOWASP and CTF, are OWASP’s crown jewels.",
     ],
     loop: 0,
     typeSpeed: 70,
