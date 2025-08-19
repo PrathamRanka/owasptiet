@@ -28,6 +28,13 @@ const coreTeamCards: Card[] = [
     linkedin: "linkedin.com/in/prathamranka06",
     github: "https://github.com/PrathamRanka",
   },
+    {
+    title: "Harshdeep Athawale",
+    designation: "Core",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548080/good_pic_-_Harshdeep_Athawale_cs7fx3.jpg",
+    linkedin: "http://www.linkedin.com/in/harshdeepathawale",
+    github: "https://github.com/HarshdeepAthawale",
+  },
   {
     title: "Krish Kumar",
     designation: "Core",
@@ -126,13 +133,7 @@ const coreTeamCards: Card[] = [
     linkedin: "http://www.linkedin.com/in/sehajneet-kaur-788412330",
     github: "https://github.com/Sehaj38",
   },
-  {
-    title: "Harshdeep Athawale",
-    designation: "Core",
-    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548080/good_pic_-_Harshdeep_Athawale_cs7fx3.jpg",
-    linkedin: "http://www.linkedin.com/in/harshdeepathawale",
-    github: "https://github.com/HarshdeepAthawale",
-  },
+
   {
     title: "Sparsh Khandelwal",
     designation: "Core",
