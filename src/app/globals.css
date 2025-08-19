@@ -2,8 +2,12 @@
 
 * {
   font-family: "Fjalla One", "Roboto Slab", sans-serif;
+
 }
 
+html {
+  scroll-behavior: smooth;
+}
 /* * {
   cursor: none;
 } */
@@ -42,6 +46,9 @@ html,
 body {
   scrollbar-width: none; 
   overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+  display: none; 
 }
 
 @keyframes float {
