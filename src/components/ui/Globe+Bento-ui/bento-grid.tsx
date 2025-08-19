@@ -22,19 +22,21 @@ export function BentoGrid() {
     image?: string;
   }>(null);
 
-  // ✅ Lock scroll when modal is open (mobile only)
-  React.useEffect(() => {
-    const isMobile = window.innerWidth < 768; // Tailwind md breakpoint
-    if (selectedItem && isMobile) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
+React.useEffect(() => {
+  if (selectedItem) {
+    document.documentElement.style.overflow = "hidden"; // Lock scrolling on <html>
+    document.body.style.overflow = "hidden"; // Lock scrolling on <body>
+  } else {
+    document.documentElement.style.overflow = ""; // Reset to default
+    document.body.style.overflow = "";
+  }
 
-    return () => {
-      document.body.classList.remove("overflow-hidden");
-    };
-  }, [selectedItem]);
+  return () => {
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+  };
+}, [selectedItem]);
+
 
   return (
     <div className="flex flex-col gap-16 items-center relative z-10">
