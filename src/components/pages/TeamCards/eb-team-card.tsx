@@ -3,7 +3,7 @@
 
 import React, { useState } from "react"
 import { cn } from "@/lib/utils"
-import { Linkedin } from "lucide-react"
+import { Linkedin, Github } from "lucide-react"
 import Image from "next/image"
 
 type Card = {
@@ -11,6 +11,7 @@ type Card = {
   designation: string
   src: string
   linkedin?: string
+  github?: string
 }
 
 const teamCards: Card[] = [
@@ -19,86 +20,101 @@ const teamCards: Card[] = [
     designation: "GENERAL SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755513079/github_odc7w9.png",
     linkedin: "https://www.linkedin.com/in/rakshit-dhamija-870b39286/",
+    github: "#",
   },
   {
     title: "Sanchit Thareja",
     designation: "FINANCE SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548085/IMG_8607_-_Sanchit_Thareja_sybjtv.jpg",
     linkedin: "https://www.linkedin.com/in/sanchit-thareja/",
+    github: "#",
   },
   {
     title: "Vedant Anand",
     designation: "JOINT SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755583104/1000168177_-_VEDANT_jc95re.jpg",
     linkedin: "https://www.linkedin.com/in/vedantanand17/",
+    github: "https://github.com/vedantanand17",
   },
   {
     title: "Sanil Grover",
     designation: "JOINT SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548077/1000071095_-_Sanil_Grover_guh0o1.webp",
     linkedin: "https://www.linkedin.com/in/sanil-grover-b512b1264/",
+    github: "https://github.com/Sanilg1",
   },
   {
     title: "Khushi Gupta",
     designation: "JOINT SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755584526/IMG-20250819-WA0022_yzpn9u.jpg",
     linkedin: "https://www.linkedin.com/in/khushi-gupta-b42264278/",
+    github: "#",
   },
   {
     title: "Anshum Singla",
     designation: "JOINT SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755583271/anshum_oenk9q.jpg",
     linkedin: "https://www.linkedin.com/in/anshum-singla/",
+    github: "#",
   },
   {
     title: "Gurkirat Singh",
     designation: "TECHNICAL SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755550312/gurkirat_zwd5t6.jpg",
     linkedin: "https://www.linkedin.com/in/gurkiratsingh2004/",
+    github: "https://github.com/13kirat",
   },
   {
     title: "Amritesh Bharadwaj",
     designation: "TECHNICAL SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755594335/Amritesh_a6r6ir.jpg",
     linkedin: "https://www.linkedin.com/in/amritesh-bhardwaj/",
+    github: "#",
   },
   {
     title: "Sumit Sinha",
     designation: "MARKETING SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548083/linkedin_pic_-_SUMIT_SINHA_ny3m4m.jpg",
     linkedin: "https://www.linkedin.com/in/sumit-sinha-454a232a6/",
+    github: "https://github.com/Sumit21Sinha",
   },
   {
     title: "Arjun Angirus",
     designation: "MARKETING SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755550312/arjun_ne6mbb.png",
     linkedin: "https://www.linkedin.com/in/arjunangirus/",
+    github: "https://github.com/EarnTHYPart",
   },
   {
     title: "Ishan Singh",
     designation: "DESIGNING SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755585093/ishan_yjrcke.jpg",
     linkedin: "https://www.linkedin.com/in/ishan-singh-0755462ab/",
+    github: "#",
   },
   {
     title: "Garima Dahuja",
     designation: "DESIGNING SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755584526/WhatsApp_Image_2025-08-19_at_11.48.57_ed3cce28_t7htcl.jpg",
     linkedin: "https://www.linkedin.com/in/garima-dahuja-492b7a245/",
+    github: "https://github.com/GarimaDahuja",
   },
   {
     title: "Ashmit Giridhar",
     designation: "MEDIA SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755550313/ashmitgiri_u1hxgj.png",
     linkedin: "https://linkedin.com",
+    github: "#",
   },
   {
     title: "Preet Kanwar Singh Chahal",
     designation: "MEDIA SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548078/A5E3260E-5E88-40B2-AF39-AFBF13EA7CD1_-_Preet_Kanwar_Singh_Chahal_c06igd.jpg",
     linkedin: "https://www.linkedin.com/in/pkschahal/",
+    github: "#",
   },
 ]
+
 
 const CardComponent = React.memo(
   ({
@@ -128,6 +144,7 @@ const CardComponent = React.memo(
         fill
         sizes="(max-width: 768px) 100vw, 33vw"
         priority={false}
+        loading="lazy" // Lazy loading added
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
 
@@ -142,8 +159,8 @@ const CardComponent = React.memo(
           <div className="text-xl md:text-2xl font-bold">{card.title}</div>
           <div className="text-sm text-gray-300 mt-1">{card.designation}</div>
 
-          {card.linkedin && (
-            <div className="flex gap-4 mt-3">
+          <div className="flex gap-4 mt-3">
+            {card.linkedin && (
               <a
                 href={card.linkedin}
                 target="_blank"
@@ -152,8 +169,18 @@ const CardComponent = React.memo(
               >
                 <Linkedin className="w-5 h-5 text-white hover:text-blue-400 hover:drop-shadow-[0_0_6px_#3b82f6]" />
               </a>
-            </div>
-          )}
+            )}
+            {card.github && card.github !== "#" && (
+              <a
+                href={card.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform hover:scale-110"
+              >
+                <Github className="w-5 h-5 text-white hover:text-gray-400 hover:drop-shadow-[0_0_6px_#ccc]" />
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>

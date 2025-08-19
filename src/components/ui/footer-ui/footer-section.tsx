@@ -65,12 +65,12 @@ function Footerdemo() {
               >
                 Form
               </button>
-<button
-  onClick={() => router.push("/team")}
-  className="block text-center transition-colors hover:text-primary"
->
-  Team
-</button>
+              <button
+                onClick={() => router.push("/team")}
+                className="block text-center transition-colors hover:text-primary"
+              >
+                Team
+              </button>
             </nav>
           </div>
 
