@@ -32,7 +32,7 @@ const teamCards: Card[] = [
   {
     title: "Vedant Anand",
     designation: "JOINT SECRETARY",
-    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548076/1000168177_-_VEDANT_jc95re.jpg",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755583104/1000168177_-_VEDANT_jc95re.jpg",
     linkedin: "https://www.linkedin.com/in/vedantanand17/",
     github: "https://github.com",
   },
@@ -53,7 +53,7 @@ const teamCards: Card[] = [
   {
     title: "Anshum Singla",
     designation: "JOINT SECRETARY",
-    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755550311/anshum_nsyofe.jpg",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755583271/anshum_oenk9q.jpg",
     linkedin: "https://www.linkedin.com/in/anshum-singla/",
     github: "https://github.com",
   },
