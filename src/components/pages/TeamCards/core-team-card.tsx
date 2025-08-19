@@ -24,7 +24,7 @@ const coreTeamCards: Card[] = [
   {
     title: "Pratham Ranka",
     designation: "Core",
-    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548702/ME_pk41bw.jpg",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755602965/WhatsApp_Image_2025-08-19_at_16.57.53_3c1820d9_w0aeo3.jpg",
     linkedin: "linkedin.com/in/prathamranka06",
     github: "https://github.com/PrathamRanka",
   },
