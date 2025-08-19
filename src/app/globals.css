@@ -1,14 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap'); */
-/* 
-.font-anton {
-  font-family: 'Anton', sans-serif;
-}
-
-.font-fira-mono {
-  font-family: 'Fira Mono', monospace;
-} */
-@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto+Slab:wght@100..900&display=swap');
 
 * {
@@ -21,6 +10,9 @@
 
 @import "tailwindcss";
 @import "tw-animate-css";
+button {
+  cursor: pointer;
+}
 
 .shimmer::before {
   content: "";

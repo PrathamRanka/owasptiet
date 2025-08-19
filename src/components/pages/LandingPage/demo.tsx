@@ -50,19 +50,18 @@ export default function LandingPage() {
 
       {/* Enhanced Gradient Lines */}
       <div className="w-full max-w-6xl h-16 relative mt-6">
-        {/* Soft Glow Line (Static) */}
+        {/* Soft Glow Line */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[8px] 
                bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-30"
-  />
-  
-  {/* Sharp Core Line */}
-  <div
-    className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[3px] 
-               bg-gradient-to-r from-transparent via-purple-500 to-transparent rounded-full"
-  />
-</div>
+        />
 
+        {/* Sharp Core Line */}
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[3px] 
+               bg-gradient-to-r from-transparent via-purple-500 to-transparent rounded-full"
+        />
+      </div>
 
       {/* Typewriter Text */}
       <motion.div
@@ -97,6 +96,31 @@ export default function LandingPage() {
         >
           Join Us
         </a>
+      </motion.div>
+
+      {/* Scroll Indicator SVG */}
+      <motion.div
+        className="absolute bottom-6 z-10 flex flex-col items-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.6, duration: 0.8 }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 384 512"
+          className="w-6 h-10 sm:w-8 sm:h-14 md:w-6 md:h-6 fill-[#e5e5e5] opacity-80"
+        >
+          <path d="M192 0C86 0 0 86 0 192v128c0 106 86 192 192 192s192-86 192-192V192C384 86 298 0 192 0zm0 480c-88.2 0-160-71.8-160-160V192c0-88.2 71.8-160 160-160s160 71.8 160 160v128c0 88.2-71.8 160-160 160z" />
+          <motion.circle
+            cx="192"
+            cy="128"
+            r="16"
+            fill="#e5e5e5"
+            animate={{ y: [0, 40, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          />
+        </svg>
+        <span className="text-xs mt-2 text-gray-300">Scroll</span>
       </motion.div>
     </div>
   );
