@@ -20,7 +20,7 @@
       <>
 
           <>
-            <div className="fixed top-6 left-0 w-full z-40">
+            <div className="fixed top-2 left-0 w-full z-40">
               <DockDemo />
               <ScrollProgress />
             </div>
