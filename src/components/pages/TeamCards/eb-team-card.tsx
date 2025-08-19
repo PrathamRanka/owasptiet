@@ -88,7 +88,7 @@ const teamCards: Card[] = [
   {
     title: "Ishan Singh",
     designation: "DESIGNING SECRETARY",
-    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755550313/ishan_yjrcke.jpg",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755585093/ishan_yjrcke.jpg",
     linkedin: "https://www.linkedin.com/in/ishan-singh-0755462ab/",
     github: "https://github.com",
   },
