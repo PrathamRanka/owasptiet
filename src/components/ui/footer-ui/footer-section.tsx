@@ -46,6 +46,7 @@ function Footerdemo() {
               >
                 Home
               </button>
+              
               <button
                 onClick={() => handleScroll("about")}
                 className="block transition-colors hover:text-primary"
@@ -64,12 +65,12 @@ function Footerdemo() {
               >
                 Form
               </button>
-              <a
-                href="/team"
-                className="block transition-colors hover:text-primary"
-              >
-                Team
-              </a>
+<button
+  onClick={() => router.push("/team")}
+  className="block text-center transition-colors hover:text-primary"
+>
+  Team
+</button>
             </nav>
           </div>
 
@@ -189,7 +190,7 @@ function Footerdemo() {
   <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" stroke="red" className="w-4 h-4">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6.02 4.02 4 6.5 4c1.74 0 3.41 1.01 4.5 2.09C12.09 5.01 13.76 4 15.5 4 17.98 4 20 6.02 20 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" />
   </svg>
-  <span>by OWASP Core Team</span>
+  <span>by OWASP Team</span>
 </div>
 
       </div>
