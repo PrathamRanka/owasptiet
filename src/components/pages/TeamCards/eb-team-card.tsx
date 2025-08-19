@@ -48,7 +48,7 @@ const teamCards: Card[] = [
     designation: "JOINT SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755584526/IMG-20250819-WA0022_yzpn9u.jpg",
     linkedin: "https://www.linkedin.com/in/khushi-gupta-b42264278/",
-    github: "#",
+    github: "https://github.com/Khushi280905",
   },
   {
     title: "Anshum Singla",
