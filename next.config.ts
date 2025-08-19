@@ -12,6 +12,16 @@ const nextConfig = {
         hostname: 'res.cloudinary.com',
         pathname: '/**', // allows all paths under res.cloudinary.com
       },
+      {
+        protocol: 'https',
+        hostname: 'www.linkedin.com',
+        pathname: '/**', // allows all LinkedIn images
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        pathname: '/**', // for GitHub profile avatars
+      },
     ],
     formats: ['image/avif', 'image/webp'],
   },

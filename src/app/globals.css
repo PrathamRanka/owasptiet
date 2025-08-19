@@ -40,7 +40,7 @@ button {
 /* globals.css */
 html,
 body {
-  /* scrollbar-width: none;  */
+  scrollbar-width: none; 
   overflow-x: hidden;
 }
 

@@ -18,7 +18,7 @@ const teamCards: Card[] = [
   {
     title: "Rakshit Dhamija",
     designation: "GENERAL SECRETARY",
-    src: "",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755513079/github_odc7w9.png",
     linkedin: "https://www.linkedin.com/in/rakshit-dhamija-870b39286/",
     github: "https://github.com/",
   },
@@ -60,8 +60,8 @@ const teamCards: Card[] = [
   {
     title: "Gurkirat Singh",
     designation: "TECHNICAL SECRETARY",
-    src: "https://www.linkedin.com/in/gurkiratsingh2004/",
-    linkedin: "https://linkedin.com",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755550312/gurkirat_zwd5t6.jpg",
+    linkedin: "https://www.linkedin.com/in/gurkiratsingh2004/",
     github: "https://github.com",
   },
   {

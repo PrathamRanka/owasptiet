@@ -108,7 +108,7 @@ const coreTeamCards: Card[] = [
   {
     title: "Kavya",
     designation: "Core",
-    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548081/IMG-20250717-WA0026_-_Kavya_ay9p7d.jpg",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755580569/IMG-20250717-WA0026_-_Kavya_ay9p7d.jpg",
     linkedin: "https://www.linkedin.com/in/kavya-thukral-82b090325?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     github: "https://github.com/kavvz20",
   },
