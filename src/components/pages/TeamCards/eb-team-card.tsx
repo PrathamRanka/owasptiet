@@ -59,7 +59,7 @@ const teamCards: Card[] = [
   {
     title: "Amritesh Bharadwaj",
     designation: "TECHNICAL SECRETARY",
-    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755550315/amritesh_lfyhk1.png",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755594335/Amritesh_a6r6ir.jpg",
     linkedin: "https://www.linkedin.com/in/amritesh-bhardwaj/",
   },
   {
