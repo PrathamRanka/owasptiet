@@ -49,7 +49,7 @@ export default function TeamPage() {
             layout
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className={`absolute top-[6px] left-[6px] w-[calc(50%-12px)] h-[calc(100%-12px)] bg-white rounded-full z-0 ${
-              selected === "core" ? "translate-x-full" : ""
+              selected === "core" ? "translate-x-45" : ""
             }`}
           />
         </div>

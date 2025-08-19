@@ -100,7 +100,7 @@ export default function LandingPage() {
 
       {/* Scroll Indicator SVG */}
       <motion.div
-        className="absolute bottom-14 sm:bottom-10 md:bottom-12 z-10 flex flex-col items-center"
+        className="absolute bottom-16 sm:bottom-10 md:bottom-12 z-10 flex flex-col items-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.6, duration: 0.8 }}
