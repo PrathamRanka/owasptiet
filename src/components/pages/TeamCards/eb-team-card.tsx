@@ -69,7 +69,7 @@ const teamCards: Card[] = [
     designation: "TECHNICAL SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755594335/Amritesh_a6r6ir.jpg",
     linkedin: "https://www.linkedin.com/in/amritesh-bhardwaj/",
-    github: "#",
+    github: "https://github.com/Amritesh-Bhardwaj",
   },
   {
     title: "Sumit Sinha",
