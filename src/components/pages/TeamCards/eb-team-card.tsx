@@ -38,7 +38,7 @@ const teamCards: Card[] = [
   },
   {
     title: "Sanil Grover",
-    designation: "FINANCE SECRETARY",
+    designation: "JOINT SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548077/1000071095_-_Sanil_Grover_guh0o1.webp",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
