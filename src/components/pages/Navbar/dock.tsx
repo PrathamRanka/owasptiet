@@ -31,8 +31,8 @@ export default function DockDemo() {
   { icon: Home, label: "Home", onClick: () => handleAnchorClick("home") },
   { icon: Globe, label: "About", onClick: () => handleAnchorClick("about") },
   { icon: Flag, label: "Missions", onClick: () => handleAnchorClick("missions") },
-  { icon: FileText, label: "Form", onClick: () => handleAnchorClick("form") },
   { icon: Handshake, label: "Sponsors", onClick: () => handleAnchorClick("sponsors") },
+  { icon: FileText, label: "Form", onClick: () => handleAnchorClick("form") },
   { icon: Users2, label: "Team", onClick: handleTeamClick },
 ];
 
