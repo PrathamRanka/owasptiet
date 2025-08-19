@@ -10,7 +10,7 @@ export default function LandingPage() {
   const [text] = useTypewriter({
     words: [
       "Open Worldwide Application Security Project",
-      "Hack • Learn • Secure • Repeat",
+      "Hack • Learn • Grow",
       "From writing code to leading teams, we’ve got it all.",
       "HackOWASP and CTF are the crown jewels of our event lineup...",
     ],
