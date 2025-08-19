@@ -40,7 +40,7 @@ const Section1: React.FC = () => {
         </div>
 
         {/* GLOBE SECTION */}
-<div className="w-[18rem] sm:w-[20rem] md:w-[24rem] lg:w-[40rem] max-w-full relative z-10 self-center md:self-start mx-auto md:mx-0 flex-shrink-0 animate-float">
+<div className="w-[18rem] sm:w-[20rem] md:w-[24rem] lg:w-[34rem] max-w-full mt-8 md:mt-0 relative z-10 self-center md:self-start gap-8 mx-auto md:mx-0 flex-shrink-0 animate-float">
   <Globe />
 </div>
 
