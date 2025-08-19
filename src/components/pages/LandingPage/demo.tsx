@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useTypewriter } from "react-simple-typewriter";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { StarsBackground } from "@/components/ui/background-ui/stars-background";
-import { ShootingStars } from "@/components/ui/background-ui/shooting-stars";
+// import { StarsBackground } from "@/components/ui/background-ui/stars-background";
+// import { ShootingStars } from "@/components/ui/background-ui/shooting-stars";
 
 export default function LandingPage() {
   const [text] = useTypewriter({
@@ -27,10 +27,10 @@ export default function LandingPage() {
   return (
     <div className="relative flex flex-col items-center justify-center h-screen w-screen text-[#e5e5e5] overflow-hidden px-4">
       {/* Background */}
-      <div className="absolute inset-0 z-0 opacity-40">
-        <StarsBackground />
-        <ShootingStars />
-      </div>
+      {/* <div className="absolute inset-0 z-0 opacity-40"> */}
+        {/* <StarsBackground />
+        <ShootingStars /> */}
+      {/* </div> */}
 
       {/* Logo */}
       <motion.div
