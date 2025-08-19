@@ -18,16 +18,16 @@ const teamCards: Card[] = [
   {
     title: "Rakshit Dhamija",
     designation: "GENERAL SECRETARY",
-    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755513079/github_odc7w9.png",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755619112/rakshit_uew6ee.jpg",
     linkedin: "https://www.linkedin.com/in/rakshit-dhamija-870b39286/",
-    github: "#",
+    github: "https://github.com/rakshit-dhamija",
   },
   {
     title: "Sanchit Thareja",
     designation: "FINANCE SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548085/IMG_8607_-_Sanchit_Thareja_sybjtv.jpg",
     linkedin: "https://www.linkedin.com/in/sanchit-thareja/",
-    github: "#",
+    github: "https://github.com/sanchit-hub",
   },
   {
     title: "Vedant Anand",
@@ -90,7 +90,7 @@ const teamCards: Card[] = [
     designation: "DESIGNING SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755585093/ishan_yjrcke.jpg",
     linkedin: "https://www.linkedin.com/in/ishan-singh-0755462ab/",
-    github: "#",
+    github: "https://github.com/Ishan-412",
   },
   {
     title: "Garima Dahuja",
