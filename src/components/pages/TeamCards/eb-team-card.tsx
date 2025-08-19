@@ -46,7 +46,7 @@ const teamCards: Card[] = [
   {
     title: "Khushi Gupta",
     designation: "JOINT SECRETARY",
-    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755550313/khushi_ze1edb.png",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755584526/IMG-20250819-WA0022_yzpn9u.jpg",
     linkedin: "https://www.linkedin.com/in/khushi-gupta-b42264278/",
     github: "https://github.com",
   },
@@ -95,7 +95,7 @@ const teamCards: Card[] = [
   {
     title: "Garima Dahuja",
     designation: "DESIGNING SECRETARY",
-    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755550312/garima_ojexh5.jpg",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755584526/WhatsApp_Image_2025-08-19_at_11.48.57_ed3cce28_t7htcl.jpg",
     linkedin: "https://www.linkedin.com/in/garima-dahuja-492b7a245/",
     github: "https://github.com",
   },
