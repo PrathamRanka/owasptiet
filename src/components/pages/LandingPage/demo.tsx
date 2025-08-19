@@ -3,8 +3,6 @@
 import Image from "next/image";
 import { useTypewriter } from "react-simple-typewriter";
 import { motion, useScroll, useTransform } from "framer-motion";
-// import { StarsBackground } from "@/components/ui/background-ui/stars-background";
-// import { ShootingStars } from "@/components/ui/background-ui/shooting-stars";
 
 export default function LandingPage() {
   const [text] = useTypewriter({
@@ -38,14 +36,15 @@ export default function LandingPage() {
         className="relative flex flex-col items-center z-10 mt-16"
       >
         <Image
-          src="https://res.cloudinary.com/dduzorsii/image/upload/v1755198961/logo_2_vu8zon.png"
-          alt="OWASP Logo"
-          width={500}
-          height={500}
-          priority
-          className="object-contain w-[220px] sm:w-[300px] md:w-[360px] lg:w-[420px] xl:w-[480px] 
-                     hover:scale-105 transition-transform duration-500 ease-in-out"
-        />
+  src="https://res.cloudinary.com/dduzorsii/image/upload/v1755198961/logo_2_vu8zon.png"
+  alt="OWASP Logo"
+  width={800}      // increase the intrinsic width
+  height={800}     // increase the intrinsic height
+  priority
+  className="object-contain w-[350px] sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[800px]
+             hover:scale-105 transition-transform duration-500 ease-in-out"
+/>
+
       </motion.div>
 
       {/* Enhanced Gradient Lines */}
@@ -100,7 +99,7 @@ export default function LandingPage() {
 
       {/* Scroll Indicator SVG */}
       <motion.div
-        className="absolute bottom-16 sm:bottom-10 md:bottom-12 z-10 flex flex-col items-center"
+        className="absolute bottom-26 sm:bottom-10 md:bottom-2 z-10 flex flex-col items-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.6, duration: 0.8 }}
@@ -108,7 +107,7 @@ export default function LandingPage() {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 384 512"
-          className="w-6 h-10 sm:w-8 sm:h-14 md:w-6 md:h-6 fill-[#e5e5e5] opacity-80"
+          className="w-6 h-10 sm:w-8 sm:h-14 md:w-6 md:h-6 fill-[#e5e5e5] opacity-40"
         >
           <path d="M192 0C86 0 0 86 0 192v128c0 106 86 192 192 192s192-86 192-192V192C384 86 298 0 192 0zm0 480c-88.2 0-160-71.8-160-160V192c0-88.2 71.8-160 160-160s160 71.8 160 160v128c0 88.2-71.8 160-160 160z" />
           <motion.circle
