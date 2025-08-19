@@ -167,21 +167,31 @@ function Footerdemo() {
 
         {/* Bottom Section */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
-          <p className="text-sm text-muted-foreground">
-            © OWASP TIET STUDENT CHAPTER
-          </p>
-          <nav className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm">
-            <a href="#" className="transition-colors hover:text-primary">
-              Privacy Policy
-            </a>
-            <a href="#" className="transition-colors hover:text-primary">
-              Terms of Service
-            </a>
-            <a href="#" className="transition-colors hover:text-primary">
-              Cookie Settings
-            </a>
-          </nav>
-        </div>
+  <p className="text-sm text-muted-foreground">
+    © OWASP TIET STUDENT CHAPTER
+  </p>
+  <nav className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm">
+    <a href="#" className="transition-colors hover:text-primary">
+      Privacy Policy
+    </a>
+    <a href="#" className="transition-colors hover:text-primary">
+      Terms of Service
+    </a>
+    <a href="#" className="transition-colors hover:text-primary">
+      Cookie Settings
+    </a>
+  </nav>
+</div>
+
+{/* Made with Love Section */}
+<div className="mt-6 text-center flex items-center justify-center gap-2 text-sm text-muted-foreground">
+  <span>Made with</span>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" stroke="red" className="w-4 h-4">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6.02 4.02 4 6.5 4c1.74 0 3.41 1.01 4.5 2.09C12.09 5.01 13.76 4 15.5 4 17.98 4 20 6.02 20 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" />
+  </svg>
+  <span>by OWASP Core Team</span>
+</div>
+
       </div>
     </footer>
   );
