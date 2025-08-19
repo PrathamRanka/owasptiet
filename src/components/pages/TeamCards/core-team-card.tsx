@@ -177,6 +177,20 @@ const coreTeamCards: Card[] = [
     github: "https://github.com/ajmanipriyancy",
   },
   {
+    title: "Saurabh Shivhare",
+    designation: "Core",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755597066/saurabh_euquc8.jpg",
+    linkedin: "https://www.linkedin.com/in/saurabh-shivhare-aa0aa3337/",
+    github: "https://github.com/",
+  },
+  {
+    title: "Prabal Gupta",
+    designation: "Core",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755597066/Prabal_gglbtw.jpg",
+    linkedin: "https://www.linkedin.com/in/prabal-gupta-27008533b/",
+    github: "https://github.com/",
+  },
+  {
     title: "Bhavya Yelchala",
     designation: "Core",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755588506/bhavya_t5qpk4.jpg",
