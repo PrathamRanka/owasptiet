@@ -92,6 +92,13 @@ const coreTeamCards: Card[] = [
     github: "https://github.com/CoderAnmolMittal",
   },
   {
+    title: "Vanshika",
+    designation: "Core",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755593629/vanshika_zhn1sc.jpg",
+    linkedin: "https://www.linkedin.com/in/vanshika-bansal-62b546330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    github: "https://github.com/vanshii18",
+  },
+  {
     title: "Bhoomi Jain",
     designation: "Core",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548076/bhoomi_profile_-_Bhoomi_Jain_oozbox.jpg",
