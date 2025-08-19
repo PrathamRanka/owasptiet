@@ -71,7 +71,7 @@ export function Sponsors() {
   );
 
   return (
-    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+    <div className="relative flex w-screen flex-col items-center justify-center overflow-hidden">
       {/* Title Sponsors */}
       <div className="w-full text-center mb-8">
         <span className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl font-['Orbitron'] tracking-widest uppercase text-gray-300 block">

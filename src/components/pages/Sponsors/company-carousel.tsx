@@ -4,7 +4,7 @@ export default function ThreeDPhotoCarouselDemo() {
   return (
     <div
       className="
-        w-full flex flex-col items-center
+        w-full flex flex-col 
         sm:px-8 md:px-4
         pt-12 pb-16 sm:pt-16 sm:pb-20
         lg:min-h-screen
@@ -13,7 +13,7 @@ export default function ThreeDPhotoCarouselDemo() {
       {/* Responsive top margin for spacing from previous section */}
       <div className="mt-8 sm:mt-24 md:mt-28 lg:mt-16 xl:mt-20 w-full max-w-6xl flex flex-col flex-grow">
         {/* Title Section */}
-        <div className="text-center mb-16">
+        <div className=" flex flex-col w-screen justify-center items-center mx-5 mb-16">
           <span className="text-xs sm:text-sm tracking-widest uppercase text-blue-400 font-semibold font-mono block mb-6">
             OWASP Sponsors
           </span>
