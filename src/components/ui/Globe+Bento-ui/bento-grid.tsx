@@ -1,9 +1,8 @@
 /* eslint-disable */
 "use client";
 
-import { Box, Lock, Search, Settings, Sparkles, ArrowLeft } from "lucide-react";
+import {  Lock, Search, Sparkles, ArrowLeft, DollarSign, Computer} from "lucide-react";
 import { GlowingEffect } from "@/components/ui/Globe+Bento-ui/glowing-effect";
-import { Badge } from "@/components/ui/Globe+Bento-ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import React from "react";
 
@@ -42,9 +41,9 @@ React.useEffect(() => {
     <div className="flex flex-col gap-16 items-center relative z-10">
       {/* Heading */}
       <div className="flex flex-col gap-4 items-center text-center z-20">
-        <Badge className="bg-transparent border-none p-0 text-xs sm:text-sm tracking-widest uppercase text-blue-400 font-semibold font-mono">
+        <div className="bg-transparent border-none p-0 text-xs sm:text-sm tracking-widest uppercase text-blue-400 font-semibold font-mono">
           OWASP Workshops
-        </Badge>
+        </div>
         <div className="flex flex-col gap-2">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase font-['Orbitron'] text-white tracking-wide">
             Explore. Hack. Secure. Learn.
@@ -65,16 +64,16 @@ React.useEffect(() => {
               "Master AI & ML from basics to pro level. Build real-world models, explore workflows, and work on projects. Exclusive goodies and surprises await you!",
             image:
               "https://res.cloudinary.com/dduzorsii/image/upload/v1755595494/ai-ml_l8ankk.png",
-            icon: <Box className="h-5 w-5 text-white/80" />,
+            icon: <Computer className="h-5 w-5 text-white/80" />,
             area: "md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]",
           },
           {
-            title: "Web3 Workshop",
+            title: "Bitcoin Workshop",
             description:
-              "Dive deep into Web3: smart contracts, dApps, and blockchain fundamentals to advanced topics. Cool gifts and exclusive rewards while you learn!",
+              "Dive deep into Bitcoin: smart contracts, dApps, and blockchain fundamentals to advanced topics. Cool gifts and exclusive rewards while you learn!",
             image:
               "https://res.cloudinary.com/dduzorsii/image/upload/v1755595494/web3_uhjhiv.png",
-            icon: <Settings className="h-5 w-5 text-white/80" />,
+            icon: <DollarSign className="h-5 w-5 text-white/80" />,
             area: "md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]",
           },
           {
