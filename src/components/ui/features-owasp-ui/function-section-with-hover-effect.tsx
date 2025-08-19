@@ -8,8 +8,11 @@ import {
   IconUsersGroup,
   IconBinary,
   IconCircuitCellPlus,
+  IconShield,
+  IconRocket,
   IconShieldLock,
 } from "@tabler/icons-react";
+
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { useEffect } from "react";
@@ -17,40 +20,40 @@ import { useEffect } from "react";
 export function FeaturesSectionWithHoverEffects() {
   const features = [
     {
-      title: "EVENTS THAT TEST YOUR EDGE",
+      title: "REGULAR MEET-UPS",
       description:
-        "HackOWASP – flagship hackathon where security meets creativity.\n• CTF – ultimate cybersecurity battle\n• Regular workshops & sessions to keep your skills sharp",
-      icon: <IconFlagCheck />,
+        "• Dive into new tech topics every week\n• Network and exchange ideas with fellow members",
+      icon: <IconShield />,
     },
     {
-      title: "MENTORSHIP THAT MATTERS",
+      title: "SKILL DEVELOPMENT",
       description:
-        "Learn from peers & seasoned pros:\n• Certifications like CEH, CompTIA+\n• Advanced projects & debugging\n• Tech talks and real-world insights",
-      icon: <IconUsersGroup />,
-    },
-    {
-      title: "TECH THAT FIGHTS BACK",
-      description:
-        "Hands-on security from day one:\n• Pen-testing tools\n• AI & IoT security\n• Cloud and network defense",
+        "• Hands-on exercises to sharpen coding and problem-solving\n• Collaborate on mini-projects to strengthen practical skills",
       icon: <IconBinary />,
     },
     {
-      title: "PROJECTS FROM IDEA TO IMPACT",
+      title: "DESIGN OPPORTUNITIES",
       description:
-        "We build real stuff:\n• Scanners, forensic tools, DApps\n• Intra-hackathons & global challenges\n• Products that actually ship",
-      icon: <IconCircuitCellPlus />,
-    },
-    {
-      title: "ROLES BEYOND CODE",
-      description:
-        "Security needs more than code:\n• Marketing & PR\n• Finance & strategy\n• Design & UX",
+        "• Create visuals for OWASP events posters, banners, videos\n• Develop your design thinking and communication skills",
       icon: <IconSparkles />,
     },
     {
-      title: "OUR CULTURE: ZERO HIERARCHY",
+      title: "PROJECT OPPORTUNITIES",
       description:
-        "Yes, there’s structure:\n• Executive Board (top)\n• Core Team (next)\n• Executive Members (where you start)\nBut inside OWASP, titles don’t define us we build, break, and grow together.",
-      icon: <IconShieldLock />,
+        "• Work on real tech projects from start to finish\n• Learn debugging, teamwork, and building deployable solutions",
+      icon: <IconRocket />,
+    },
+    {
+      title: "STRONG ALUMNI NETWORK",
+      description:
+        "• Get mentorship from OWASP alumni with real-world experience\n• Gain insights into tech careers and industry practices",
+      icon: <IconUsersGroup />,
+    },
+    {
+      title: "CROWN JEWEL EVENTS",
+      description:
+        "• HackOWASP – the legendary flagship hackathon of OWASP\n• CTF – the ultimate cybersecurity challenge\n• Managed entirely by our team, it's the largest tech event at Thapar",
+      icon: <IconFlagCheck />,
     },
   ];
 
@@ -85,7 +88,7 @@ export function FeaturesSectionWithHoverEffects() {
             Your Tech Launchpad
           </h2>
           <p className="mt-6 text-sm sm:text-lg text-neutral-300 max-w-3xl mx-auto leading-relaxed">
-            Not just a club an ecosystem. Build, break, secure, and innovate with a community that thrives on real-world challenges and endless learning.
+            Not just a club, an ecosystem. Build, break, secure, and innovate with a community that thrives on real-world challenges and endless learning.
           </p>
         </div>
 
@@ -96,57 +99,54 @@ export function FeaturesSectionWithHoverEffects() {
           ))}
         </div>
 
-{/* Mobile Swipable Cards */}
-<div className="md:hidden w-full relative">
-  <button
-    onClick={handlePrev}
-    className="absolute left-3 top-[110%] -translate-y-1/2 z-20 bg-transparent text-white p-3 rounded-full shadow-lg"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={2.5}
-      stroke="currentColor"
-      className="w-6 h-6"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-    </svg>
-  </button>
-  <button
-    onClick={handleNext}
-    className="absolute right-2 top-[110%] -translate-y-1/2 z-20 bg-transparent text-white p-3 rounded-full shadow-lg"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={2.5}
-      stroke="currentColor"
-      className="w-6 h-6"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-    </svg>
-  </button>
+        {/* Mobile Swipable Cards */}
+        <div className="md:hidden w-full relative">
+          <button
+            onClick={handlePrev}
+            className="absolute left-3 top-[110%] -translate-y-1/2 z-20 bg-transparent text-white p-3 rounded-full shadow-lg"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={handleNext}
+            className="absolute right-2 top-[110%] -translate-y-1/2 z-20 bg-transparent text-white p-3 rounded-full shadow-lg"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
 
-  <div ref={sliderRef} className="keen-slider">
-    {features.map((feature, idx) => (
-      <div
-        key={idx}
-        className="keen-slider__slide min-w-[80%] mx-auto bg-neutral-900 rounded-xl border border-neutral-700 p-6 flex flex-col"
-      >
-        <div className="text-blue-400 text-4xl mb-4">{feature.icon}</div>
-        <h3 className="text-xl font-bold text-white mb-4">
-          {feature.title}
-        </h3>
-        <p className="text-neutral-300 text-base whitespace-pre-line leading-relaxed">
-          {feature.description}
-        </p>
-      </div>
-    ))}
-  </div>
-</div>
-
+          <div ref={sliderRef} className="keen-slider">
+            {features.map((feature, idx) => (
+              <div
+                key={idx}
+                className="keen-slider__slide min-w-[80%] mx-auto bg-neutral-900 rounded-xl border border-neutral-700 p-6 flex flex-col"
+              >
+                <div className="text-blue-400 text-5xl mb-4">{feature.icon}</div>
+                <h3 className="text-2xl font-bold text-white mb-4">{feature.title}</h3>
+                <p className="text-base whitespace-pre-line leading-relaxed text-neutral-300">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -165,21 +165,18 @@ const Feature = ({
 }) => {
   return (
     <div className={cn("flex flex-col py-12 relative group/feature")}>
-      {index < 3 ? (
-        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100/5 dark:from-neutral-800 to-transparent pointer-events-none" />
-      ) : (
-        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100/5 dark:from-neutral-800 to-transparent pointer-events-none" />
-      )}
-      <div className="mb-4 relative z-10 px-6 sm:px-8 text-blue-400 group-hover/feature:text-white transition-colors duration-200 text-2xl">
+      {/* Removed white glow hover background */}
+
+      <div className="mb-4 relative z-10 px-6 sm:px-8 text-blue-400 group-hover/feature:text-white transition-colors duration-200 text-4xl">
         {icon}
       </div>
-      <div className="text-lg sm:text-xl font-semibold mb-3 relative z-10 px-6 sm:px-8">
+      <div className="text-xl sm:text-2xl font-semibold mb-3 relative z-10 px-6 sm:px-8">
         <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-blue-700 group-hover/feature:bg-cyan-400 transition-all duration-200 origin-center" />
         <span className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-white">
           {title}
         </span>
       </div>
-      <p className="text-sm sm:text-base text-neutral-300 max-w-xs relative z-10 px-6 sm:px-8 leading-relaxed whitespace-pre-line">
+      <p className="text-base sm:text-lg text-neutral-300 max-w-xs relative z-10 px-6 sm:px-8 leading-relaxed whitespace-pre-line">
         {description}
       </p>
     </div>
