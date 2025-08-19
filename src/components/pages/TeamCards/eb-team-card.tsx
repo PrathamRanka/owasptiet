@@ -55,7 +55,7 @@ const teamCards: Card[] = [
     designation: "JOINT SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755583271/anshum_oenk9q.jpg",
     linkedin: "https://www.linkedin.com/in/anshum-singla/",
-    github: "#",
+    github: "https://github.com/AnshumSingla",
   },
   {
     title: "Gurkirat Singh",
