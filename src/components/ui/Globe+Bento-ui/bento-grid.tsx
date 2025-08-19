@@ -82,7 +82,7 @@ React.useEffect(() => {
             description:
               "The ultimate hackathon experience! Build, innovate, and compete for glory with a massive prize pool of ₹7,00,000. Epic merch and bragging rights included!",
             image:
-              "https://res.cloudinary.com/dduzorsii/image/upload/v1755595494/HAckO_w1pp6z.jpg",
+              "https://res.cloudinary.com/dduzorsii/image/upload/v1755617503/HAckO_w1pp6z.png",
             icon: <Lock className="h-5 w-5 text-white/80" />,
             area: "md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]",
           },
@@ -91,7 +91,7 @@ React.useEffect(() => {
             description:
               "Step into the world of Capture The Flag! Crack puzzles, exploit challenges, and show off your skills. Win prizes worth ₹1,00,000 and grab some hacker gear!",
             image:
-              "https://res.cloudinary.com/dduzorsii/image/upload/v1755595840/ctf_hersys.jpg",
+              "https://res.cloudinary.com/dduzorsii/image/upload/v1755617516/ctf_hersys.png",
             icon: <Sparkles className="h-5 w-5 text-white/80" />,
             area: "md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]",
           },
@@ -100,7 +100,7 @@ React.useEffect(() => {
             description:
               "Learn cybersecurity from the ground up to advanced techniques. Explore trends, secure systems, and get rewarded with exciting swags and perks!",
             image:
-              "https://res.cloudinary.com/dduzorsii/image/upload/v1755594899/Screenshot_2025-08-19_144128_yh4ogk.png",
+              "https://res.cloudinary.com/dduzorsii/image/upload/v1755617526/Screenshot_2025-08-19_144128_yh4ogk.png",
             icon: <Search className="h-5 w-5 text-white/80" />,
             area: "md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]",
           },
@@ -143,6 +143,7 @@ React.useEffect(() => {
                   src={selectedItem.image}
                   alt={selectedItem.title}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
                 <button
                   onClick={() => setSelectedItem(null)}
