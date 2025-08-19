@@ -71,11 +71,11 @@ const coreTeamCards: Card[] = [
     github: "https://github.com/Antriksh1984",
   },
   {
-    title: "Priyancy Ajmani",
+    title: "Vishwa",
     designation: "Core",
-    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548087/WhatsApp_Image_2025-08-17_at_20.26.42_a7a79124_-_Priyancy_Ajmani_toexxk.jpg",
-    linkedin: "https://www.linkedin.com/in/priyancy-ajmani-b4a02b2bb?trk=contact-info",
-    github: "https://github.com/ajmanipriyancy",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755587074/vishwa_p8ai2n.jpg",
+    linkedin: "https://www.linkedin.com/in/vishwa-choudhary-648b3a316?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    github: "https://github.com/awhsiv05",
   },
   {
     title: "Kumari Manya",
@@ -133,6 +133,13 @@ const coreTeamCards: Card[] = [
     linkedin: "http://www.linkedin.com/in/sehajneet-kaur-788412330",
     github: "https://github.com/Sehaj38",
   },
+    {
+    title: "Kushagra Goel",
+    designation: "Core",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755586879/kushagra_ask1gu.jpg",
+    linkedin: "https://www.linkedin.com/in/kushagra-goel-174828313?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    github: "https://www.linkedin.com/in/kushagra-goel-174828313?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+  },
 
   {
     title: "Sparsh Khandelwal",
@@ -154,6 +161,13 @@ const coreTeamCards: Card[] = [
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548083/IMG-20250609-WA0006_3_-_Sneha_Tanwar_bthcs0.jpg",
     linkedin: "https://www.linkedin.com/in/sneha-tanwar-a8186a213/",
     github: "https://github.com/SnehaTanwar006",
+  },
+  {
+    title: "Priyancy Ajmani",
+    designation: "Core",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548087/WhatsApp_Image_2025-08-17_at_20.26.42_a7a79124_-_Priyancy_Ajmani_toexxk.jpg",
+    linkedin: "https://www.linkedin.com/in/priyancy-ajmani-b4a02b2bb?trk=contact-info",
+    github: "https://github.com/ajmanipriyancy",
   },
 ]
 
