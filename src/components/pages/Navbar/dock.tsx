@@ -34,7 +34,7 @@ export default function DockDemo() {
   { icon: Handshake, label: "Sponsors", onClick: () => handleAnchorClick("sponsors") },
   { icon: FileText, label: "Form", onClick: () => handleAnchorClick("form") },
   { icon: Users2, label: "Team", onClick: handleTeamClick },
-];
+];  
 
   return <Dock items={items} />
 }
