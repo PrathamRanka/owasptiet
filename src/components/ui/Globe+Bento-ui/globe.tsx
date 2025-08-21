@@ -33,6 +33,7 @@ export function Globe({ className, config = DEFAULT_CONFIG }: { className?: stri
   const pointerStartY = useRef<number | null>(null);
   const [size, setSize] = useState(0);
   const [initialized, setInitialized] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const setCursor = (isGrabbing: boolean) => {
     if (canvasRef.current) {
@@ -40,7 +41,15 @@ export function Globe({ className, config = DEFAULT_CONFIG }: { className?: stri
     }
   };
 
+  // Enable/disable interaction on wrapper click (only on mobile)
+const handleWrapperClick = () => {
+  if (window.innerWidth < 768) {
+    setIsActive((prev) => !prev);
+  }
+};
+
   const handlePointerDown = (x: number, y: number) => {
+    if (!isActive && window.innerWidth < 768) return; // Do nothing if not active
     pointerStartX.current = x;
     pointerStartY.current = y;
     setCursor(true);
@@ -51,6 +60,7 @@ export function Globe({ className, config = DEFAULT_CONFIG }: { className?: stri
     setCursor(false);
   };
   const handlePointerMove = (x: number, y: number) => {
+    if (!isActive && window.innerWidth < 768) return; // Do nothing if not active
     if (pointerStartX.current !== null && pointerStartY.current !== null) {
       const sensitivity = window.innerWidth < 768 ? 100 : 200;
       const deltaX = x - pointerStartX.current;
@@ -116,7 +126,7 @@ export function Globe({ className, config = DEFAULT_CONFIG }: { className?: stri
   }, [config, onRender, size, updateSize]);
 
   return (
-    <div className="flex items-center justify-center w-full h-full">
+    <div className="flex items-center justify-center w-full h-full" onClick={handleWrapperClick}>
       {/* Placeholder for instant paint */}
       {!initialized && <div className="w-24 h-24 rounded-full bg-gray-800 animate-pulse" />}
       <div className={cn("aspect-square w-full max-w-[600px] bg-transparent", className)}>
