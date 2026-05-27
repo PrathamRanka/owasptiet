@@ -78,9 +78,8 @@ function Footerdemo() {
           <div className="flex-1 text-center md:text-left">
             <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
             <address className="space-y-2 text-sm not-italic">
-              <p>Thapar Institute of Engineering</p>
-              <p>Phone: +91 95013 49322</p>
-              <p>Email: owasptu@gmail.com</p>
+              <p>Thapar Institute of Engineering and Technology</p>
+              <p>Email: <a href="mailto:owasptu@gmail.com" className="hover:underline">owasptu@gmail.com</a></p>
             </address>
           </div>
 

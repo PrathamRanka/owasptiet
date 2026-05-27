@@ -103,7 +103,7 @@ const teamCards: Card[] = [
     title: "Ashmit Giridhar",
     designation: "MEDIA SECRETARY",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755550313/ashmitgiri_u1hxgj.png",
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/in/ashmit-girdhar/",
     github: "#",
   },
   {

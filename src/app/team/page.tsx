@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Head from "next/head";
 import { TeamCards } from "@/components/pages/TeamCards/eb-team-card";
 import CoreCards from "@/components/pages/TeamCards/core-team-card";
 import { motion } from "framer-motion";
@@ -14,11 +15,27 @@ export default function TeamPage() {
 
   return (
     <>
+      <Head>
+        <link rel="canonical" href="https://owasptiet.com/team" />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              name: "OWASP TIET Team",
+              url: "https://owasptiet.com/team",
+              description: "Meet the executive board and core members of OWASP TIET.",
+            }),
+          }}
+        />
+      </Head>
       <ScrollProgress />
       <div className="relative min-h-screen w-full overflow-x-hidden text-white px-6 py-12">
         {/* Back Button */}
         <Link
-          href="https://owasptiet.vercel.app"
+          href="/"
           className="absolute top-6 left-6 z-50 hover:opacity-80 transition-opacity duration-200"
         >
           <ArrowLeft className="h-6 w-6 text-white hover:scale-110 transition-transform duration-200" />
@@ -38,11 +55,10 @@ export default function TeamPage() {
                 <button
                   key={type}
                   onClick={() => setSelected(type as "executive" | "core")}
-                  className={`relative z-10 w-1/2 text-center py-3 text-md md:text-lg font-semibold transition-all duration-300 ease-in-out ${
-                    isActive
+                  className={`relative z-10 w-1/2 text-center py-3 text-md md:text-lg font-semibold transition-all duration-300 ease-in-out ${isActive
                       ? "text-black scale-105"
                       : "text-white hover:opacity-80"
-                  }`}
+                    }`}
                 >
                   {type === "executive" ? "Executive Board" : "Core Members"}
                 </button>

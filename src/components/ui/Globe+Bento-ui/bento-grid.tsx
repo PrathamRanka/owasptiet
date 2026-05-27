@@ -86,11 +86,11 @@ React.useEffect(() => {
             area: "md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]",
           },
           {
-            title: "CTF Event",
+            title: "CTF Explo(it)²",
             description:
-              "Step into the world of Capture The Flag! Crack puzzles, exploit challenges, and show off your skills. Win prizes worth ₹1,00,000 and grab some hacker gear!",
+              "Step into the world of Capture The Flag! Crack puzzles, exploit challenges, and show off your skills. Win prizes worth ₹1,10,000 and grab some hacker gear!",
             image:
-              "https://res.cloudinary.com/dduzorsii/image/upload/v1755617516/ctf_hersys.png",
+              "https://res.cloudinary.com/dduzorsii/image/upload/v1763584357/exploit_wnffxb.png",
             icon: <Sparkles className="h-5 w-5 text-white/80" />,
             area: "md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]",
           },

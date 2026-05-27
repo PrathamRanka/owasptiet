@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 // import { CustomCursor2 } from "@/components/ui/cursor-ui/cursor-2";
 // import { CustomCursor2 } from "../components/ui/cursor-ui/cursor-2";
+import type { Metadata, Viewport } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,12 +14,67 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "OWASP",
-  description: "OWASP Society is a community-driven platform for security enthusiasts.",
+export const metadata: Metadata = {
+  metadataBase: new URL("https://owasptiet.com"),
+  title: {
+    default: "OWASP TIET",
+    template: "%s | OWASP TIET",
+  },
+  description:
+    "OWASP TIET is a community-driven chapter focused on app security, workshops, and student-led initiatives.",
+  keywords: [
+    "OWASP",
+    "OWASP TIET",
+    "Thapar",
+    "application security",
+    "cybersecurity",
+    "student chapter",
+    "workshops",
+    "events",
+  ],
+  authors: [{ name: "OWASP TIET" }],
+  creator: "OWASP TIET",
+  publisher: "OWASP TIET",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://owasptiet.com",
+    siteName: "OWASP TIET",
+    title: "OWASP TIET",
+    description:
+      "OWASP TIET is a community-driven chapter focused on app security, workshops, and student-led initiatives.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OWASP TIET",
+    description:
+      "OWASP TIET is a community-driven chapter focused on app security, workshops, and student-led initiatives.",
+    creator: "@owasptiet",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  category: "technology",
   icons: {
     icon: "/favicon.ico",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#000000",
+  colorScheme: "dark light",
 };
 
 export default function RootLayout({

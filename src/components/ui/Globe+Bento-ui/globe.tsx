@@ -127,7 +127,6 @@ const handleWrapperClick = () => {
 
   return (
     <div className="flex items-center justify-center w-full h-full" onClick={handleWrapperClick}>
-      {/* Placeholder for instant paint */}
       {!initialized && <div className="w-24 h-24 rounded-full bg-gray-800 animate-pulse" />}
       <div className={cn("aspect-square w-full max-w-[600px] bg-transparent", className)}>
         <canvas

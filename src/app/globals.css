@@ -8,12 +8,14 @@
 html {
   scroll-behavior: smooth;
 }
+
 /* * {
   cursor: none;
 } */
 
 @import "tailwindcss";
 @import "tw-animate-css";
+
 button {
   cursor: pointer;
 }
@@ -25,14 +27,13 @@ button {
   left: -100%;
   height: 100%;
   width: 200%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent);
   animation: shimmer 2s infinite;
 }
+
 @keyframes shimmer {
   100% {
     left: 100%;
@@ -44,20 +45,23 @@ button {
 /* globals.css */
 html,
 body {
-  scrollbar-width: none; 
+  scrollbar-width: none;
   overflow-x: hidden;
 }
+
 body::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 @keyframes float {
   0% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-8px);
   }
+
   100% {
     transform: translateY(0px);
   }
@@ -107,18 +111,22 @@ body::-webkit-scrollbar {
   --radius-xl: calc(var(--radius) + 4px);
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
   @keyframes marquee {
     from {
       transform: translateX(0);
     }
+
     to {
       transform: translateX(calc(-100% - var(--gap)));
     }
   }
+
   @keyframes marquee-vertical {
     from {
       transform: translateY(0);
     }
+
     to {
       transform: translateY(calc(-100% - var(--gap)));
     }
@@ -198,6 +206,7 @@ body::-webkit-scrollbar {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -208,11 +217,13 @@ body::-webkit-scrollbar {
     opacity: 0;
     transform: scale(0.9);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
   }
 }
+
 .animate-fadeInScale {
   animation: fadeInScale 1.1s ease-out forwards;
 }

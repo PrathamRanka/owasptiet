@@ -9,8 +9,8 @@ export default function LandingPage() {
     words: [
       "Open Worldwide Application Security Project",
       "Hack • Learn • Grow",
-      "From writing code to leading teams, we’ve got it all.",
-      "Our flagship events, HackOWASP and CTF, are OWASP’s crown jewels.",
+      "From writing code to leading teams, we've got it all.",
+      "Our flagship events, HackOWASP and CTF, are OWASP's crown jewels.",
     ],
     loop: 0,
     typeSpeed: 70,
@@ -26,24 +26,24 @@ export default function LandingPage() {
     <div className="relative flex flex-col items-center justify-center h-screen w-screen text-[#e5e5e5] overflow-hidden px-4">
       {/* Background */}
       {/* <div className="absolute inset-0 z-0 opacity-40"> */}
-        {/* <StarsBackground />
+      {/* <StarsBackground />
         <ShootingStars /> */}
       {/* </div> */}
 
       {/* Logo */}
       <motion.div
         style={{ scale: logoScale, y: logoY }}
-        className="relative flex flex-col items-center z-10 mt-16"
+        className="relative flex flex-col items-center z-10 mt-24"
       >
         <Image
-  src="https://res.cloudinary.com/dduzorsii/image/upload/v1755198961/logo_2_vu8zon.png"
-  alt="OWASP Logo"
-  width={800}      // increase the intrinsic width
-  height={800}     // increase the intrinsic height
-  priority
-  className="object-contain w-[350px] sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[800px]
+          src="https://res.cloudinary.com/dduzorsii/image/upload/v1755198961/logo_2_vu8zon.png"
+          alt="OWASP Logo"
+          width={800}      // increase the intrinsic width
+          height={800}     // increase the intrinsic height
+          priority
+          className="object-contain w-[280px] sm:w-[350px] md:w-[420px] lg:w-[480px] xl:w-[600px] 2xl:w-[700px]
              hover:scale-105 transition-transform duration-500 ease-in-out"
-/>
+        />
 
       </motion.div>
 
@@ -51,20 +51,20 @@ export default function LandingPage() {
       <div className="w-full max-w-6xl h-16 relative mt-6">
         {/* Soft Glow Line */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[8px] 
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-2 
                bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-30"
         />
 
         {/* Sharp Core Line */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[3px] 
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-0.5 
                bg-gradient-to-r from-transparent via-purple-500 to-transparent rounded-full"
         />
       </div>
 
       {/* Typewriter Text */}
       <motion.div
-        className="mt-8 text-center text-2xl sm:text-3xl md:text-4xl font-extrabold 
+        className="mt-6 px-4 text-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold 
                    text-[#e5e5e5] tracking-wide z-10 drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ export default function LandingPage() {
 
       {/* Join Us Button */}
       <motion.div
-        className="mt-16 flex gap-4 z-10"
+        className="mt-8 sm:mt-12 lg:mt-16 flex gap-4 z-10"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.3, duration: 0.8 }}
@@ -99,27 +99,25 @@ export default function LandingPage() {
 
       {/* Scroll Indicator SVG */}
       <motion.div
-  className="hidden sm:absolute sm:bottom-10 md:bottom-2 sm:z-10 sm:flex sm:flex-col sm:items-center"
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 1.6, duration: 0.8 }}
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 384 512"
-    className="w-6 h-10 sm:w-8 sm:h-14 md:w-6 md:h-6 fill-[#e5e5e5] opacity-40"
-  >
-    <path d="M192 0C86 0 0 86 0 192v128c0 106 86 192 192 192s192-86 192-192V192C384 86 298 0 192 0zm0 480c-88.2 0-160-71.8-160-160V192c0-88.2 71.8-160 160-160s160 71.8 160 160v128c0 88.2-71.8 160-160 160z" />
-    <motion.circle
-      cx="192"
-      cy="128"
-      r="16"
-      fill="#e5e5e5"
-      animate={{ y: [0, 40, 0] }}
-      transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-    />
-
-
+        className="flex flex-col items-center mt-8 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-24"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.6, duration: 0.8 }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 384 512"
+          className="w-4 h-6 sm:w-5 sm:h-7 md:w-6 md:h-8 lg:w-7 lg:h-10 fill-[#e5e5e5] opacity-40"
+        >
+          <path d="M192 0C86 0 0 86 0 192v128c0 106 86 192 192 192s192-86 192-192V192C384 86 298 0 192 0zm0 480c-88.2 0-160-71.8-160-160V192c0-88.2 71.8-160 160-160s160 71.8 160 160v128c0 88.2-71.8 160-160 160z" />
+          <motion.circle
+            cx="192"
+            cy="128"
+            r="16"
+            fill="#e5e5e5"
+            animate={{ y: [0, 40, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          />
         </svg>
         <span className="text-xs mt-2 text-gray-300">Scroll</span>
       </motion.div>

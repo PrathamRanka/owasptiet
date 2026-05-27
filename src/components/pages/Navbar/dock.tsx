@@ -24,17 +24,17 @@ export default function DockDemo() {
   }
 
   const handleTeamClick = () => {
-    router.push("/team") 
+    router.push("/team")
   }
 
   const items = [
-  { icon: Home, label: "Home", onClick: () => handleAnchorClick("home") },
-  { icon: Globe, label: "About", onClick: () => handleAnchorClick("about") },
-  { icon: Flag, label: "Missions", onClick: () => handleAnchorClick("missions") },
-  { icon: Handshake, label: "Sponsors", onClick: () => handleAnchorClick("sponsors") },
-  { icon: FileText, label: "Form", onClick: () => handleAnchorClick("form") },
-  { icon: Users2, label: "Team", onClick: handleTeamClick },
-];  
+    { icon: Home, label: "Home", onClick: () => handleAnchorClick("home") },
+    { icon: Globe, label: "About", onClick: () => handleAnchorClick("about") },
+    { icon: Flag, label: "Missions", onClick: () => handleAnchorClick("missions") },
+    { icon: Handshake, label: "Sponsors", onClick: () => handleAnchorClick("sponsors") },
+    { icon: FileText, label: "Form", onClick: () => handleAnchorClick("form") },
+    { icon: Users2, label: "Team", onClick: handleTeamClick },
+  ];
 
   return <Dock items={items} />
 }

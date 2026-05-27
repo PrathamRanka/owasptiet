@@ -1,8 +1,8 @@
 ## 🌐 Official OWASP TIET Website
 This is the official website for OWASP TIET, built with Next.js, Tailwind, and Framer Motion. It showcases the core team, events, sponsors, and OWASP features in a modern, animated UI.
 
-
 ## 📂 Folder Structure
+
 
 ```plaintext
 src/

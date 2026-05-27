@@ -72,7 +72,7 @@ export default function Form() {
     if (!validate()) return;
 
     try {
-      const response = await fetch("https://formspree.io/f/meozeqwo", {
+      const response = await fetch("https://formspree.io/f/meoljjlv", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -108,7 +108,7 @@ export default function Form() {
       <div className="flex items-center justify-center px-4 pt-10 md:pt-24">
         <div className="text-center">
           <h2 className="text-white font-serif font-extrabold tracking-tight text-[9vw] md:text-[5vw] leading-tight mb-4">
-            “No more insecure software”
+            “Participate. Think. Innovate.”
           </h2>
           <p className="text-gray-400 italic text-base md:text-xl mb-2">
             — OWASP Foundation
