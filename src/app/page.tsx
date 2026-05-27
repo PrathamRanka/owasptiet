@@ -1,13 +1,26 @@
 import React from "react";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { ScrollProgress } from "@/components/ui/ScrollProgress-ui/scroll-progress";
-import SplineSceneBasic from "@/components/pages/LandingPage/demo";
-import FeaturesSectionWithHoverEffectsDemo from "@/components/pages/OwaspFeatures/feature-section";
-import ComponentDemo from "@/components/pages/Globe & Bento/scroll-section";
-import ThreeDPhotoCarouselDemo from "@/components/pages/Sponsors/company-carousel";
-import { Footer } from "@/components/pages/Footer/footer";
-import DockDemo from "@/components/pages/Navbar/dock";
+import type { Metadata } from "next";
+import HomePageClient from "./home-client";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "OWASP TIET is a community-driven chapter focused on application security, workshops, hackathons, and student-led initiatives.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "https://owasptiet.com",
+    title: "OWASP TIET",
+    description:
+      "OWASP TIET is a community-driven chapter focused on application security, workshops, hackathons, and student-led initiatives.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OWASP TIET",
+    description:
+      "OWASP TIET is a community-driven chapter focused on application security, workshops, hackathons, and student-led initiatives.",
+  },
+};
 
 export default function HomePage() {
   return (
@@ -47,34 +60,7 @@ export default function HomePage() {
           }),
         }}
       />
-
-      <div className="fixed top-2 left-0 w-full z-40">
-        <DockDemo />
-        <ScrollProgress />
-      </div>
-
-      <div id="home">
-        <SplineSceneBasic />
-      </div>
-
-      <div id="about">
-        <ComponentDemo />
-      </div>
-
-      <div id="missions">
-        <FeaturesSectionWithHoverEffectsDemo />
-      </div>
-
-      <div id="sponsors">
-        <ThreeDPhotoCarouselDemo />
-      </div>
-
-      <div id="form">
-        <Footer />
-      </div>
-
-      <SpeedInsights />
-      <Analytics />
+      <HomePageClient />
     </>
   );
 }
