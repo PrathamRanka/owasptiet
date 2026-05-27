@@ -128,7 +128,7 @@ const coreTeamCards: Card[] = [
     linkedin: "",
     github: ""
   },
-      {
+  {
     title: "Harshita",
     designation: "Core",
     src: "",
