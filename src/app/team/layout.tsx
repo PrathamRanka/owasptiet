@@ -1,4 +1,3 @@
-import "./team.css";
 import type { Metadata } from "next";
 import TeamLayoutClient from "./layout-client";
 

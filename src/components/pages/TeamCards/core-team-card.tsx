@@ -8,9 +8,9 @@ import Image from "next/image"
 type Card = {
   title: string
   designation: string
-  src: string
-  linkedin: string
-  github: string
+  src?: string
+  linkedin?: string
+  github?: string
 }
 
 const coreTeamCards: Card[] = [
@@ -158,15 +158,26 @@ const CardComponent = React.memo(
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
       )}
     >
-      <Image
-        src={card.src}
-        alt={card.title}
-        fill
-        sizes="(max-width: 768px) 100vw, 33vw"
-        priority={false}
-        loading="lazy"
-        className="absolute inset-0 w-full h-full object-cover object-center"
-      />
+      {card.src ? (
+        <Image
+          src={card.src}
+          alt={card.title}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          priority={false}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-zinc-900 via-zinc-800 to-black">
+          <span className="text-5xl font-bold text-white/70">
+            {card.title
+              .split(" ")
+              .map((part) => part[0])
+              .join("")}
+          </span>
+        </div>
+      )}
 
       <div
         className={cn(
@@ -183,18 +194,22 @@ const CardComponent = React.memo(
               href={card.linkedin}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`${card.title} on LinkedIn`}
               className="transition-transform hover:scale-110"
             >
               <Linkedin className="w-5 h-5 text-white hover:text-blue-400 hover:drop-shadow-[0_0_6px_#3b82f6]" />
             </a>
-            <a
-              href={card.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-transform hover:scale-110"
-            >
-              <Github className="w-5 h-5 text-white hover:text-gray-300 hover:drop-shadow-[0_0_6px_#a3a3a3]" />
-            </a>
+            {card.github && (
+              <a
+                href={card.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${card.title} on GitHub`}
+                className="transition-transform hover:scale-110"
+              >
+                <Github className="w-5 h-5 text-white hover:text-gray-300 hover:drop-shadow-[0_0_6px_#a3a3a3]" />
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -211,14 +226,13 @@ export default function CoreCards() {
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto px-4 w-full">
 
       {coreTeamCards.map((card, index) => (
-        <div key={index}>
-          <CardComponent
-            card={card}
-            index={index}
-            hovered={hovered}
-            setHovered={setHovered}
-          />
-        </div>
+        <CardComponent
+          key={card.title}
+          card={card}
+          index={index}
+          hovered={hovered}
+          setHovered={setHovered}
+        />
       ))}
     </div>
   )

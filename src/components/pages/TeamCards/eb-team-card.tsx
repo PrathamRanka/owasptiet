@@ -1,4 +1,3 @@
-/* eslint-disable */
 "use client"
 
 import React, { useState } from "react"
@@ -165,6 +164,7 @@ const CardComponent = React.memo(
                 href={card.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`${card.title} on LinkedIn`}
                 className="transition-transform hover:scale-110"
               >
                 <Linkedin className="w-5 h-5 text-white hover:text-blue-400 hover:drop-shadow-[0_0_6px_#3b82f6]" />
@@ -175,6 +175,7 @@ const CardComponent = React.memo(
                 href={card.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`${card.title} on GitHub`}
                 className="transition-transform hover:scale-110"
               >
                 <Github className="w-5 h-5 text-white hover:text-gray-400 hover:drop-shadow-[0_0_6px_#ccc]" />

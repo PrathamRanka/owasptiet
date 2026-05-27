@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 "use client";
 
 import { cn } from "@/lib/utils";

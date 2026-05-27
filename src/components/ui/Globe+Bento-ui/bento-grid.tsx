@@ -1,9 +1,9 @@
-/* eslint-disable */
 "use client";
 
 import {  Lock, Search, Sparkles, ArrowLeft, DollarSign, Computer} from "lucide-react";
 import { GlowingEffect } from "@/components/ui/Globe+Bento-ui/glowing-effect";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import React from "react";
 
 export const Section2: React.FC = () => {
@@ -36,7 +36,6 @@ React.useEffect(() => {
   };
 }, [selectedItem]);
 
-
   return (
     <div className="flex flex-col gap-16 items-center relative z-10">
       {/* Heading */}
@@ -45,7 +44,7 @@ React.useEffect(() => {
           OWASP Workshops
         </div>
         <div className="flex flex-col gap-2">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase font-['Orbitron'] text-white tracking-wide">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase font-display text-white tracking-wide">
             Explore. Hack. Secure. Learn.
           </h2>
           <p className="text-lg max-w-xl lg:max-w-2xl mx-auto text-center leading-relaxed text-white/70">
@@ -138,11 +137,12 @@ React.useEffect(() => {
             >
               {/* Image */}
               <div className="relative w-full h-64 md:h-72 lg:h-80">
-                <img
-                  src={selectedItem.image}
+                <Image
+                  src={selectedItem.image ?? ""}
                   alt={selectedItem.title}
-                  className="w-full h-full object-contain"
-                  loading="lazy"
+                  fill
+                  sizes="(max-width: 768px) 95vw, 768px"
+                  className="object-contain"
                 />
                 <button
                   onClick={() => setSelectedItem(null)}

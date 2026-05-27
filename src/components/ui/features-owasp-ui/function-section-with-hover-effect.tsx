@@ -84,7 +84,7 @@ export function FeaturesSectionWithHoverEffects() {
           <span className="text-xs sm:text-sm tracking-widest uppercase text-blue-400 font-semibold font-mono block mb-4">
             OWASP MISSIONS
           </span>
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight font-['Orbitron'] uppercase">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight font-display uppercase">
             Your Tech Launchpad
           </h2>
           <p className="mt-6 text-sm sm:text-lg text-neutral-300 max-w-3xl mx-auto leading-relaxed">
