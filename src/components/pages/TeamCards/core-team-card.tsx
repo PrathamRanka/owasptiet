@@ -15,18 +15,18 @@ type Card = {
 
 const coreTeamCards: Card[] = [
     {
+    title: "Avneet Kaur Bhatia",
+    designation: "Core",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548082/IMG_5039_-_Avneet_kaur_Bhatia_rjnods.jpg",
+    linkedin: "https://www.linkedin.com/in/avneet-kaur-bhatia-5a60bb314?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    github: "https://github.com/Avneetbhatia12",
+    },
+    {
     title: "Pratham Ranka",
     designation: "Core",
     src: "https://res.cloudinary.com/dduzorsii/image/upload/v1763584995/ME_oiee2d.jpg",
     linkedin: "https://www.linkedin.com/in/prathamranka06",
     github: "https://github.com/PrathamRanka",
-  },
-   {
-    title: "Anmol Mittal",
-    designation: "Core",
-    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548080/20250411_230819_-_Anmol_Mittal_vrdogv.jpg",
-    linkedin: "https://www.linkedin.com/in/anmol-mittal-75506337b/",
-    github: "https://github.com/CoderAnmolMittal",
   },
   {
     title: "Sanchita Jain",
@@ -35,14 +35,14 @@ const coreTeamCards: Card[] = [
     linkedin: "https://www.linkedin.com/in/sanchita-jain-5724b6310/",
     github: "https://github.com/sanchita1001",
   },
-  {
-    title: "Avneet Kaur Bhatia",
-    designation: "Core",
-    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548082/IMG_5039_-_Avneet_kaur_Bhatia_rjnods.jpg",
-    linkedin: "https://www.linkedin.com/in/avneet-kaur-bhatia-5a60bb314?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    github: "https://github.com/Avneetbhatia12",
-  },
 
+  {
+    title: "Anmol Mittal",
+    designation: "Core",
+    src: "https://res.cloudinary.com/dduzorsii/image/upload/v1755548080/20250411_230819_-_Anmol_Mittal_vrdogv.jpg",
+    linkedin: "https://www.linkedin.com/in/anmol-mittal-75506337b/",
+    github: "https://github.com/CoderAnmolMittal",
+  },
   {
     title: "Kumari Manya",
     designation: "Core",
